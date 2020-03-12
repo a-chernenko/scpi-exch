@@ -23,12 +23,4 @@
 #include "scpi_status_mnemonics.h"
 #include "scpi_system_mnemonics.h"
 
-using Scpi::ChannelType;
-using Scpi::CScpi;
-using Scpi::CurrentUnitsType;
-using Scpi::FrequencyUnitsType;
-using Scpi::PowerUnitsType;
-using Scpi::QUEStionableStatusType;
-using Scpi::VoltageUnitsType;
-
 #endif  // SCPI_API_H
