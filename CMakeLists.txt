@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.6)
 
-set(PROJECT_NAME scpi)
+set(PROJECT_NAME scpiexch)
 set(PROJECT_LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
