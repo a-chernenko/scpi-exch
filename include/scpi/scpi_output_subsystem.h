@@ -22,18 +22,18 @@
 #include "scpi_source_protection_commands.h"
 
 namespace scpi {
-class SCPI_API COUTPutSubsystem {
+class SCPI_API OUTPutSubsystem {
  public:
-  COUTPutSubsystem(const scpi_base &);
-  bool IsEnabled(const ChannelType &channel = {}) const;
-  void SetEnabled(const bool, const ChannelType &channel = {}) const;
-  CSOURcePROTectionCommands<sizeof(mnemonics::CMnemonics::OUTPut),
-                            mnemonics::CMnemonics::OUTPut, UnitsTypeBase>
+  OUTPutSubsystem(const scpi_base &);
+  bool is_enabled(const channel_type &channel = {}) const;
+  void set_enabled(const bool, const channel_type &channel = {}) const;
+  SOURcePROTectionCommands<sizeof(CMnemonics::OUTPut), CMnemonics::OUTPut,
+                           units_type_base>
       PROTection;
 
-  COUTPutSubsystem() = delete;
-  COUTPutSubsystem(const COUTPutSubsystem &) = delete;
-  COUTPutSubsystem &operator=(const COUTPutSubsystem &) = delete;
+  OUTPutSubsystem() = delete;
+  OUTPutSubsystem(const OUTPutSubsystem &) = delete;
+  OUTPutSubsystem &operator=(const OUTPutSubsystem &) = delete;
 
  private:
   const scpi_base &_scpi;

@@ -20,12 +20,12 @@
 #include "scpi_current_subsystem.h"
 
 namespace scpi {
-class SCPI_API CSOURceCURRentSubsystem : public CCURRentSubsystem {
+class SCPI_API SOURceCURRentSubsystem : public CURRentSubsystem {
  public:
-  CSOURceCURRentSubsystem(const scpi_base&);
+  SOURceCURRentSubsystem(const scpi_base&);
 
-  CSOURceCURRentSubsystem() = delete;
-  CSOURceCURRentSubsystem(const CSOURceCURRentSubsystem&) = delete;
-  CSOURceCURRentSubsystem& operator=(const CSOURceCURRentSubsystem&) = delete;
+  SOURceCURRentSubsystem() = delete;
+  SOURceCURRentSubsystem(const SOURceCURRentSubsystem&) = delete;
+  SOURceCURRentSubsystem& operator=(const SOURceCURRentSubsystem&) = delete;
 };
 }  // namespace scpi

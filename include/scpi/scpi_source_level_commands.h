@@ -22,19 +22,19 @@
 
 namespace scpi {
 template <std::size_t N, const const_string<N> &topsubsystem,
-          typename UnitsType>
-class CSOURceLEVelCommands {
+          typename units_type>
+class SOURceLEVelCommands {
  public:
-  CSOURceLEVelCommands(const scpi_base &);
-  void Set(const double, const ChannelType &channel = {}) const;
-  void Set(const double, const UnitsType &) const;
-  double Get(const ChannelType &channel = {}) const;
-  double GetMaximum(const ChannelType &channel = {}) const;
-  double GetMinimum(const ChannelType &channel = {}) const;
+  SOURceLEVelCommands(const scpi_base &);
+  void set(const double, const channel_type &channel = {}) const;
+  void set(const double, const units_type &) const;
+  double get(const channel_type &channel = {}) const;
+  double get_maximum(const channel_type &channel = {}) const;
+  double get_minimum(const channel_type &channel = {}) const;
 
-  CSOURceLEVelCommands() = delete;
-  CSOURceLEVelCommands(const CSOURceLEVelCommands &) = delete;
-  CSOURceLEVelCommands &operator=(const CSOURceLEVelCommands &) = delete;
+  SOURceLEVelCommands() = delete;
+  SOURceLEVelCommands(const SOURceLEVelCommands &) = delete;
+  SOURceLEVelCommands &operator=(const SOURceLEVelCommands &) = delete;
 
  private:
   const scpi_base &_scpi;

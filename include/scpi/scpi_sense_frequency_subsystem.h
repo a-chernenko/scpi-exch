@@ -21,12 +21,12 @@
 #include "scpi_frequency_subsystem.h"
 
 namespace scpi {
-class SCPI_API CSENSeFREQuencySubsystem : public CFREQuencySubsystem {
+class SCPI_API SENSeFREQuencySubsystem : public FREQuencySubsystem {
  public:
-  CSENSeFREQuencySubsystem(const scpi_base&);
+  SENSeFREQuencySubsystem(const scpi_base&);
 
-  CSENSeFREQuencySubsystem() = delete;
-  CSENSeFREQuencySubsystem(const CSENSeFREQuencySubsystem&) = delete;
-  CSENSeFREQuencySubsystem& operator=(const CSENSeFREQuencySubsystem&) = delete;
+  SENSeFREQuencySubsystem() = delete;
+  SENSeFREQuencySubsystem(const SENSeFREQuencySubsystem&) = delete;
+  SENSeFREQuencySubsystem& operator=(const SENSeFREQuencySubsystem&) = delete;
 };
 }  // namespace scpi

@@ -21,78 +21,77 @@
 #include <stdexcept>
 #include "scpi_unit_mnemonics.h"
 
-
 using namespace scpi;
-using namespace mnemonics::Unit;
+using namespace unit;
 
-CUNITSubsystem::CUNITSubsystem(const scpi_base &scpi) :_scpi{scpi} {}
+UNITSubsystem::UNITSubsystem(const scpi_base &scpi) : _scpi{scpi} {}
 
-void CUNITSubsystem::ToUpperCase(std::string &data) const {
+void UNITSubsystem::to_uppercase(std::string &data) const {
   std::locale loc;
   for (char &ch : data) ch = std::toupper(ch, loc);
 }
 
-void CUNITSubsystem::SetCurrent(const CurrentUnitsType::Type &type) const {
-  constexpr auto mnemonic = Mnemonics::CURRent.CommandMnemonic;
- _scpi.command(mnemonic, type);
+void UNITSubsystem::set_current(const current_units::type &type) const {
+  constexpr auto mnemonic = mnemonics::CURRent.CommandMnemonic;
+  _scpi.command(mnemonic, type);
 }
 
-void CUNITSubsystem::SetPower(const PowerUnitsType::Type &type) const {
-  constexpr auto mnemonic = Mnemonics::POWer.CommandMnemonic;
- _scpi.command(mnemonic, type);
+void UNITSubsystem::set_power(const power_units::type &type) const {
+  constexpr auto mnemonic = mnemonics::POWer.CommandMnemonic;
+  _scpi.command(mnemonic, type);
 }
 
-void CUNITSubsystem::SetVoltage(const VoltageUnitsType::Type &type) const {
-  constexpr auto mnemonic = Mnemonics::VOLTage.CommandMnemonic;
- _scpi.command(mnemonic, type);
+void UNITSubsystem::set_voltage(const voltage_units::type &type) const {
+  constexpr auto mnemonic = mnemonics::VOLTage.CommandMnemonic;
+  _scpi.command(mnemonic, type);
 }
 
-CurrentUnitsType::Type CUNITSubsystem::GetCurrent() const {
-  constexpr auto mnemonic = Mnemonics::CURRent.QueryMnemonic;
+current_units::type UNITSubsystem::get_current() const {
+  constexpr auto mnemonic = mnemonics::CURRent.QueryMnemonic;
   std::string type;
- _scpi.query(mnemonic, type);
-  ToUpperCase(type);
-  if (type == CurrentUnitsType::uA.c_str())
-    return CurrentUnitsType::uA;
-  else if (type == CurrentUnitsType::mA.c_str())
-    return CurrentUnitsType::mA;
-  else if (type == CurrentUnitsType::A.c_str())
-    return CurrentUnitsType::A;
-  throw std::logic_error("CurrentUnitsType unknown value");
+  _scpi.query(mnemonic, type);
+  to_uppercase(type);
+  if (type == current_units::uA.c_str())
+    return current_units::uA;
+  else if (type == current_units::mA.c_str())
+    return current_units::mA;
+  else if (type == current_units::A.c_str())
+    return current_units::A;
+  throw std::logic_error("current_units unknown value");
 }
 
-PowerUnitsType::Type CUNITSubsystem::GetPower() const {
-  constexpr auto mnemonic = Mnemonics::POWer.QueryMnemonic;
+power_units::type UNITSubsystem::get_power() const {
+  constexpr auto mnemonic = mnemonics::POWer.QueryMnemonic;
   std::string type;
- _scpi.query(mnemonic, type);
-  ToUpperCase(type);
-  if (type == PowerUnitsType::dB.c_str())
-    return PowerUnitsType::dB;
-  else if (type == PowerUnitsType::dBm.c_str())
-    return PowerUnitsType::dBm;
-  else if (type == PowerUnitsType::dBmV.c_str())
-    return PowerUnitsType::dBmV;
-  else if (type == PowerUnitsType::dBuV.c_str())
-    return PowerUnitsType::dBuV;
-  else if (type == PowerUnitsType::dBuVEMF.c_str())
-    return PowerUnitsType::dBuVEMF;
-  else if (type == PowerUnitsType::V.c_str())
-    return PowerUnitsType::V;
-  else if (type == PowerUnitsType::W.c_str())
-    return PowerUnitsType::W;
-  throw std::logic_error("PowerUnitsType unknown value");
+  _scpi.query(mnemonic, type);
+  to_uppercase(type);
+  if (type == power_units::dB.c_str())
+    return power_units::dB;
+  else if (type == power_units::dBm.c_str())
+    return power_units::dBm;
+  else if (type == power_units::dBmV.c_str())
+    return power_units::dBmV;
+  else if (type == power_units::dBuV.c_str())
+    return power_units::dBuV;
+  else if (type == power_units::dBuVEMF.c_str())
+    return power_units::dBuVEMF;
+  else if (type == power_units::V.c_str())
+    return power_units::V;
+  else if (type == power_units::W.c_str())
+    return power_units::W;
+  throw std::logic_error("power_units unknown value");
 }
 
-VoltageUnitsType::Type CUNITSubsystem::GetVoltage() const {
-  constexpr auto mnemonic = Mnemonics::VOLTage.QueryMnemonic;
+voltage_units::type UNITSubsystem::get_voltage() const {
+  constexpr auto mnemonic = mnemonics::VOLTage.QueryMnemonic;
   std::string type;
- _scpi.query(mnemonic, type);
-  ToUpperCase(type);
-  if (type == VoltageUnitsType::uV.c_str())
-    return VoltageUnitsType::uV;
-  else if (type == VoltageUnitsType::mV.c_str())
-    return VoltageUnitsType::mV;
-  else if (type == VoltageUnitsType::V.c_str())
-    return VoltageUnitsType::V;
-  throw std::logic_error("VoltageUnitsType unknown value");
+  _scpi.query(mnemonic, type);
+  to_uppercase(type);
+  if (type == voltage_units::uV.c_str())
+    return voltage_units::uV;
+  else if (type == voltage_units::mV.c_str())
+    return voltage_units::mV;
+  else if (type == voltage_units::V.c_str())
+    return voltage_units::V;
+  throw std::logic_error("voltage_units unknown value");
 }

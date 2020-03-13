@@ -20,5 +20,5 @@
 
 using namespace scpi;
 
-CPOWerSubsystem::CPOWerSubsystem(const scpi_base &scpi)
+POWerSubsystem::POWerSubsystem(const scpi_base &scpi)
     : PROTection{scpi}, LEVel{scpi}, _scpi{scpi} {}

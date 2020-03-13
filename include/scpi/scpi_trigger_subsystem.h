@@ -21,15 +21,15 @@
 #include "scpi_base.h"
 
 namespace scpi {
-class SCPI_API CTRIGgerSubsystem {
+class SCPI_API TRIGgerSubsystem {
  public:
-  CTRIGgerSubsystem(const scpi_base&);
-  void Initiate() const;
-  void Abort() const;
+  TRIGgerSubsystem(const scpi_base&);
+  void initiate() const;
+  void abort() const;
 
-  CTRIGgerSubsystem() = delete;
-  CTRIGgerSubsystem(const CTRIGgerSubsystem&) = delete;
-  CTRIGgerSubsystem& operator=(const CTRIGgerSubsystem&) = delete;
+  TRIGgerSubsystem() = delete;
+  TRIGgerSubsystem(const TRIGgerSubsystem&) = delete;
+  TRIGgerSubsystem& operator=(const TRIGgerSubsystem&) = delete;
 
  private:
   const scpi_base& _scpi;

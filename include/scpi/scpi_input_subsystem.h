@@ -21,19 +21,19 @@
 #include "scpi_base.h"
 
 namespace scpi {
-class SCPI_API CINPutSubsystem {
+class SCPI_API INPutSubsystem {
  public:
-  CINPutSubsystem(const scpi_base &);
-  void SetImpedance(const double, const ChannelType &channel = {}) const;
-  double GetImpedance(const ChannelType &channel = {}) const;
-  void SetAttenuation(const double, const ChannelType &channel = {}) const;
-  double GetAttenuation(const ChannelType &channel = {}) const;
-  void SetAttenuationAuto(const bool, const ChannelType &channel = {}) const;
-  bool GetAttenuationAuto(const ChannelType &channel = {}) const;
+  INPutSubsystem(const scpi_base &);
+  void set_impedance(const double, const channel_type &channel = {}) const;
+  double get_impedance(const channel_type &channel = {}) const;
+  void set_attenuation(const double, const channel_type &channel = {}) const;
+  double get_attenuation(const channel_type &channel = {}) const;
+  void set_attenuation_auto(const bool, const channel_type &channel = {}) const;
+  bool get_attenuation_auto(const channel_type &channel = {}) const;
 
-  CINPutSubsystem() = delete;
-  CINPutSubsystem(const CINPutSubsystem &) = delete;
-  CINPutSubsystem &operator=(const CINPutSubsystem &) = delete;
+  INPutSubsystem() = delete;
+  INPutSubsystem(const INPutSubsystem &) = delete;
+  INPutSubsystem &operator=(const INPutSubsystem &) = delete;
 
  private:
   const scpi_base &_scpi;

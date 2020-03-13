@@ -20,5 +20,5 @@
 
 using namespace scpi;
 
-CSOURceVOLTageSubsystem::CSOURceVOLTageSubsystem(const scpi_base &scpi)
-    : CVOLTageSubsystem{scpi} {}
+SOURceVOLTageSubsystem::SOURceVOLTageSubsystem(const scpi_base &scpi)
+    : VOLTageSubsystem{scpi} {}

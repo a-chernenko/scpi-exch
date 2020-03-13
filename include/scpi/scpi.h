@@ -34,16 +34,16 @@ class SCPI_API scpi_io final : public scpi_base {
  public:
   using shared_ptr = std::shared_ptr<scpi_io>;
   scpi_io() = default;
-  CSTATusSubsystem STATus{*this};
-  COUTPutSubsystem OUTPut{*this};
-  CMEASureSubsystem MEASure{*this};
-  CSOURceSubsystem SOURce{*this};
-  CSENSeSubsystem SENSe{*this};
-  CINPutSubsystem INPut{*this};
-  CUNITSubsystem UNIT{*this};
-  CDISPlaySubsystem DISPlay{*this};
-  CSYSTemSubsystem SYSTem{*this};
-  CTRIGgerSubsystem TRIGger{*this};
+  STATusSubsystem STATus{*this};
+  OUTPutSubsystem OUTPut{*this};
+  MEASureSubsystem MEASure{*this};
+  SOURceSubsystem SOURce{*this};
+  SENSeSubsystem SENSe{*this};
+  INPutSubsystem INPut{*this};
+  UNITSubsystem UNIT{*this};
+  DISPlaySubsystem DISPlay{*this};
+  SYSTemSubsystem SYSTem{*this};
+  TRIGgerSubsystem TRIGger{*this};
 
   scpi_io(const scpi_io&) = delete;
   scpi_io& operator=(const scpi_io&) = delete;

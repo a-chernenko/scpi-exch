@@ -20,33 +20,34 @@
 #include "scpi_measure_mnemonics.h"
 
 using namespace scpi;
-using namespace mnemonics::Measure;
+using namespace measure;
 
-CMEASureSubsystem::CMEASureSubsystem(const scpi_base &scpi) :_scpi{scpi} {}
+MEASureSubsystem::MEASureSubsystem(const scpi_base &scpi) : _scpi{scpi} {}
 
-double CMEASureSubsystem::Read(const unsigned int timeout_ms,
-                               const ChannelType &channel) const {
-  // auto query = Mnemonics::READ.SCALar.
+double MEASureSubsystem::read(const unsigned int timeout_ms,
+                              const channel_type &channel) const {
+  // auto query = mnemonics::READ.SCALar.
+  // FIXME:
   return 0;
 }
 
-double CMEASureSubsystem::CurrentDC(const ChannelType &channel) const {
-  constexpr auto mnemonic = Mnemonics::MEASure.SCALar.CURRent.DC.QueryMnemonic;
+double MEASureSubsystem::current_dc(const channel_type &channel) const {
+  constexpr auto mnemonic = mnemonics::MEASure.SCALar.CURRent.DC.QueryMnemonic;
   double value;
- _scpi.query(mnemonic, channel, value);
+  _scpi.query(mnemonic, channel, value);
   return value;
 }
 
-double CMEASureSubsystem::VoltageDC(const ChannelType &channel) const {
-  constexpr auto mnemonic = Mnemonics::MEASure.SCALar.VOLTage.DC.QueryMnemonic;
+double MEASureSubsystem::voltage_dc(const channel_type &channel) const {
+  constexpr auto mnemonic = mnemonics::MEASure.SCALar.VOLTage.DC.QueryMnemonic;
   double value;
- _scpi.query(mnemonic, channel, value);
+  _scpi.query(mnemonic, channel, value);
   return value;
 }
 
-double CMEASureSubsystem::PowerDC(const ChannelType &channel) const {
-  constexpr auto mnemonic = Mnemonics::MEASure.SCALar.POWer.DC.QueryMnemonic;
+double MEASureSubsystem::power_dc(const channel_type &channel) const {
+  constexpr auto mnemonic = mnemonics::MEASure.SCALar.POWer.DC.QueryMnemonic;
   double value;
- _scpi.query(mnemonic, channel, value);
+  _scpi.query(mnemonic, channel, value);
   return value;
 }

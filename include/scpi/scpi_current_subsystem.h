@@ -24,22 +24,21 @@
 #include "scpi_units_type.h"
 
 namespace scpi {
-class SCPI_API CCURRentSubsystem {
+class SCPI_API CURRentSubsystem {
  public:
-  CSOURcePROTectionCommands<sizeof(mnemonics::CMnemonics::CURRent),
-                            mnemonics::CMnemonics::CURRent,
-                            CurrentUnitsType::Type>
+  SOURcePROTectionCommands<sizeof(CMnemonics::CURRent), CMnemonics::CURRent,
+                           current_units::type>
       PROTection;
-  CSOURceLEVelCommands<sizeof(mnemonics::CMnemonics::CURRent),
-                       mnemonics::CMnemonics::CURRent, CurrentUnitsType::Type>
+  SOURceLEVelCommands<sizeof(CMnemonics::CURRent), CMnemonics::CURRent,
+                      current_units::type>
       LEVel;
 
-  CCURRentSubsystem() = delete;
-  CCURRentSubsystem(const CCURRentSubsystem&) = delete;
-  CCURRentSubsystem& operator=(const CCURRentSubsystem&) = delete;
+  CURRentSubsystem() = delete;
+  CURRentSubsystem(const CURRentSubsystem&) = delete;
+  CURRentSubsystem& operator=(const CURRentSubsystem&) = delete;
 
  protected:
-  CCURRentSubsystem(const scpi_base&);
+  CURRentSubsystem(const scpi_base&);
   const scpi_base& _scpi;
 };
 }  // namespace scpi

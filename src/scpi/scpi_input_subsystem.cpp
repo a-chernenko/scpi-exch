@@ -20,45 +20,45 @@
 #include "scpi_input_mnemonics.h"
 
 using namespace scpi;
-using namespace mnemonics::Input;
+using namespace input;
 
-CINPutSubsystem::CINPutSubsystem(const scpi_base &scpi) :_scpi{scpi} {}
+INPutSubsystem::INPutSubsystem(const scpi_base &scpi) : _scpi{scpi} {}
 
-void CINPutSubsystem::SetImpedance(const double value,
-                                   const ChannelType &channel) const {
-  constexpr auto mnemonic = Mnemonics::IMPedance.CommandMnemonic;
- _scpi.command(mnemonic, channel, value);
+void INPutSubsystem::set_impedance(const double value,
+                                   const channel_type &channel) const {
+  constexpr auto mnemonic = mnemonics::IMPedance.CommandMnemonic;
+  _scpi.command(mnemonic, channel, value);
 }
 
-double CINPutSubsystem::GetImpedance(const ChannelType &channel) const {
-  constexpr auto mnemonic = Mnemonics::IMPedance.QueryMnemonic;
+double INPutSubsystem::get_impedance(const channel_type &channel) const {
+  constexpr auto mnemonic = mnemonics::IMPedance.QueryMnemonic;
   double value;
- _scpi.query(mnemonic, channel, value);
+  _scpi.query(mnemonic, channel, value);
   return value;
 }
 
-void CINPutSubsystem::SetAttenuation(const double value,
-                                     const ChannelType &channel) const {
-  constexpr auto mnemonic = Mnemonics::ATTenuation.CommandMnemonic;
- _scpi.command(mnemonic, channel, value);
+void INPutSubsystem::set_attenuation(const double value,
+                                     const channel_type &channel) const {
+  constexpr auto mnemonic = mnemonics::ATTenuation.CommandMnemonic;
+  _scpi.command(mnemonic, channel, value);
 }
 
-double CINPutSubsystem::GetAttenuation(const ChannelType &channel) const {
-  constexpr auto mnemonic = Mnemonics::ATTenuation.QueryMnemonic;
+double INPutSubsystem::get_attenuation(const channel_type &channel) const {
+  constexpr auto mnemonic = mnemonics::ATTenuation.QueryMnemonic;
   double value;
- _scpi.query(mnemonic, channel, value);
+  _scpi.query(mnemonic, channel, value);
   return value;
 }
 
-void CINPutSubsystem::SetAttenuationAuto(const bool enabled,
-                                         const ChannelType &channel) const {
-  constexpr auto mnemonic = Mnemonics::ATTenuation.AUTO.CommandMnemonic;
- _scpi.command(mnemonic, channel, enabled);
+void INPutSubsystem::set_attenuation_auto(const bool enabled,
+                                          const channel_type &channel) const {
+  constexpr auto mnemonic = mnemonics::ATTenuation.AUTO.CommandMnemonic;
+  _scpi.command(mnemonic, channel, enabled);
 }
 
-bool CINPutSubsystem::GetAttenuationAuto(const ChannelType &channel) const {
-  constexpr auto mnemonic = Mnemonics::ATTenuation.AUTO.QueryMnemonic;
+bool INPutSubsystem::get_attenuation_auto(const channel_type &channel) const {
+  constexpr auto mnemonic = mnemonics::ATTenuation.AUTO.QueryMnemonic;
   bool value;
- _scpi.query(mnemonic, channel, value);
+  _scpi.query(mnemonic, channel, value);
   return value;
 }

@@ -21,7 +21,7 @@
 #include "scpi_base.h"
 
 namespace scpi {
-enum class QUEStionableStatusType : unsigned int {
+enum class QUEStionableStatus : unsigned int {
   VOLTage,
   CURRent,
   TIME,
@@ -34,60 +34,58 @@ enum class QUEStionableStatusType : unsigned int {
   INTegrity
 };
 
-class CSTATusSubsystem {
+class STATusSubsystem {
  public:
-  CSTATusSubsystem(const scpi_base &);
+  STATusSubsystem(const scpi_base &);
 
   template <typename register_type>
   void GetOPERationStatusEnable(register_type &,
-                                const ChannelType &channel = {}) const;
+                                const channel_type &channel = {}) const;
   template <typename register_type>
   void SetOPERationStatusEnable(const register_type &,
-                                const ChannelType &channel = {}) const;
+                                const channel_type &channel = {}) const;
   template <typename register_type>
   void GetOPERationStatusRegister(register_type &,
-                                  const ChannelType &channel = {}) const;
+                                  const channel_type &channel = {}) const;
   template <typename register_type>
   void GetOPERationStatusEvent(register_type &,
-                               const ChannelType &channel = {}) const;
+                               const channel_type &channel = {}) const;
   //! \todo добавить PTR
   //! \todo добавить NTR
 
   template <typename register_type>
   void GetQUEStionableStatusEnable(register_type &,
-                                   const ChannelType &channel = {}) const;
+                                   const channel_type &channel = {}) const;
   template <typename register_type>
   void SetQUEStionableStatusEnable(const register_type &,
-                                   const ChannelType &channel = {}) const;
+                                   const channel_type &channel = {}) const;
   template <typename register_type>
   void GetQUEStionableStatusRegister(register_type &,
-                                     const ChannelType &channel = {}) const;
+                                     const channel_type &channel = {}) const;
   template <typename register_type>
   void GetQUEStionableStatusEvent(register_type &,
-                                  const ChannelType &channel = {}) const;
+                                  const channel_type &channel = {}) const;
   //! \todo добавить PTR
   //! \todo добавить NTR
 
   template <typename register_type>
-  void GetQUEStionableStatusEnable(const QUEStionableStatusType &,
-                                   register_type &,
-                                   const ChannelType &channel = {}) const;
+  void GetQUEStionableStatusEnable(const QUEStionableStatus &, register_type &,
+                                   const channel_type &channel = {}) const;
   template <typename register_type>
-  void SetQUEStionableStatusEnable(const QUEStionableStatusType &,
+  void SetQUEStionableStatusEnable(const QUEStionableStatus &,
                                    const register_type &,
-                                   const ChannelType &channel = {}) const;
+                                   const channel_type &channel = {}) const;
   template <typename register_type>
-  void GetQUEStionableStatusRegister(const QUEStionableStatusType &,
+  void GetQUEStionableStatusRegister(const QUEStionableStatus &,
                                      register_type &,
-                                     const ChannelType &channel = {}) const;
+                                     const channel_type &channel = {}) const;
   template <typename register_type>
-  void GetQUEStionableStatusEvent(const QUEStionableStatusType &,
-                                  register_type &,
-                                  const ChannelType &channel = {}) const;
+  void GetQUEStionableStatusEvent(const QUEStionableStatus &, register_type &,
+                                  const channel_type &channel = {}) const;
 
-  CSTATusSubsystem() = delete;
-  CSTATusSubsystem(const CSTATusSubsystem &) = delete;
-  CSTATusSubsystem &operator=(const CSTATusSubsystem &) = delete;
+  STATusSubsystem() = delete;
+  STATusSubsystem(const STATusSubsystem &) = delete;
+  STATusSubsystem &operator=(const STATusSubsystem &) = delete;
 
  private:
   const scpi_base &_scpi;

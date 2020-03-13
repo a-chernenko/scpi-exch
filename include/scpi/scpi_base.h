@@ -71,42 +71,46 @@ class SCPI_API scpi_base : public scpi::constants {
   inline bool is_opened() const noexcept;
   inline void close();
   template <size_t N, typename... ValueTypes>
-  typename std::enable_if<!any_base_of<UnitsTypeBase, ValueTypes...>::value &&
-                          !any_base_of<ChannelType, ValueTypes...>::value>::type
+  typename std::enable_if<
+      !any_base_of<units_type_base, ValueTypes...>::value &&
+      !any_base_of<channel_type, ValueTypes...>::value>::type
   command(const const_string<N> &, const ValueTypes &...) const;
   template <typename... ValueTypes>
-  typename std::enable_if<!any_base_of<UnitsTypeBase, ValueTypes...>::value &&
-                          !any_base_of<ChannelType, ValueTypes...>::value>::type
+  typename std::enable_if<
+      !any_base_of<units_type_base, ValueTypes...>::value &&
+      !any_base_of<channel_type, ValueTypes...>::value>::type
   command(const std::string &, const ValueTypes &...) const;
   template <size_t N, typename... ValueTypes>
-  void command(const const_string<N> &, const ChannelType &,
+  void command(const const_string<N> &, const channel_type &,
                const ValueTypes &...) const;
   template <typename... ValueTypes>
-  void command(const std::string &, const ChannelType &,
+  void command(const std::string &, const channel_type &,
                const ValueTypes &...) const;
   template <size_t N, typename ValueType>
-  void command(const const_string<N> &, const UnitsTypeBase &,
+  void command(const const_string<N> &, const units_type_base &,
                const ValueType &) const;
   template <typename ValueType>
-  void command(const std::string &, const UnitsTypeBase &,
+  void command(const std::string &, const units_type_base &,
                const ValueType &) const;
   template <size_t N>
-  void command(const const_string<N> &, const UnitsTypeBase &) const;
-  void command(const std::string &, const UnitsTypeBase &) const;
+  void command(const const_string<N> &, const units_type_base &) const;
+  void command(const std::string &, const units_type_base &) const;
   template <size_t N>
   void command(const const_string<N> &) const;
   void command(const std::string &) const;
   template <size_t N, typename... ValueTypes>
-  typename std::enable_if<!any_base_of<ChannelType, ValueTypes...>::value>::type
+  typename std::enable_if<
+      !any_base_of<channel_type, ValueTypes...>::value>::type
   query(const const_string<N> &, ValueTypes &...) const;
   template <typename... ValueTypes>
-  typename std::enable_if<!any_base_of<ChannelType, ValueTypes...>::value>::type
+  typename std::enable_if<
+      !any_base_of<channel_type, ValueTypes...>::value>::type
   query(const std::string &, ValueTypes &...) const;
   template <size_t N, typename... ValueTypes>
-  void query(const const_string<N> &, const ChannelType &,
+  void query(const const_string<N> &, const channel_type &,
              ValueTypes &...) const;
   template <typename... ValueTypes>
-  void query(const std::string &, const ChannelType &, ValueTypes &...) const;
+  void query(const std::string &, const channel_type &, ValueTypes &...) const;
   template <size_t N>
   void query(const const_string<N> &, std::string &) const;
   void query(const std::string &, std::string &) const;
@@ -131,7 +135,7 @@ class SCPI_API scpi_base : public scpi::constants {
   static std::mutex _mutex;
   unsigned int _query_timeout_ms{query_timeout_ms};
   static void remove_char(std::string &, const char);
-  static void add_channel(std::string &, const ChannelType &);
+  static void add_channel(std::string &, const channel_type &);
   void make_separated_string(std::stringstream &, const char) const {};
   template <typename Arg, typename... Args>
   void make_separated_string(std::stringstream &, const char, const Arg &,

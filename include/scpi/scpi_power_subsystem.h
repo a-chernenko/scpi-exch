@@ -24,21 +24,21 @@
 #include "scpi_units_type.h"
 
 namespace scpi {
-class SCPI_API CPOWerSubsystem {
+class SCPI_API POWerSubsystem {
  public:
-  CSOURcePROTectionCommands<sizeof(mnemonics::CMnemonics::POWer),
-                            mnemonics::CMnemonics::POWer, PowerUnitsType::Type>
+  SOURcePROTectionCommands<sizeof(CMnemonics::POWer), CMnemonics::POWer,
+                           power_units::type>
       PROTection;
-  CSOURceLEVelCommands<sizeof(mnemonics::CMnemonics::POWer),
-                       mnemonics::CMnemonics::POWer, PowerUnitsType::Type>
+  SOURceLEVelCommands<sizeof(CMnemonics::POWer), CMnemonics::POWer,
+                      power_units::type>
       LEVel;
 
-  CPOWerSubsystem() = delete;
-  CPOWerSubsystem(const CPOWerSubsystem&) = delete;
-  CPOWerSubsystem& operator=(const CPOWerSubsystem&) = delete;
+  POWerSubsystem() = delete;
+  POWerSubsystem(const POWerSubsystem&) = delete;
+  POWerSubsystem& operator=(const POWerSubsystem&) = delete;
 
  protected:
-  CPOWerSubsystem(const scpi_base&);
+  POWerSubsystem(const scpi_base&);
   const scpi_base& _scpi;
 };
 }  // namespace scpi

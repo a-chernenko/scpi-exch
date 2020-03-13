@@ -33,7 +33,7 @@
 **/.vs
 **/.vscode
 **/Debug
-**/Release
+**/release
 **/packages
 *.*user
 *.build

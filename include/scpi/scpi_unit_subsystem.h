@@ -23,22 +23,22 @@
 #include "scpi_voltage_subsystem.h"
 
 namespace scpi {
-class SCPI_API CUNITSubsystem {
+class SCPI_API UNITSubsystem {
  public:
-  CUNITSubsystem(const scpi_base&);
-  void SetCurrent(const CurrentUnitsType::Type&) const;
-  void SetPower(const PowerUnitsType::Type&) const;
-  void SetVoltage(const VoltageUnitsType::Type&) const;
-  CurrentUnitsType::Type GetCurrent() const;
-  PowerUnitsType::Type GetPower() const;
-  VoltageUnitsType::Type GetVoltage() const;
+  UNITSubsystem(const scpi_base&);
+  void set_current(const current_units::type&) const;
+  void set_power(const power_units::type&) const;
+  void set_voltage(const voltage_units::type&) const;
+  current_units::type get_current() const;
+  power_units::type get_power() const;
+  voltage_units::type get_voltage() const;
 
-  CUNITSubsystem() = delete;
-  CUNITSubsystem(const CUNITSubsystem&) = delete;
-  CUNITSubsystem& operator=(const CUNITSubsystem&) = delete;
+  UNITSubsystem() = delete;
+  UNITSubsystem(const UNITSubsystem&) = delete;
+  UNITSubsystem& operator=(const UNITSubsystem&) = delete;
 
  private:
-  void ToUpperCase(std::string&) const;
+  void to_uppercase(std::string&) const;
   const scpi_base& _scpi;
 };
 }  // namespace scpi

@@ -23,16 +23,16 @@
 #include "scpi_sense_sweep_subsystem.h"
 
 namespace scpi {
-class SCPI_API CSENSeSubsystem {
+class SCPI_API SENSeSubsystem {
  public:
-  CSENSeSubsystem(const scpi_base&);
-  CSENSeFREQuencySubsystem FREQuency;
-  CSENSeSWEepSubsystem SWEep;
-  CSENSeBANDwidthSubsystem BANDwidth;
+  SENSeSubsystem(const scpi_base&);
+  SENSeFREQuencySubsystem FREQuency;
+  SENSeSWEepSubsystem SWEep;
+  SENSeBANDwidthSubsystem BANDwidth;
 
-  CSENSeSubsystem() = delete;
-  CSENSeSubsystem(const CSENSeSubsystem&) = delete;
-  CSENSeSubsystem& operator=(const CSENSeSubsystem&) = delete;
+  SENSeSubsystem() = delete;
+  SENSeSubsystem(const SENSeSubsystem&) = delete;
+  SENSeSubsystem& operator=(const SENSeSubsystem&) = delete;
 
  private:
   const scpi_base& _scpi;

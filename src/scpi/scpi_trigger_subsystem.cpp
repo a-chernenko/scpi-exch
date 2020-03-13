@@ -19,18 +19,17 @@
 #include "scpi_trigger_subsystem.h"
 #include "scpi_trigger_mnemonics.h"
 
-using std::string;
 using namespace scpi;
-using namespace mnemonics::Trigger;
+using namespace trigger;
 
-CTRIGgerSubsystem::CTRIGgerSubsystem(const scpi_base &scpi) :_scpi{scpi} {}
+TRIGgerSubsystem::TRIGgerSubsystem(const scpi_base &scpi) : _scpi{scpi} {}
 
-void CTRIGgerSubsystem::Initiate() const {
-  constexpr auto mnemonic = Mnemonics::INITiate.Mnemonic;
- _scpi.command(mnemonic);
+void TRIGgerSubsystem::initiate() const {
+  constexpr auto mnemonic = mnemonics::INITiate.Mnemonic;
+  _scpi.command(mnemonic);
 }
 
-void CTRIGgerSubsystem::Abort() const {
-  constexpr auto mnemonic = Mnemonics::ABORt.Mnemonic;
- _scpi.command(mnemonic);
+void TRIGgerSubsystem::abort() const {
+  constexpr auto mnemonic = mnemonics::ABORt.Mnemonic;
+  _scpi.command(mnemonic);
 }

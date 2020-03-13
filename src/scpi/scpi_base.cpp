@@ -17,10 +17,9 @@
 */
 
 #include <algorithm>
+
 #include "scpi.h"
 
-using std::string;
-using std::vector;
 using namespace scpi;
 
 std::mutex scpi_base::_mutex;
@@ -44,12 +43,12 @@ unsigned int scpi_base::get_query_timeout() const noexcept {
   return _query_timeout_ms;
 }
 
-void scpi_base::split_separated_string(const string &unsplitted,
-                                       const string &separator,
-                                       vector<string> &splitted) {
-  string::size_type start{};
-  string::size_type index = unsplitted.find(separator);
-  while (index != string::npos) {
+void scpi_base::split_separated_string(const std::string &unsplitted,
+                                       const std::string &separator,
+                                       std::vector<std::string> &splitted) {
+  std::string::size_type start{};
+  std::string::size_type index = unsplitted.find(separator);
+  while (index != std::string::npos) {
     splitted.push_back(unsplitted.substr(start, index));
     index += separator.length();
     start += index;
@@ -66,17 +65,17 @@ void scpi_base::remove_char(std::string &str, const char char_to_remove) {
   str.resize(res - begin);
 }
 
-void scpi_base::remove_quotes(string &str) {
+void scpi_base::remove_quotes(std::string &str) {
   const char double_quote_char{'\"'};
   remove_char(str, double_quote_char);
 }
 
-void scpi_base::remove_space(string &str) {
+void scpi_base::remove_space(std::string &str) {
   const char space_char{' '};
   remove_char(str, space_char);
 }
 
-void scpi_base::add_channel(string &str, const ChannelType &channel) {
+void scpi_base::add_channel(std::string &str, const channel_type &channel) {
   str += " (@";
   str += channel.to_string();
   str += ")";
@@ -89,7 +88,7 @@ void scpi_base::command(const std::string &command) const {
 }
 
 void scpi_base::command(const std::string &command,
-                        const UnitsTypeBase &unit) const {
+                        const units_type_base &unit) const {
   command_base(command, unit.to_string());
 }
 

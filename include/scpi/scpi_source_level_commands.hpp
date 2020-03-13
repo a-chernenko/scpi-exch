@@ -22,62 +22,57 @@
 
 namespace scpi {
 template <std::size_t N, const const_string<N> &topsubsystem,
-          typename UnitsType>
-CSOURceLEVelCommands<N, topsubsystem, UnitsType>::CSOURceLEVelCommands(
+          typename units_type>
+SOURceLEVelCommands<N, topsubsystem, units_type>::SOURceLEVelCommands(
     const scpi_base &scpi)
     : _scpi{scpi} {}
 
 template <std::size_t N, const const_string<N> &topsubsystem,
-          typename UnitsType>
-void CSOURceLEVelCommands<N, topsubsystem, UnitsType>::Set(
-    const double level, const ChannelType &channel) const {
-  constexpr auto mnemonic =
-      mnemonics::Source::Level::Mnemonics<N, topsubsystem>::IMMediate.AMPLitude
-          .CommandMnemonic;
+          typename units_type>
+void SOURceLEVelCommands<N, topsubsystem, units_type>::set(
+    const double level, const channel_type &channel) const {
+  constexpr auto mnemonic = source::level::mnemonics<N, topsubsystem>::IMMediate
+                                .AMPLitude.CommandMnemonic;
   _scpi.command(mnemonic, channel, level);
 }
 
 template <std::size_t N, const const_string<N> &topsubsystem,
-          typename UnitsType>
-void CSOURceLEVelCommands<N, topsubsystem, UnitsType>::Set(
-    const double level, const UnitsType &units) const {
-  constexpr auto mnemonic =
-      mnemonics::Source::Level::Mnemonics<N, topsubsystem>::IMMediate.AMPLitude
-          .CommandMnemonic;
+          typename units_type>
+void SOURceLEVelCommands<N, topsubsystem, units_type>::set(
+    const double level, const units_type &units) const {
+  constexpr auto mnemonic = source::level::mnemonics<N, topsubsystem>::IMMediate
+                                .AMPLitude.CommandMnemonic;
   _scpi.command(mnemonic, units, level);
 }
 
 template <std::size_t N, const const_string<N> &topsubsystem,
-          typename UnitsType>
-double CSOURceLEVelCommands<N, topsubsystem, UnitsType>::Get(
-    const ChannelType &channel) const {
-  constexpr auto mnemonic =
-      mnemonics::Source::Level::Mnemonics<N, topsubsystem>::IMMediate.AMPLitude
-          .QueryMnemonic;
+          typename units_type>
+double SOURceLEVelCommands<N, topsubsystem, units_type>::get(
+    const channel_type &channel) const {
+  constexpr auto mnemonic = source::level::mnemonics<N, topsubsystem>::IMMediate
+                                .AMPLitude.QueryMnemonic;
   double value;
   _scpi.query(mnemonic, channel, value);
   return value;
 }
 
 template <std::size_t N, const const_string<N> &topsubsystem,
-          typename UnitsType>
-double CSOURceLEVelCommands<N, topsubsystem, UnitsType>::GetMaximum(
-    const ChannelType &channel) const {
-  constexpr auto mnemonic =
-      mnemonics::Source::Level::Mnemonics<N, topsubsystem>::IMMediate.AMPLitude
-          .QueryMaximumMnemonic;
+          typename units_type>
+double SOURceLEVelCommands<N, topsubsystem, units_type>::get_maximum(
+    const channel_type &channel) const {
+  constexpr auto mnemonic = source::level::mnemonics<N, topsubsystem>::IMMediate
+                                .AMPLitude.QueryMaximumMnemonic;
   double value;
   _scpi.query(mnemonic, channel, value);
   return value;
 }
 
 template <std::size_t N, const const_string<N> &topsubsystem,
-          typename UnitsType>
-double CSOURceLEVelCommands<N, topsubsystem, UnitsType>::GetMinimum(
-    const ChannelType &channel) const {
-  constexpr auto mnemonic =
-      mnemonics::Source::Level::Mnemonics<N, topsubsystem>::IMMediate.AMPLitude
-          .QueryMinimumMnemonic;
+          typename units_type>
+double SOURceLEVelCommands<N, topsubsystem, units_type>::get_minimum(
+    const channel_type &channel) const {
+  constexpr auto mnemonic = source::level::mnemonics<N, topsubsystem>::IMMediate
+                                .AMPLitude.QueryMinimumMnemonic;
   double value;
   _scpi.query(mnemonic, channel, value);
   return value;

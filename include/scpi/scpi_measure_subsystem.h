@@ -21,18 +21,18 @@
 #include "scpi_base.h"
 
 namespace scpi {
-class SCPI_API CMEASureSubsystem {
+class SCPI_API MEASureSubsystem {
  public:
-  CMEASureSubsystem(const scpi_base &);
+  MEASureSubsystem(const scpi_base &);
 
-  double Read(const unsigned int, const ChannelType &channel = {}) const;
-  double CurrentDC(const ChannelType &channel = {}) const;
-  double VoltageDC(const ChannelType &channel = {}) const;
-  double PowerDC(const ChannelType &channel = {}) const;
+  double read(const unsigned int, const channel_type &channel = {}) const;
+  double current_dc(const channel_type &channel = {}) const;
+  double voltage_dc(const channel_type &channel = {}) const;
+  double power_dc(const channel_type &channel = {}) const;
 
-  CMEASureSubsystem() = delete;
-  CMEASureSubsystem(const CMEASureSubsystem &) = delete;
-  CMEASureSubsystem &operator=(const CMEASureSubsystem &) = delete;
+  MEASureSubsystem() = delete;
+  MEASureSubsystem(const MEASureSubsystem &) = delete;
+  MEASureSubsystem &operator=(const MEASureSubsystem &) = delete;
 
  private:
   const scpi_base &_scpi;

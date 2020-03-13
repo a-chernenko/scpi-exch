@@ -20,5 +20,5 @@
 
 using namespace scpi;
 
-CSENSeSubsystem::CSENSeSubsystem(const scpi_base &scpi)
+SENSeSubsystem::SENSeSubsystem(const scpi_base &scpi)
     : FREQuency{scpi}, SWEep{scpi}, BANDwidth{scpi}, _scpi{scpi} {}

@@ -21,12 +21,12 @@
 #include "scpi_voltage_subsystem.h"
 
 namespace scpi {
-class SCPI_API CSOURceVOLTageSubsystem : public CVOLTageSubsystem {
+class SCPI_API SOURceVOLTageSubsystem : public VOLTageSubsystem {
  public:
-  CSOURceVOLTageSubsystem(const scpi_base&);
+  SOURceVOLTageSubsystem(const scpi_base&);
 
-  CSOURceVOLTageSubsystem() = delete;
-  CSOURceVOLTageSubsystem(const CSOURceVOLTageSubsystem&) = delete;
-  CSOURceVOLTageSubsystem& operator=(const CSOURceVOLTageSubsystem&) = delete;
+  SOURceVOLTageSubsystem() = delete;
+  SOURceVOLTageSubsystem(const SOURceVOLTageSubsystem&) = delete;
+  SOURceVOLTageSubsystem& operator=(const SOURceVOLTageSubsystem&) = delete;
 };
 }  // namespace scpi

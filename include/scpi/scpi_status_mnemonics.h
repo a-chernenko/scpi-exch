@@ -20,8 +20,8 @@
 
 #include "scpi_mnemonics.h"
 
-namespace scpi::mnemonics {
-namespace Status {
+namespace scpi {
+namespace status {
 namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(ENABle, CMnemonics::ENABle),
     ADD_SUBSYSTEM_COMMAND_MNEMONIC(CMnemonics::ENABle),
@@ -121,6 +121,6 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(STATus, CMnemonics::STATus) {
 };
 }  // namespace detail
 
-using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(STATus);
-}  // namespace Status
-}  // namespace scpi::mnemonics
+using mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(STATus);
+}  // namespace status
+}  // namespace scpi

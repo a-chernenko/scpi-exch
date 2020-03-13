@@ -20,8 +20,8 @@
 
 #include "scpi_mnemonics.h"
 
-namespace scpi::mnemonics {
-namespace Display {
+namespace scpi {
+namespace display {
 namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(ENABle, CMnemonics::ENABle),
     ADD_SUBSYSTEM_COMMAND_MNEMONIC(CMnemonics::ENABle),
@@ -34,6 +34,6 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(DISPlay, CMnemonics::DISPlay),
 };
 }  // namespace detail
 
-using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(DISPlay);
-}  // namespace Display
-}  // namespace scpi::mnemonics
+using mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(DISPlay);
+}  // namespace display
+}  // namespace scpi

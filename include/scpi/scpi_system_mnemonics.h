@@ -20,8 +20,8 @@
 
 #include "scpi_mnemonics.h"
 
-namespace scpi::mnemonics {
-namespace System {
+namespace scpi {
+namespace system {
 namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(NEXT, CMnemonics::NEXT),
     ADD_SUBSYSTEM_QUERY_MNEMONIC(CMnemonics::NEXT){};
@@ -47,6 +47,6 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(SYSTem, CMnemonics::SYSTem) {
 };
 }  // namespace detail
 
-using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(SYSTem);
-}  // namespace System
-}  // namespace scpi::mnemonics
+using mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(SYSTem);
+}  // namespace system
+}  // namespace scpi

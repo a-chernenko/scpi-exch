@@ -20,5 +20,5 @@
 
 using namespace scpi;
 
-CSENSeSWEepSubsystem::CSENSeSWEepSubsystem(const scpi_base &scpi)
-    : CSWEepSubsystem{scpi} {}
+SENSeSWEepSubsystem::SENSeSWEepSubsystem(const scpi_base &scpi)
+    : SWEepSubsystem{scpi} {}

@@ -30,7 +30,7 @@
     MAKE_CONST_STRING_FROM_LITERAL_STRING(MNEMONIC)          \
   }
 
-namespace scpi::mnemonics {
+namespace scpi {
 struct SCPI_API CMnemonics final {
   ADD_MNEMONIC_DEFINITION(ABORt, "ABOR");
   ADD_MNEMONIC_DEFINITION(ALL, "ALL");
@@ -369,7 +369,7 @@ struct CSubsystemMnemonicString {
   std::string subsystem;
 };
 /////////////<<<<<<<<<<<<<<<<<<<
-}  // namespace scpi::mnemonics
+}  // namespace scpi
 
 #define CREATE_SUBSYSTEM_MNEMONIC(NAME, MNEMONIC)               \
   template <std::size_t N, const const_string<N> &topsubsystem> \

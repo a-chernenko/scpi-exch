@@ -20,5 +20,5 @@
 
 using namespace scpi;
 
-CSOURceMARKerSubsystem::CSOURceMARKerSubsystem(const scpi_base &scpi)
-    :_scpi{scpi} {}
+SOURceMARKerSubsystem::SOURceMARKerSubsystem(const scpi_base &scpi)
+    : _scpi{scpi} {}

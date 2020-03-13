@@ -20,8 +20,8 @@
 
 #include "scpi_mnemonics.h"
 
-namespace scpi::mnemonics {
-namespace Sweep {
+namespace scpi {
+namespace sweep {
 namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(COUNt, CMnemonics::COUNt),
     ADD_SUBSYSTEM_COMMAND_MNEMONIC(CMnemonics::COUNt),
@@ -53,6 +53,6 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(SWEep, CMnemonics::SWEep) {
 };
 }  // namespace detail
 
-using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(SWEep);
-}  // namespace Sweep
-}  // namespace scpi::mnemonics
+using mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(SWEep);
+}  // namespace sweep
+}  // namespace scpi

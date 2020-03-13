@@ -20,8 +20,8 @@
 
 #include "scpi_mnemonics.h"
 
-namespace scpi::mnemonics {
-namespace Frequency {
+namespace scpi {
+namespace frequency {
 namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(STARt, CMnemonics::STARt),
     ADD_SUBSYSTEM_COMMAND_MNEMONIC(CMnemonics::STARt),
@@ -69,6 +69,6 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(FREQuency, CMnemonics::FREQuency) {
 };
 }  // namespace detail
 
-using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(FREQuency);
-}  // namespace Frequency
-}  // namespace scpi::mnemonics
+using mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(FREQuency);
+}  // namespace frequency
+}  // namespace scpi

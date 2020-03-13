@@ -24,22 +24,21 @@
 #include "scpi_units_type.h"
 
 namespace scpi {
-class SCPI_API CVOLTageSubsystem {
+class SCPI_API VOLTageSubsystem {
  public:
-  CSOURcePROTectionCommands<sizeof(mnemonics::CMnemonics::VOLTage),
-                            mnemonics::CMnemonics::VOLTage,
-                            VoltageUnitsType::Type>
+  SOURcePROTectionCommands<sizeof(CMnemonics::VOLTage), CMnemonics::VOLTage,
+                           voltage_units::type>
       PROTection;
-  CSOURceLEVelCommands<sizeof(mnemonics::CMnemonics::VOLTage),
-                       mnemonics::CMnemonics::VOLTage, VoltageUnitsType::Type>
+  SOURceLEVelCommands<sizeof(CMnemonics::VOLTage), CMnemonics::VOLTage,
+                      voltage_units::type>
       LEVel;
 
-  CVOLTageSubsystem() = delete;
-  CVOLTageSubsystem(const CVOLTageSubsystem&) = delete;
-  CVOLTageSubsystem& operator=(const CVOLTageSubsystem&) = delete;
+  VOLTageSubsystem() = delete;
+  VOLTageSubsystem(const VOLTageSubsystem&) = delete;
+  VOLTageSubsystem& operator=(const VOLTageSubsystem&) = delete;
 
  protected:
-  CVOLTageSubsystem(const scpi_base&);
+  VOLTageSubsystem(const scpi_base&);
   const scpi_base& _scpi;
 };
 }  // namespace scpi

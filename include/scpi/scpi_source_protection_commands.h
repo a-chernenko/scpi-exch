@@ -22,21 +22,21 @@
 
 namespace scpi {
 template <std::size_t N, const const_string<N> &topsubsystem,
-          typename UnitsType>
-class CSOURcePROTectionCommands {
+          typename units_type>
+class SOURcePROTectionCommands {
  public:
-  CSOURcePROTectionCommands(const scpi_base &);
-  void Clear(const ChannelType &channel = {}) const;
-  bool IsTripped(const ChannelType &channel = {}) const;
-  void SetState(const bool, const ChannelType &channel = {}) const;
-  bool GetState(const ChannelType &channel = {}) const;
-  void SetLevel(const double, const ChannelType &channel = {}) const;
-  void SetLevel(const double, const UnitsType &) const;
-  double GetLevel(const ChannelType &channel = {}) const;
+  SOURcePROTectionCommands(const scpi_base &);
+  void clear(const channel_type &channel = {}) const;
+  bool is_tripped(const channel_type &channel = {}) const;
+  void set_state(const bool, const channel_type &channel = {}) const;
+  bool get_state(const channel_type &channel = {}) const;
+  void set_level(const double, const channel_type &channel = {}) const;
+  void set_level(const double, const units_type &) const;
+  double get_level(const channel_type &channel = {}) const;
 
-  CSOURcePROTectionCommands() = delete;
-  CSOURcePROTectionCommands(const CSOURcePROTectionCommands &) = delete;
-  CSOURcePROTectionCommands &operator=(const CSOURcePROTectionCommands &) =
+  SOURcePROTectionCommands() = delete;
+  SOURcePROTectionCommands(const SOURcePROTectionCommands &) = delete;
+  SOURcePROTectionCommands &operator=(const SOURcePROTectionCommands &) =
       delete;
 
  private:

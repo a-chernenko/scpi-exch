@@ -20,74 +20,74 @@
 #include "scpi_sweep_mnemonics.h"
 
 using namespace scpi;
-using namespace mnemonics::Sweep;
+using namespace sweep;
 
-CSWEepSubsystem::CSWEepSubsystem(const scpi_base &scpi)
+SWEepSubsystem::SWEepSubsystem(const scpi_base &scpi)
     : TIME{scpi}, _scpi{scpi} {}
 
-void CSWEepSubsystem::SetPoints(const double value,
-                                const ChannelType &channel) const {
-  constexpr auto mnemonic = Mnemonics::POINts.CommandMnemonic;
- _scpi.command(mnemonic, channel, value);
+void SWEepSubsystem::set_points(const double value,
+                                const channel_type &channel) const {
+  constexpr auto mnemonic = mnemonics::POINts.CommandMnemonic;
+  _scpi.command(mnemonic, channel, value);
 }
 
-double CSWEepSubsystem::GetPoints(const ChannelType &channel) const {
-  constexpr auto mnemonic = Mnemonics::POINts.QueryMnemonic;
+double SWEepSubsystem::get_points(const channel_type &channel) const {
+  constexpr auto mnemonic = mnemonics::POINts.QueryMnemonic;
   double value;
- _scpi.query(mnemonic, channel, value);
+  _scpi.query(mnemonic, channel, value);
   return value;
 }
 
-void CSWEepSubsystem::SetStep(const double value,
-                              const ChannelType &channel) const {
-  constexpr auto mnemonic = Mnemonics::STEP.CommandMnemonic;
- _scpi.command(mnemonic, channel, value);
+void SWEepSubsystem::set_step(const double value,
+                              const channel_type &channel) const {
+  constexpr auto mnemonic = mnemonics::STEP.CommandMnemonic;
+  _scpi.command(mnemonic, channel, value);
 }
 
-double CSWEepSubsystem::GetStep(const ChannelType &channel) const {
-  constexpr auto mnemonic = Mnemonics::STEP.QueryMnemonic;
+double SWEepSubsystem::get_step(const channel_type &channel) const {
+  constexpr auto mnemonic = mnemonics::STEP.QueryMnemonic;
   double value;
- _scpi.query(mnemonic, channel, value);
+  _scpi.query(mnemonic, channel, value);
   return value;
 }
 
-void CSWEepSubsystem::SetCount(const double value,
-                               const ChannelType &channel) const {
-  constexpr auto mnemonic = Mnemonics::COUNt.CommandMnemonic;
- _scpi.command(mnemonic, channel, value);
+void SWEepSubsystem::set_count(const double value,
+                               const channel_type &channel) const {
+  constexpr auto mnemonic = mnemonics::COUNt.CommandMnemonic;
+  _scpi.command(mnemonic, channel, value);
 }
 
-double CSWEepSubsystem::GetGount(const ChannelType &channel) const {
-  constexpr auto mnemonic = Mnemonics::COUNt.QueryMnemonic;
+double SWEepSubsystem::get_count(const channel_type &channel) const {
+  constexpr auto mnemonic = mnemonics::COUNt.QueryMnemonic;
   double value;
- _scpi.query(mnemonic, channel, value);
+  _scpi.query(mnemonic, channel, value);
   return value;
 }
 
-CSWEepSubsystem::CTIME::CTIME(const scpi_base &scpi) :_scpi{scpi} {}
+SWEepSubsystem::CTIME::CTIME(const scpi_base &scpi) : _scpi{scpi} {}
 
-void CSWEepSubsystem::CTIME::Set(const double value,
-                                 const ChannelType &channel) const {
-  constexpr auto mnemonic = Mnemonics::TIME.CommandMnemonic;
- _scpi.command(mnemonic, channel, value);
+void SWEepSubsystem::CTIME::set(const double value,
+                                const channel_type &channel) const {
+  constexpr auto mnemonic = mnemonics::TIME.CommandMnemonic;
+  _scpi.command(mnemonic, channel, value);
 }
 
-double CSWEepSubsystem::CTIME::Get(const ChannelType &channel) const {
-  constexpr auto mnemonic = Mnemonics::TIME.QueryMnemonic;
+double SWEepSubsystem::CTIME::get(const channel_type &channel) const {
+  constexpr auto mnemonic = mnemonics::TIME.QueryMnemonic;
   double value;
- _scpi.query(mnemonic, channel, value);
+  _scpi.query(mnemonic, channel, value);
   return value;
 }
 
-void CSWEepSubsystem::CTIME::SetAuto(const bool value,
-                                     const ChannelType &channel) const {
-  constexpr auto mnemonic = Mnemonics::TIME.AUTO.CommandMnemonic;
- _scpi.command(mnemonic, channel, value);
+void SWEepSubsystem::CTIME::set_auto(const bool value,
+                                     const channel_type &channel) const {
+  constexpr auto mnemonic = mnemonics::TIME.AUTO.CommandMnemonic;
+  _scpi.command(mnemonic, channel, value);
 }
 
-bool CSWEepSubsystem::CTIME::GetAuto(const ChannelType &channel) const {
-  constexpr auto mnemonic = Mnemonics::TIME.AUTO.QueryMnemonic;
+bool SWEepSubsystem::CTIME::get_auto(const channel_type &channel) const {
+  constexpr auto mnemonic = mnemonics::TIME.AUTO.QueryMnemonic;
   bool value;
- _scpi.query(mnemonic, channel, value);
+  _scpi.query(mnemonic, channel, value);
   return value;
 }

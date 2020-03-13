@@ -20,8 +20,8 @@
 
 #include "scpi_mnemonics.h"
 
-namespace scpi::mnemonics {
-namespace Trigger {
+namespace scpi {
+namespace trigger {
 namespace detail {
 CREATE_TOP_SUBSYSTEM_MNEMONIC(ABORt, CMnemonics::ABORt){};
 
@@ -37,13 +37,13 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(TRIGger, CMnemonics::TRIGger) {
   ADD_TOP_SUBSYSTEM_MNEMONIC(SEQuence, TRIGger);
 };
 
-struct CTriggeringCommandsMnemonics {
+struct TriggeringCommandsMnemonics {
   static SUBSYSTEM_MNEMONIC_TYPE(ABORt) ABORt;
   static SUBSYSTEM_MNEMONIC_TYPE(INITiate) INITiate;
   static SUBSYSTEM_MNEMONIC_TYPE(TRIGger) TRIGger;
 };
 }  // namespace detail
 
-using Mnemonics = detail::CTriggeringCommandsMnemonics;
-}  // namespace Trigger
-}  // namespace scpi::mnemonics
+using mnemonics = detail::TriggeringCommandsMnemonics;
+}  // namespace trigger
+}  // namespace scpi

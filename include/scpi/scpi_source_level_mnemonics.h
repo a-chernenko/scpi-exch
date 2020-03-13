@@ -20,9 +20,9 @@
 
 #include "scpi_mnemonics.h"
 
-namespace scpi::mnemonics {
-namespace Source {
-namespace Level {
+namespace scpi {
+namespace source {
+namespace level {
 namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(AMPLitude, CMnemonics::AMPLitude),
     ADD_SUBSYSTEM_COMMAND_MNEMONIC(CMnemonics::AMPLitude),
@@ -46,7 +46,7 @@ CREATE_SUBSYSTEM_MNEMONIC(LEVel, CMnemonics::LEVel),
 }  // namespace detail
 
 template <std::size_t N, const const_string<N> &topsubsystem>
-using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(LEVel)<N, topsubsystem>;
-}  // namespace Level
-}  // namespace Source
-}  // namespace scpi::mnemonics
+using mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(LEVel)<N, topsubsystem>;
+}  // namespace level
+}  // namespace source
+}  // namespace scpi

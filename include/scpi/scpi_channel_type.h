@@ -21,40 +21,40 @@
 #include <string>
 
 namespace scpi {
-struct ChannelType {
+struct channel_type {
  public:
-  explicit ChannelType(unsigned int value) : value{value} {}
-  ChannelType() = default;
-  ChannelType(const ChannelType &) = default;
-  ChannelType &operator=(const ChannelType &) = default;
-  ChannelType(ChannelType &&) = default;
-  ChannelType &operator=(ChannelType &&) = default;
+  explicit channel_type(unsigned int value) : value{value} {}
+  channel_type() = default;
+  channel_type(const channel_type &) = default;
+  channel_type &operator=(const channel_type &) = default;
+  channel_type(channel_type &&) = default;
+  channel_type &operator=(channel_type &&) = default;
 
-  friend bool operator!=(const ChannelType &lhs, const unsigned int &rhs) {
+  friend bool operator!=(const channel_type &lhs, const unsigned int &rhs) {
     return (lhs.value != rhs);
   }
-  friend bool operator>(const ChannelType &lhs, const unsigned int &rhs) {
+  friend bool operator>(const channel_type &lhs, const unsigned int &rhs) {
     return (lhs.value > rhs);
   }
-  friend bool operator>(const unsigned int &lhs, const ChannelType &rhs) {
+  friend bool operator>(const unsigned int &lhs, const channel_type &rhs) {
     return (rhs.value > lhs);
   }
-  friend bool operator<(const ChannelType &lhs, const unsigned int &rhs) {
+  friend bool operator<(const channel_type &lhs, const unsigned int &rhs) {
     return (lhs.value < rhs);
   }
-  friend bool operator<(const unsigned int &lhs, const ChannelType &rhs) {
+  friend bool operator<(const unsigned int &lhs, const channel_type &rhs) {
     return (rhs.value < lhs);
   }
-  ChannelType operator++(int) {
-    ChannelType tmp(*this);
+  channel_type operator++(int) {
+    channel_type tmp(*this);
     operator++();
     return tmp;
   }
-  ChannelType &operator++() {
+  channel_type &operator++() {
     ++value;
     return *this;
   }
-  ChannelType &operator=(const unsigned int &val) {
+  channel_type &operator=(const unsigned int &val) {
     value = val;
     return *this;
   }

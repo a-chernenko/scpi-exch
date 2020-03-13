@@ -22,28 +22,28 @@
 #include "scpi_units_type.h"
 
 namespace scpi {
-class SCPI_API CFREQuencySubsystem {
+class SCPI_API FREQuencySubsystem {
  public:
-  void Set(const double, const ChannelType &channel = {}) const;
-  void Set(const double, const FrequencyUnitsType::Type &) const;
-  double Get(const ChannelType &channel = {}) const;
-  void SetStart(const double, const ChannelType &channel = {}) const;
-  double GetStart(const ChannelType &channel = {}) const;
-  void SetStop(const double, const ChannelType &channel = {}) const;
-  double GetStop(const ChannelType &channel = {}) const;
-  void SetCenter(const double, const ChannelType &channel = {}) const;
-  double GetCenter(const ChannelType &channel = {}) const;
-  void SetSpan(const double, const ChannelType &channel = {}) const;
-  double GetSpan(const ChannelType &channel = {}) const;
-  void SetOffset(const double, const ChannelType &channel = {}) const;
-  double GetOffset(const ChannelType &channel = {}) const;
+  void set(const double, const channel_type &channel = {}) const;
+  void set(const double, const frequency_units::type &) const;
+  double get(const channel_type &channel = {}) const;
+  void set_start(const double, const channel_type &channel = {}) const;
+  double get_start(const channel_type &channel = {}) const;
+  void set_stop(const double, const channel_type &channel = {}) const;
+  double get_stop(const channel_type &channel = {}) const;
+  void set_center(const double, const channel_type &channel = {}) const;
+  double get_center(const channel_type &channel = {}) const;
+  void set_span(const double, const channel_type &channel = {}) const;
+  double get_span(const channel_type &channel = {}) const;
+  void set_offset(const double, const channel_type &channel = {}) const;
+  double get_offset(const channel_type &channel = {}) const;
 
-  CFREQuencySubsystem() = default;
-  CFREQuencySubsystem(const CFREQuencySubsystem &) = delete;
-  CFREQuencySubsystem &operator=(const CFREQuencySubsystem &) = delete;
+  FREQuencySubsystem() = delete;
+  FREQuencySubsystem(const FREQuencySubsystem &) = delete;
+  FREQuencySubsystem &operator=(const FREQuencySubsystem &) = delete;
 
  protected:
-  CFREQuencySubsystem(const scpi_base &);
+  FREQuencySubsystem(const scpi_base &);
   const scpi_base &_scpi;
 };
 }  // namespace scpi

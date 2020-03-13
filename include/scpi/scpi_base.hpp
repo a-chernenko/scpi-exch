@@ -76,16 +76,16 @@ void scpi_base::query_base(const std::string &query,
 }
 
 template <size_t N, typename... ValueTypes>
-typename std::enable_if<!any_base_of<UnitsTypeBase, ValueTypes...>::value &&
-                        !any_base_of<ChannelType, ValueTypes...>::value>::type
+typename std::enable_if<!any_base_of<units_type_base, ValueTypes...>::value &&
+                        !any_base_of<channel_type, ValueTypes...>::value>::type
 scpi_base::command(const const_string<N> &mnemonic,
                    const ValueTypes &... values) const {
   command_base(mnemonic.to_string(), values...);
 }
 
 template <typename... ValueTypes>
-typename std::enable_if<!any_base_of<UnitsTypeBase, ValueTypes...>::value &&
-                        !any_base_of<ChannelType, ValueTypes...>::value>::type
+typename std::enable_if<!any_base_of<units_type_base, ValueTypes...>::value &&
+                        !any_base_of<channel_type, ValueTypes...>::value>::type
 scpi_base::command(const std::string &mnemonic,
                    const ValueTypes &... values) const {
   command_base(mnemonic, values...);
@@ -93,13 +93,14 @@ scpi_base::command(const std::string &mnemonic,
 
 template <size_t N, typename... ValueTypes>
 void scpi_base::command(const const_string<N> &mnemonic,
-                        const ChannelType &channel,
+                        const channel_type &channel,
                         const ValueTypes &... values) const {
   command(mnemonic.to_string(), channel, values...);
 }
 
 template <typename... ValueTypes>
-void scpi_base::command(const std::string &mnemonic, const ChannelType &channel,
+void scpi_base::command(const std::string &mnemonic,
+                        const channel_type &channel,
                         const ValueTypes &... values) const {
   if (channel > 0) {
     std::string channel_string;
@@ -111,13 +112,14 @@ void scpi_base::command(const std::string &mnemonic, const ChannelType &channel,
 
 template <size_t N, typename ValueType>
 void scpi_base::command(const const_string<N> &mnemonic,
-                        const UnitsTypeBase &unit,
+                        const units_type_base &unit,
                         const ValueType &value) const {
   command(mnemonic.to_string(), unit, value);
 }
 
 template <typename ValueType>
-void scpi_base::command(const std::string &mnemonic, const UnitsTypeBase &unit,
+void scpi_base::command(const std::string &mnemonic,
+                        const units_type_base &unit,
                         const ValueType &value) const {
   std::string mnemonic_string{mnemonic};
   mnemonic_string += std::to_string(value);
@@ -127,7 +129,7 @@ void scpi_base::command(const std::string &mnemonic, const UnitsTypeBase &unit,
 
 template <size_t N>
 void scpi_base::command(const const_string<N> &mnemonic,
-                        const UnitsTypeBase &unit) const {
+                        const units_type_base &unit) const {
   command(mnemonic.to_string(), unit);
 }
 
@@ -137,27 +139,27 @@ void scpi_base::command(const const_string<N> &mnemonic) const {
 }
 
 template <size_t N, typename... ValueTypes>
-typename std::enable_if<!any_base_of<ChannelType, ValueTypes...>::value>::type
+typename std::enable_if<!any_base_of<channel_type, ValueTypes...>::value>::type
 scpi_base::query(const const_string<N> &mnemonic,
                  ValueTypes &... values) const {
   query_base(mnemonic.to_string(), values...);
 }
 
 template <typename... ValueTypes>
-typename std::enable_if<!any_base_of<ChannelType, ValueTypes...>::value>::type
+typename std::enable_if<!any_base_of<channel_type, ValueTypes...>::value>::type
 scpi_base::query(const std::string &mnemonic, ValueTypes &... values) const {
   query_base(mnemonic, values...);
 }
 
 template <size_t N, typename... ValueTypes>
 void scpi_base::query(const const_string<N> &mnemonic,
-                      const ChannelType &channel,
+                      const channel_type &channel,
                       ValueTypes &... values) const {
   query(mnemonic.to_string(), channel, values...);
 }
 
 template <typename... ValueTypes>
-void scpi_base::query(const std::string &mnemonic, const ChannelType &channel,
+void scpi_base::query(const std::string &mnemonic, const channel_type &channel,
                       ValueTypes &... values) const {
   if (channel > 0) {
     std::string mnemonic_string{mnemonic};

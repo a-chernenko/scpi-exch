@@ -21,15 +21,15 @@
 #include "scpi_base.h"
 
 namespace scpi {
-class SCPI_API CDISPlaySubsystem {
+class SCPI_API DISPlaySubsystem {
  public:
-  CDISPlaySubsystem(const scpi_base&);
-  void SetEnabled(const bool) const;
-  bool GetEnabled() const;
+  DISPlaySubsystem(const scpi_base&);
+  void set_enabled(const bool) const;
+  bool get_enabled() const;
 
-  CDISPlaySubsystem() = delete;
-  CDISPlaySubsystem(const CDISPlaySubsystem&) = delete;
-  CDISPlaySubsystem& operator=(const CDISPlaySubsystem&) = delete;
+  DISPlaySubsystem() = delete;
+  DISPlaySubsystem(const DISPlaySubsystem&) = delete;
+  DISPlaySubsystem& operator=(const DISPlaySubsystem&) = delete;
 
  private:
   const scpi_base& _scpi;

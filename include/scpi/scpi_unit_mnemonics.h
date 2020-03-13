@@ -20,8 +20,8 @@
 
 #include "scpi_mnemonics.h"
 
-namespace scpi::mnemonics {
-namespace Unit {
+namespace scpi {
+namespace unit {
 namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(VOLTage, CMnemonics::VOLTage),
     ADD_SUBSYSTEM_COMMAND_MNEMONIC(CMnemonics::VOLTage),
@@ -42,6 +42,6 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(UNIT, CMnemonics::UNIT) {
 };
 }  // namespace detail
 
-using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(UNIT);
-}  // namespace Unit
-}  // namespace scpi::mnemonics
+using mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(UNIT);
+}  // namespace unit
+}  // namespace scpi

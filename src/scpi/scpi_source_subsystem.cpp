@@ -20,7 +20,7 @@
 
 using namespace scpi;
 
-CSOURceSubsystem::CSOURceSubsystem(const scpi_base &scpi)
+SOURceSubsystem::SOURceSubsystem(const scpi_base &scpi)
     : CURRent{scpi},
       VOLTage{scpi},
       FREQuency{scpi},

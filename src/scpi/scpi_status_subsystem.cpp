@@ -20,4 +20,4 @@
 
 using namespace scpi;
 
-CSTATusSubsystem::CSTATusSubsystem(const scpi_base &scpi) :_scpi{scpi} {}
+STATusSubsystem::STATusSubsystem(const scpi_base &scpi) : _scpi{scpi} {}

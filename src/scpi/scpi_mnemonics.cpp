@@ -18,4 +18,4 @@
 
 #include "scpi_mnemonics.h"
 
-using namespace scpi::mnemonics;
+using namespace scpi;

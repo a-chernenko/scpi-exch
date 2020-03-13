@@ -20,8 +20,8 @@
 
 #include "scpi_mnemonics.h"
 
-namespace scpi::mnemonics {
-namespace Measure {
+namespace scpi {
+namespace measure {
 namespace detail {
 // 3.8 Measurement Function Layer
 // 3.8.1 Simple Measurements
@@ -77,7 +77,7 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(MEASure, CMnemonics::MEASure) {
   ADD_TOP_SUBSYSTEM_MNEMONIC(SCALar, MEASure);
 };
 
-struct CMeasurementInstructionsMnemonics {
+struct MeasurementInstructionsMnemonics {
   static SUBSYSTEM_MNEMONIC_TYPE(CONFigure) CONFigure;
   static SUBSYSTEM_MNEMONIC_TYPE(FETCh) FETCh;
   static SUBSYSTEM_MNEMONIC_TYPE(READ) READ;
@@ -85,6 +85,6 @@ struct CMeasurementInstructionsMnemonics {
 };
 }  // namespace detail
 
-using Mnemonics = detail::CMeasurementInstructionsMnemonics;
-}  // namespace Measure
-}  // namespace scpi::mnemonics
+using mnemonics = detail::MeasurementInstructionsMnemonics;
+}  // namespace measure
+}  // namespace scpi

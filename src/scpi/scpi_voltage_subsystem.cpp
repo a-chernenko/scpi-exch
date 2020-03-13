@@ -20,5 +20,5 @@
 
 using namespace scpi;
 
-CVOLTageSubsystem::CVOLTageSubsystem(const scpi_base &scpi)
+VOLTageSubsystem::VOLTageSubsystem(const scpi_base &scpi)
     : PROTection{scpi}, LEVel{scpi}, _scpi{scpi} {}

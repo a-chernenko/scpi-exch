@@ -20,5 +20,5 @@
 
 using namespace scpi;
 
-CSOURceCURRentSubsystem::CSOURceCURRentSubsystem(const scpi_base &scpi)
-    : CCURRentSubsystem{scpi} {}
+SOURceCURRentSubsystem::SOURceCURRentSubsystem(const scpi_base &scpi)
+    : CURRentSubsystem{scpi} {}

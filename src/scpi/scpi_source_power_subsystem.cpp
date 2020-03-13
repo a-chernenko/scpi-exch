@@ -20,5 +20,5 @@
 
 using namespace scpi;
 
-CSOURcePOWerSubsystem::CSOURcePOWerSubsystem(const scpi_base &scpi)
-    : CPOWerSubsystem{scpi} {}
+SOURcePOWerSubsystem::SOURcePOWerSubsystem(const scpi_base &scpi)
+    : POWerSubsystem{scpi} {}

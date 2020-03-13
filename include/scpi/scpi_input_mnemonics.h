@@ -19,8 +19,8 @@
 
 #include "scpi_mnemonics.h"
 
-namespace scpi::mnemonics {
-namespace Input {
+namespace scpi {
+namespace input {
 namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(AUTO, CMnemonics::AUTO),
     ADD_SUBSYSTEM_COMMAND_MNEMONIC(CMnemonics::AUTO),
@@ -42,6 +42,6 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(INPut, CMnemonics::INPut) {
 };
 }  // namespace detail
 
-using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(INPut);
-}  // namespace Input
-}  // namespace scpi::mnemonics
+using mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(INPut);
+}  // namespace input
+}  // namespace scpi

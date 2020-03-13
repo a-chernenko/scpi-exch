@@ -21,13 +21,13 @@
 #include "scpi_base.h"
 
 namespace scpi {
-class SCPI_API CSOURceMARKerSubsystem {
+class SCPI_API SOURceMARKerSubsystem {
  public:
-  CSOURceMARKerSubsystem(const scpi_base&);
+  SOURceMARKerSubsystem(const scpi_base&);
 
-  CSOURceMARKerSubsystem() = delete;
-  CSOURceMARKerSubsystem(const CSOURceMARKerSubsystem&) = delete;
-  CSOURceMARKerSubsystem& operator=(const CSOURceMARKerSubsystem&) = delete;
+  SOURceMARKerSubsystem() = delete;
+  SOURceMARKerSubsystem(const SOURceMARKerSubsystem&) = delete;
+  SOURceMARKerSubsystem& operator=(const SOURceMARKerSubsystem&) = delete;
 
  private:
   const scpi_base& _scpi;

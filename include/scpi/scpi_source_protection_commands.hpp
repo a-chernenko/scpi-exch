@@ -22,81 +22,75 @@
 
 namespace scpi {
 template <std::size_t N, const const_string<N> &topsubsystem,
-          typename UnitsType>
-CSOURcePROTectionCommands<N, topsubsystem, UnitsType>::
-    CSOURcePROTectionCommands(const scpi_base &scpi)
+          typename units_type>
+SOURcePROTectionCommands<N, topsubsystem, units_type>::SOURcePROTectionCommands(
+    const scpi_base &scpi)
     : _scpi{scpi} {}
 
 template <std::size_t N, const const_string<N> &topsubsystem,
-          typename UnitsType>
-void CSOURcePROTectionCommands<N, topsubsystem, UnitsType>::Clear(
-    const ChannelType &channel) const {
+          typename units_type>
+void SOURcePROTectionCommands<N, topsubsystem, units_type>::clear(
+    const channel_type &channel) const {
   constexpr auto mnemonic =
-      mnemonics::Source::Protection::Mnemonics<N, topsubsystem>::CLEar.Mnemonic;
+      source::protection::mnemonics<N, topsubsystem>::CLEar.Mnemonic;
   _scpi.command(mnemonic, channel);
 }
 
 template <std::size_t N, const const_string<N> &topsubsystem,
-          typename UnitsType>
-bool CSOURcePROTectionCommands<N, topsubsystem, UnitsType>::IsTripped(
-    const ChannelType &channel) const {
+          typename units_type>
+bool SOURcePROTectionCommands<N, topsubsystem, units_type>::is_tripped(
+    const channel_type &channel) const {
   constexpr auto mnemonic =
-      mnemonics::Source::Protection::Mnemonics<N, topsubsystem>::TRIPped
-          .QueryMnemonic;
+      source::protection::mnemonics<N, topsubsystem>::TRIPped.QueryMnemonic;
   bool value;
   _scpi.query(mnemonic, channel, value);
   return value;
 }
 
 template <std::size_t N, const const_string<N> &topsubsystem,
-          typename UnitsType>
-void CSOURcePROTectionCommands<N, topsubsystem, UnitsType>::SetState(
-    const bool enabled, const ChannelType &channel) const {
+          typename units_type>
+void SOURcePROTectionCommands<N, topsubsystem, units_type>::set_state(
+    const bool enabled, const channel_type &channel) const {
   constexpr auto mnemonic =
-      mnemonics::Source::Protection::Mnemonics<N, topsubsystem>::STATe
-          .CommandMnemonic;
+      source::protection::mnemonics<N, topsubsystem>::STATe.CommandMnemonic;
   _scpi.command(mnemonic, channel, enabled);
 }
 
 template <std::size_t N, const const_string<N> &topsubsystem,
-          typename UnitsType>
-bool CSOURcePROTectionCommands<N, topsubsystem, UnitsType>::GetState(
-    const ChannelType &channel) const {
+          typename units_type>
+bool SOURcePROTectionCommands<N, topsubsystem, units_type>::get_state(
+    const channel_type &channel) const {
   constexpr auto mnemonic =
-      mnemonics::Source::Protection::Mnemonics<N, topsubsystem>::STATe
-          .QueryMnemonic;
+      source::protection::mnemonics<N, topsubsystem>::STATe.QueryMnemonic;
   bool value;
   _scpi.query(mnemonic, channel, value);
   return value;
 }
 
 template <std::size_t N, const const_string<N> &topsubsystem,
-          typename UnitsType>
-void CSOURcePROTectionCommands<N, topsubsystem, UnitsType>::SetLevel(
-    const double level, const ChannelType &channel) const {
+          typename units_type>
+void SOURcePROTectionCommands<N, topsubsystem, units_type>::set_level(
+    const double level, const channel_type &channel) const {
   constexpr auto mnemonic =
-      mnemonics::Source::Protection::Mnemonics<N, topsubsystem>::LEVel
-          .CommandMnemonic;
+      source::protection::mnemonics<N, topsubsystem>::LEVel.CommandMnemonic;
   _scpi.command(mnemonic, channel, level);
 }
 
 template <std::size_t N, const const_string<N> &topsubsystem,
-          typename UnitsType>
-void CSOURcePROTectionCommands<N, topsubsystem, UnitsType>::SetLevel(
-    const double level, const UnitsType &units) const {
+          typename units_type>
+void SOURcePROTectionCommands<N, topsubsystem, units_type>::set_level(
+    const double level, const units_type &units) const {
   constexpr auto mnemonic =
-      mnemonics::Source::Protection::Mnemonics<N, topsubsystem>::LEVel
-          .CommandMnemonic;
+      source::protection::mnemonics<N, topsubsystem>::LEVel.CommandMnemonic;
   _scpi.command(mnemonic, units, level);
 }
 
 template <std::size_t N, const const_string<N> &topsubsystem,
-          typename UnitsType>
-double CSOURcePROTectionCommands<N, topsubsystem, UnitsType>::GetLevel(
-    const ChannelType &channel) const {
+          typename units_type>
+double SOURcePROTectionCommands<N, topsubsystem, units_type>::get_level(
+    const channel_type &channel) const {
   constexpr auto mnemonic =
-      mnemonics::Source::Protection::Mnemonics<N, topsubsystem>::LEVel
-          .QueryMnemonic;
+      source::protection::mnemonics<N, topsubsystem>::LEVel.QueryMnemonic;
   double value;
   _scpi.query(mnemonic, channel, value);
   return value;

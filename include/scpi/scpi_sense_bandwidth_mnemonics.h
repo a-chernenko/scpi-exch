@@ -20,9 +20,9 @@
 
 #include "scpi_mnemonics.h"
 
-namespace scpi::mnemonics {
-namespace Sense {
-namespace Bandwidth {
+namespace scpi {
+namespace sense {
+namespace bandwidth {
 namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(AUTO, CMnemonics::AUTO),
     ADD_SUBSYSTEM_COMMAND_MNEMONIC(CMnemonics::AUTO),
@@ -46,7 +46,7 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(BANDwidth, CMnemonics::BANDwidth) {
 };
 }  // namespace detail
 
-using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(BANDwidth);
-}  // namespace Bandwidth
-}  // namespace Sense
-}  // namespace scpi::mnemonics
+using mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(BANDwidth);
+}  // namespace bandwidth
+}  // namespace sense
+}  // namespace scpi

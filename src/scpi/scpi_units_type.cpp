@@ -20,34 +20,34 @@
 
 using namespace scpi;
 
-const FrequencyUnitsType::Type FrequencyUnitsType::Hz{"HZ"};
-const FrequencyUnitsType::Type FrequencyUnitsType::kHz{"KHZ"};
-const FrequencyUnitsType::Type FrequencyUnitsType::MHz{"MHZ"};
-const FrequencyUnitsType::Type FrequencyUnitsType::GHz{"GHZ"};
+const frequency_units::type frequency_units::Hz{"HZ"};
+const frequency_units::type frequency_units::kHz{"KHZ"};
+const frequency_units::type frequency_units::MHz{"MHZ"};
+const frequency_units::type frequency_units::GHz{"GHZ"};
 
-const CurrentUnitsType::Type CurrentUnitsType::A{"A"};
-const CurrentUnitsType::Type CurrentUnitsType::mA{"MA"};
-const CurrentUnitsType::Type CurrentUnitsType::uA{"UA"};
+const current_units::type current_units::A{"A"};
+const current_units::type current_units::mA{"MA"};
+const current_units::type current_units::uA{"UA"};
 
-const PowerUnitsType::Type PowerUnitsType::dB{"DB"};
-const PowerUnitsType::Type PowerUnitsType::dBm{"DBM"};
-const PowerUnitsType::Type PowerUnitsType::dBmV{"DBMV"};
-const PowerUnitsType::Type PowerUnitsType::dBuV{"DBUV"};
-const PowerUnitsType::Type PowerUnitsType::dBuVEMF{"DBUVEMF"};
-const PowerUnitsType::Type PowerUnitsType::V{"V"};
-const PowerUnitsType::Type PowerUnitsType::W{"W"};
+const power_units::type power_units::dB{"DB"};
+const power_units::type power_units::dBm{"DBM"};
+const power_units::type power_units::dBmV{"DBMV"};
+const power_units::type power_units::dBuV{"DBUV"};
+const power_units::type power_units::dBuVEMF{"DBUVEMF"};
+const power_units::type power_units::V{"V"};
+const power_units::type power_units::W{"W"};
 
-const VoltageUnitsType::Type VoltageUnitsType::V{"V"};
-const VoltageUnitsType::Type VoltageUnitsType::mV{"MV"};
-const VoltageUnitsType::Type VoltageUnitsType::uV{"UV"};
+const voltage_units::type voltage_units::V{"V"};
+const voltage_units::type voltage_units::mV{"MV"};
+const voltage_units::type voltage_units::uV{"UV"};
 
-const TemperatureUnitsType::Type TemperatureUnitsType::C{"CEL"};
-const TemperatureUnitsType::Type TemperatureUnitsType::F{"FAR"};
-const TemperatureUnitsType::Type TemperatureUnitsType::K{"K"};
+const temperature_units::type temperature_units::C{"CEL"};
+const temperature_units::type temperature_units::F{"FAR"};
+const temperature_units::type temperature_units::K{"K"};
 
-const TimeUnitsType::Type TimeUnitsType::H{"HOUR"};
-const TimeUnitsType::Type TimeUnitsType::M{"MIN"};
-const TimeUnitsType::Type TimeUnitsType::S{"SEC"};
+const time_units::type time_units::H{"HOUR"};
+const time_units::type time_units::M{"MIN"};
+const time_units::type time_units::S{"SEC"};
 
-const AngleUnitsType::Type AngleUnitsType::Deg{"DEG"};
-const AngleUnitsType::Type AngleUnitsType::Rad{"RAD"};
+const angle_units::type angle_units::deg{"DEG"};
+const angle_units::type angle_units::rad{"RAD"};

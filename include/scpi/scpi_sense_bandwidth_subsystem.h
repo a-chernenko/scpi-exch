@@ -21,22 +21,21 @@
 #include "scpi_base.h"
 
 namespace scpi {
-class SCPI_API CSENSeBANDwidthSubsystem {
+class SCPI_API SENSeBANDwidthSubsystem {
  public:
-  CSENSeBANDwidthSubsystem(const scpi_base &);
-  void SetResolution(const double, const ChannelType &channel = {}) const;
-  double GetResolution(const ChannelType &channel = {}) const;
-  void SetResolutionAuto(const bool, const ChannelType &channel = {}) const;
-  bool GetResolutionAuto(const ChannelType &channel = {}) const;
-  void SetVideo(const double, const ChannelType &channel = {}) const;
-  double GetVideo(const ChannelType &channel = {}) const;
-  void SetVideoAuto(const bool, const ChannelType &channel = {}) const;
-  bool GetVideoAuto(const ChannelType &channel = {}) const;
+  SENSeBANDwidthSubsystem(const scpi_base &);
+  void set_resolution(const double, const channel_type &channel = {}) const;
+  double get_resolution(const channel_type &channel = {}) const;
+  void set_resolution_auto(const bool, const channel_type &channel = {}) const;
+  bool get_resolution_auto(const channel_type &channel = {}) const;
+  void set_video(const double, const channel_type &channel = {}) const;
+  double get_video(const channel_type &channel = {}) const;
+  void set_video_auto(const bool, const channel_type &channel = {}) const;
+  bool get_video_auto(const channel_type &channel = {}) const;
 
-  CSENSeBANDwidthSubsystem() = delete;
-  CSENSeBANDwidthSubsystem(const CSENSeBANDwidthSubsystem &) = delete;
-  CSENSeBANDwidthSubsystem &operator=(const CSENSeBANDwidthSubsystem &) =
-      delete;
+  SENSeBANDwidthSubsystem() = delete;
+  SENSeBANDwidthSubsystem(const SENSeBANDwidthSubsystem &) = delete;
+  SENSeBANDwidthSubsystem &operator=(const SENSeBANDwidthSubsystem &) = delete;
 
  private:
   const scpi_base &_scpi;

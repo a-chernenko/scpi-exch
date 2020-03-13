@@ -21,22 +21,22 @@
 #include "scpi_base.h"
 
 namespace scpi {
-class SCPI_API CSWEepSubsystem {
+class SCPI_API SWEepSubsystem {
  public:
-  void SetPoints(const double, const ChannelType &channel = {}) const;
-  double GetPoints(const ChannelType &channel = {}) const;
-  void SetStep(const double, const ChannelType &channel = {}) const;
-  double GetStep(const ChannelType &channel = {}) const;
-  void SetCount(const double, const ChannelType &channel = {}) const;
-  double GetGount(const ChannelType &channel = {}) const;
+  void set_points(const double, const channel_type &channel = {}) const;
+  double get_points(const channel_type &channel = {}) const;
+  void set_step(const double, const channel_type &channel = {}) const;
+  double get_step(const channel_type &channel = {}) const;
+  void set_count(const double, const channel_type &channel = {}) const;
+  double get_count(const channel_type &channel = {}) const;
 
   class SCPI_API CTIME {
    public:
     CTIME(const scpi_base &scpi);
-    void Set(const double, const ChannelType &channel = {}) const;
-    double Get(const ChannelType &channel = {}) const;
-    void SetAuto(const bool, const ChannelType &channel = {}) const;
-    bool GetAuto(const ChannelType &channel = {}) const;
+    void set(const double, const channel_type &channel = {}) const;
+    double get(const channel_type &channel = {}) const;
+    void set_auto(const bool, const channel_type &channel = {}) const;
+    bool get_auto(const channel_type &channel = {}) const;
 
     CTIME() = delete;
     CTIME(const CTIME &) = delete;
@@ -46,12 +46,12 @@ class SCPI_API CSWEepSubsystem {
     const scpi_base &_scpi;
   } TIME;
 
-  CSWEepSubsystem() = delete;
-  CSWEepSubsystem(const CSWEepSubsystem &) = delete;
-  CSWEepSubsystem &operator=(const CSWEepSubsystem &) = delete;
+  SWEepSubsystem() = delete;
+  SWEepSubsystem(const SWEepSubsystem &) = delete;
+  SWEepSubsystem &operator=(const SWEepSubsystem &) = delete;
 
  protected:
-  CSWEepSubsystem(const scpi_base &);
+  SWEepSubsystem(const scpi_base &);
   const scpi_base &_scpi;
 };
 }  // namespace scpi

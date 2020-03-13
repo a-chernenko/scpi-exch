@@ -20,9 +20,9 @@
 
 #include "scpi_mnemonics.h"
 
-namespace scpi::mnemonics {
-namespace Source {
-namespace Protection {
+namespace scpi {
+namespace source {
+namespace protection {
 namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(LEVel, CMnemonics::LEVel),
     ADD_SUBSYSTEM_COMMAND_MNEMONIC(CMnemonics::LEVel),
@@ -48,7 +48,7 @@ CREATE_SUBSYSTEM_MNEMONIC(PROTection, CMnemonics::PROTection) {
 }  // namespace detail
 
 template <std::size_t N, const const_string<N> &topsubsystem>
-using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(PROTection)<N, topsubsystem>;
-}  // namespace Protection
-}  // namespace Source
-}  // namespace scpi::mnemonics
+using mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(PROTection)<N, topsubsystem>;
+}  // namespace protection
+}  // namespace source
+}  // namespace scpi

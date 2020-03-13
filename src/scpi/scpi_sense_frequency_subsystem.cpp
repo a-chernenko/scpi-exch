@@ -20,5 +20,5 @@
 
 using namespace scpi;
 
-CSENSeFREQuencySubsystem::CSENSeFREQuencySubsystem(const scpi_base &scpi)
-    : CFREQuencySubsystem{scpi} {}
+SENSeFREQuencySubsystem::SENSeFREQuencySubsystem(const scpi_base &scpi)
+    : FREQuencySubsystem{scpi} {}

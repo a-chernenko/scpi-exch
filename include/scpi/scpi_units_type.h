@@ -23,84 +23,85 @@
 #include "scpi_export.h"
 
 namespace scpi {
-struct UnitsTypeBase {
+struct units_type_base {
  public:
-  explicit UnitsTypeBase(const char value[]) : value(value) {}
+  explicit units_type_base(const char value[]) : value(value) {}
   std::string to_string() const {
     std::string str(value);
     return str;
   }
   const char *c_str() const { return value; }
-  friend std::ostream &operator<<(std::ostream &lhs, const UnitsTypeBase &rhs) {
+  friend std::ostream &operator<<(std::ostream &lhs,
+                                  const units_type_base &rhs) {
     lhs << rhs.value;
     return lhs;
   }
 
-  UnitsTypeBase() = delete;
-  UnitsTypeBase(const UnitsTypeBase &) = default;
-  UnitsTypeBase &operator=(const UnitsTypeBase &) = default;
+  units_type_base() = delete;
+  units_type_base(const units_type_base &) = default;
+  units_type_base &operator=(const units_type_base &) = default;
 
  private:
   const char *const value{};
 };
 
-struct SCPI_API VoltageUnitsType : public UnitsTypeBase {
-  using Type = UnitsTypeBase;
-  static const Type V;
-  static const Type mV;
-  static const Type uV;
-  VoltageUnitsType() = delete;
+struct SCPI_API voltage_units : public units_type_base {
+  using type = units_type_base;
+  static const type V;
+  static const type mV;
+  static const type uV;
+  voltage_units() = delete;
 };
 
-struct SCPI_API PowerUnitsType : public UnitsTypeBase {
-  using Type = UnitsTypeBase;
-  static const Type dB;
-  static const Type dBm;
-  static const Type dBmV;
-  static const Type dBuV;
-  static const Type dBuVEMF;
-  static const Type V;
-  static const Type W;
-  PowerUnitsType() = delete;
+struct SCPI_API power_units : public units_type_base {
+  using type = units_type_base;
+  static const type dB;
+  static const type dBm;
+  static const type dBmV;
+  static const type dBuV;
+  static const type dBuVEMF;
+  static const type V;
+  static const type W;
+  power_units() = delete;
 };
 
-struct SCPI_API CurrentUnitsType : public UnitsTypeBase {
-  using Type = UnitsTypeBase;
-  static const Type A;
-  static const Type mA;
-  static const Type uA;
-  CurrentUnitsType() = delete;
+struct SCPI_API current_units : public units_type_base {
+  using type = units_type_base;
+  static const type A;
+  static const type mA;
+  static const type uA;
+  current_units() = delete;
 };
 
-struct SCPI_API FrequencyUnitsType : public UnitsTypeBase {
-  using Type = UnitsTypeBase;
-  static const Type Hz;
-  static const Type kHz;
-  static const Type MHz;
-  static const Type GHz;
-  FrequencyUnitsType() = delete;
+struct SCPI_API frequency_units : public units_type_base {
+  using type = units_type_base;
+  static const type Hz;
+  static const type kHz;
+  static const type MHz;
+  static const type GHz;
+  frequency_units() = delete;
 };
 
-struct SCPI_API TemperatureUnitsType : public UnitsTypeBase {
-  using Type = UnitsTypeBase;
-  static const Type C;
-  static const Type F;
-  static const Type K;
-  TemperatureUnitsType() = delete;
+struct SCPI_API temperature_units : public units_type_base {
+  using type = units_type_base;
+  static const type C;
+  static const type F;
+  static const type K;
+  temperature_units() = delete;
 };
 
-struct SCPI_API TimeUnitsType : public UnitsTypeBase {
-  using Type = UnitsTypeBase;
-  static const Type H;
-  static const Type M;
-  static const Type S;
-  TimeUnitsType() = delete;
+struct SCPI_API time_units : public units_type_base {
+  using type = units_type_base;
+  static const type H;
+  static const type M;
+  static const type S;
+  time_units() = delete;
 };
 
-struct SCPI_API AngleUnitsType : public UnitsTypeBase {
-  using Type = UnitsTypeBase;
-  static const Type Deg;
-  static const Type Rad;
-  AngleUnitsType() = delete;
+struct SCPI_API angle_units : public units_type_base {
+  using type = units_type_base;
+  static const type deg;
+  static const type rad;
+  angle_units() = delete;
 };
 }  // namespace scpi

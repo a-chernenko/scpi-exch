@@ -25,18 +25,18 @@
 #include "scpi_source_voltage_subsystem.h"
 
 namespace scpi {
-class SCPI_API CSOURceSubsystem {
+class SCPI_API SOURceSubsystem {
  public:
-  CSOURceSubsystem(const scpi_base&);
-  CSOURceCURRentSubsystem CURRent;
-  CSOURceVOLTageSubsystem VOLTage;
-  CSOURceFREQuencySubsystem FREQuency;
-  CSOURcePOWerSubsystem POWer;
-  CSOURceMARKerSubsystem MARKer;
+  SOURceSubsystem(const scpi_base&);
+  SOURceCURRentSubsystem CURRent;
+  SOURceVOLTageSubsystem VOLTage;
+  SOURceFREQuencySubsystem FREQuency;
+  SOURcePOWerSubsystem POWer;
+  SOURceMARKerSubsystem MARKer;
 
-  CSOURceSubsystem() = delete;
-  CSOURceSubsystem(const CSOURceSubsystem&) = delete;
-  CSOURceSubsystem& operator=(const CSOURceSubsystem&) = delete;
+  SOURceSubsystem() = delete;
+  SOURceSubsystem(const SOURceSubsystem&) = delete;
+  SOURceSubsystem& operator=(const SOURceSubsystem&) = delete;
 
  private:
   const scpi_base& _scpi;
