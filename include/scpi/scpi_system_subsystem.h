@@ -21,13 +21,13 @@
 
 #include "scpi_base.h"
 
-namespace Scpi {
+namespace scpi {
 class SCPI_API CSYSTemSubsystem {
  public:
-  CSYSTemSubsystem(const CScpiBase &);
+  CSYSTemSubsystem(const scpi_base &);
   class SCPI_API CERRor {
    public:
-    CERRor(const CScpiBase &scpi);
+    CERRor(const scpi_base &scpi);
     void GetNext(int &errorCode, std::string &errorMessage) const;
     int GetCount() const;
 
@@ -36,11 +36,11 @@ class SCPI_API CSYSTemSubsystem {
     CERRor &operator=(const CERRor &) = delete;
 
    private:
-    const CScpiBase &m_Scpi;
+    const scpi_base &_scpi;
   } m_ERRor;
   class SCPI_API LOCK {
    public:
-    LOCK(const CScpiBase &scpi);
+    LOCK(const scpi_base &scpi);
     void Lock() const;
     void Release() const;
 
@@ -49,7 +49,7 @@ class SCPI_API CSYSTemSubsystem {
     LOCK &operator=(const LOCK &) = delete;
 
    private:
-    const CScpiBase &m_Scpi;
+    const scpi_base &_scpi;
   } m_LOCK;
 
   CSYSTemSubsystem() = delete;
@@ -57,7 +57,7 @@ class SCPI_API CSYSTemSubsystem {
   CSYSTemSubsystem &operator=(const CSYSTemSubsystem &) = delete;
 
  private:
-  const CScpiBase &m_Scpi;
+  const scpi_base &_scpi;
 };
 }  // namespace Scpi
 

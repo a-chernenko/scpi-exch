@@ -24,26 +24,25 @@
 #include "scpi_source_protection_commands.h"
 #include "scpi_units_type.h"
 
-
-namespace Scpi {
+namespace scpi {
 class SCPI_API CPOWerSubsystem {
  public:
   CSOURcePROTectionCommands<sizeof(ScpiMnemonics::CMnemonics::POWer),
                             ScpiMnemonics::CMnemonics::POWer,
                             PowerUnitsType::Type>
-      m_PROTection;
+      PROTection;
   CSOURceLEVelCommands<sizeof(ScpiMnemonics::CMnemonics::POWer),
                        ScpiMnemonics::CMnemonics::POWer, PowerUnitsType::Type>
-      m_LEVel;
+      LEVel;
 
   CPOWerSubsystem() = delete;
   CPOWerSubsystem(const CPOWerSubsystem&) = delete;
   CPOWerSubsystem& operator=(const CPOWerSubsystem&) = delete;
 
  protected:
-  CPOWerSubsystem(const CScpiBase&);
-  const CScpiBase &m_Scpi;
+  CPOWerSubsystem(const scpi_base&);
+  const scpi_base& _scpi;
 };
-}  // namespace Scpi
+}  // namespace scpi
 
 #endif  // SCPI_POWER_SUBSYSTEM_H

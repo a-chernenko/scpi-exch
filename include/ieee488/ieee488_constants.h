@@ -16,16 +16,15 @@
 
 */
 
-#ifndef IEEE4882_CONSTANTS_H
-#define IEEE4882_CONSTANTS_H
+#pragma once
 
-namespace Ieee4882 {
-struct CIeee4882Constants {
+namespace scpi {
+namespace ieee488 {
+struct constants {
  protected:
-  static const unsigned int QueryTimeoutDefault_ms{10 * 1000};
-  static const unsigned int SelfTestTimeout_ms{5 * 60 * 1000};
-  CIeee4882Constants() = default;
+  static const unsigned int query_timeout_ms{10 * 1000};
+  static const unsigned int self_test_timeout_ms{5 * 60 * 1000};
+  constants() = default;
 };
-}  // namespace Ieee4882
-
-#endif  // IEEE4882_CONSTANTS_H
+}  // namespace ieee488
+}  // namespace scpi

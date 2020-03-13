@@ -21,7 +21,7 @@
 
 #include "scpi_base.h"
 
-namespace Scpi {
+namespace scpi {
 enum class QUEStionableStatusType : unsigned int {
   VOLTage,
   CURRent,
@@ -37,53 +37,53 @@ enum class QUEStionableStatusType : unsigned int {
 
 class CSTATusSubsystem {
  public:
-  CSTATusSubsystem(const CScpiBase &);
+  CSTATusSubsystem(const scpi_base &);
 
-  template <typename RegisterType>
-  void GetOPERationStatusEnable(RegisterType &,
+  template <typename register_type>
+  void GetOPERationStatusEnable(register_type &,
                                 const ChannelType &channel = {}) const;
-  template <typename RegisterType>
-  void SetOPERationStatusEnable(const RegisterType &,
+  template <typename register_type>
+  void SetOPERationStatusEnable(const register_type &,
                                 const ChannelType &channel = {}) const;
-  template <typename RegisterType>
-  void GetOPERationStatusRegister(RegisterType &,
+  template <typename register_type>
+  void GetOPERationStatusRegister(register_type &,
                                   const ChannelType &channel = {}) const;
-  template <typename RegisterType>
-  void GetOPERationStatusEvent(RegisterType &,
+  template <typename register_type>
+  void GetOPERationStatusEvent(register_type &,
                                const ChannelType &channel = {}) const;
   //! \todo добавить PTR
   //! \todo добавить NTR
 
-  template <typename RegisterType>
-  void GetQUEStionableStatusEnable(RegisterType &,
+  template <typename register_type>
+  void GetQUEStionableStatusEnable(register_type &,
                                    const ChannelType &channel = {}) const;
-  template <typename RegisterType>
-  void SetQUEStionableStatusEnable(const RegisterType &,
+  template <typename register_type>
+  void SetQUEStionableStatusEnable(const register_type &,
                                    const ChannelType &channel = {}) const;
-  template <typename RegisterType>
-  void GetQUEStionableStatusRegister(RegisterType &,
+  template <typename register_type>
+  void GetQUEStionableStatusRegister(register_type &,
                                      const ChannelType &channel = {}) const;
-  template <typename RegisterType>
-  void GetQUEStionableStatusEvent(RegisterType &,
+  template <typename register_type>
+  void GetQUEStionableStatusEvent(register_type &,
                                   const ChannelType &channel = {}) const;
   //! \todo добавить PTR
   //! \todo добавить NTR
 
-  template <typename RegisterType>
+  template <typename register_type>
   void GetQUEStionableStatusEnable(const QUEStionableStatusType &,
-                                   RegisterType &,
+                                   register_type &,
                                    const ChannelType &channel = {}) const;
-  template <typename RegisterType>
+  template <typename register_type>
   void SetQUEStionableStatusEnable(const QUEStionableStatusType &,
-                                   const RegisterType &,
+                                   const register_type &,
                                    const ChannelType &channel = {}) const;
-  template <typename RegisterType>
+  template <typename register_type>
   void GetQUEStionableStatusRegister(const QUEStionableStatusType &,
-                                     RegisterType &,
+                                     register_type &,
                                      const ChannelType &channel = {}) const;
-  template <typename RegisterType>
+  template <typename register_type>
   void GetQUEStionableStatusEvent(const QUEStionableStatusType &,
-                                  RegisterType &,
+                                  register_type &,
                                   const ChannelType &channel = {}) const;
 
   CSTATusSubsystem() = delete;
@@ -91,7 +91,7 @@ class CSTATusSubsystem {
   CSTATusSubsystem &operator=(const CSTATusSubsystem &) = delete;
 
  private:
-  const CScpiBase &m_Scpi;
+  const scpi_base &_scpi;
 };
 }  // namespace Scpi
 

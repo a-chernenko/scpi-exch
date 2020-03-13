@@ -23,7 +23,7 @@
 
 namespace ScpiMnemonics {
 namespace Sweep {
-namespace Detail {
+namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(COUNt, CMnemonics::COUNt),
     ADD_SUBSYSTEM_COMMAND_MNEMONIC(CMnemonics::COUNt),
     ADD_SUBSYSTEM_QUERY_MNEMONIC(CMnemonics::COUNt){};
@@ -52,9 +52,9 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(SWEep, CMnemonics::SWEep) {
   ADD_TOP_SUBSYSTEM_MNEMONIC(COUNt, SWEep);
   ADD_TOP_SUBSYSTEM_MNEMONIC(TIME, SWEep);
 };
-}  // namespace Detail
+}  // namespace detail
 
-using Mnemonics = Detail::SUBSYSTEM_MNEMONIC_TYPE(SWEep);
+using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(SWEep);
 }  // namespace Sweep
 }  // namespace ScpiMnemonics
 

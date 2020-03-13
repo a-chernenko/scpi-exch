@@ -18,7 +18,7 @@
 
 #include "scpi_source_frequency_subsystem.h"
 
-using namespace Scpi;
+using namespace scpi;
 
-CSOURceFREQuencySubsystem::CSOURceFREQuencySubsystem(const CScpiBase &scpi)
+CSOURceFREQuencySubsystem::CSOURceFREQuencySubsystem(const scpi_base &scpi)
     : CFREQuencySubsystem{scpi} {}

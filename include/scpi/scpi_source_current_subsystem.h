@@ -21,10 +21,10 @@
 
 #include "scpi_current_subsystem.h"
 
-namespace Scpi {
+namespace scpi {
 class SCPI_API CSOURceCURRentSubsystem : public CCURRentSubsystem {
  public:
-  CSOURceCURRentSubsystem(const CScpiBase&);
+  CSOURceCURRentSubsystem(const scpi_base&);
 
   CSOURceCURRentSubsystem() = delete;
   CSOURceCURRentSubsystem(const CSOURceCURRentSubsystem&) = delete;

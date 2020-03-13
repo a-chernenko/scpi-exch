@@ -21,10 +21,10 @@
 
 #include "scpi_base.h"
 
-namespace Scpi {
+namespace scpi {
 class SCPI_API CSENSeBANDwidthSubsystem {
  public:
-  CSENSeBANDwidthSubsystem(const CScpiBase &);
+  CSENSeBANDwidthSubsystem(const scpi_base &);
   void SetResolution(const double, const ChannelType &channel = {}) const;
   double GetResolution(const ChannelType &channel = {}) const;
   void SetResolutionAuto(const bool, const ChannelType &channel = {}) const;
@@ -40,7 +40,7 @@ class SCPI_API CSENSeBANDwidthSubsystem {
       delete;
 
  private:
-  const CScpiBase &m_Scpi;
+  const scpi_base &_scpi;
 };
 }  // namespace Scpi
 

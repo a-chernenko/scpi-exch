@@ -18,7 +18,7 @@
 
 #include "scpi_sense_sweep_subsystem.h"
 
-using namespace Scpi;
+using namespace scpi;
 
-CSENSeSWEepSubsystem::CSENSeSWEepSubsystem(const CScpiBase &scpi)
+CSENSeSWEepSubsystem::CSENSeSWEepSubsystem(const scpi_base &scpi)
     : CSWEepSubsystem{scpi} {}

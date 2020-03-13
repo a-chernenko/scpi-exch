@@ -22,134 +22,134 @@
 #include <stdexcept>
 #include "scpi_status_mnemonics.h"
 
-namespace Scpi {
-template <typename RegisterType>
+namespace scpi {
+template <typename register_type>
 void CSTATusSubsystem::GetOPERationStatusEnable(
-    RegisterType &value, const ChannelType &channel) const {
+    register_type &value, const ChannelType &channel) const {
   constexpr auto query =
       ScpiMnemonics::Status::Mnemonics::OPERation.ENABle.QueryMnemonic;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
 }
 
-template <typename RegisterType>
+template <typename register_type>
 void CSTATusSubsystem::SetOPERationStatusEnable(
-    const RegisterType &value, const ChannelType &channel) const {
+    const register_type &value, const ChannelType &channel) const {
   constexpr auto command =
       ScpiMnemonics::Status::Mnemonics::OPERation.ENABle.CommandMnemonic;
- m_Scpi.Command(command, channel, value);
+ _scpi.Command(command, channel, value);
 }
 
-template <typename RegisterType>
+template <typename register_type>
 void CSTATusSubsystem::GetOPERationStatusRegister(
-    RegisterType &value, const ChannelType &channel) const {
+    register_type &value, const ChannelType &channel) const {
   constexpr auto query =
       ScpiMnemonics::Status::Mnemonics::OPERation.CONDition.QueryMnemonic;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
 }
 
-template <typename RegisterType>
+template <typename register_type>
 void CSTATusSubsystem::GetOPERationStatusEvent(
-    RegisterType &value, const ChannelType &channel) const {
+    register_type &value, const ChannelType &channel) const {
   constexpr auto query =
       ScpiMnemonics::Status::Mnemonics::OPERation.EVENT.QueryMnemonic;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
 }
 
-template <typename RegisterType>
+template <typename register_type>
 void CSTATusSubsystem::GetQUEStionableStatusEnable(
-    RegisterType &value, const ChannelType &channel) const {
+    register_type &value, const ChannelType &channel) const {
   constexpr auto query =
       ScpiMnemonics::Status::Mnemonics::QUEStionable.ENABle.QueryMnemonic;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
 }
 
-template <typename RegisterType>
+template <typename register_type>
 void CSTATusSubsystem::SetQUEStionableStatusEnable(
-    const RegisterType &value, const ChannelType &channel) const {
+    const register_type &value, const ChannelType &channel) const {
   constexpr auto command =
       ScpiMnemonics::Status::Mnemonics::QUEStionable.ENABle.CommandMnemonic;
- m_Scpi.Command(command, channel, value);
+ _scpi.Command(command, channel, value);
 }
 
-template <typename RegisterType>
+template <typename register_type>
 void CSTATusSubsystem::GetQUEStionableStatusRegister(
-    RegisterType &value, const ChannelType &channel) const {
+    register_type &value, const ChannelType &channel) const {
   constexpr auto query =
       ScpiMnemonics::Status::Mnemonics::QUEStionable.CONDition.QueryMnemonic;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
 }
 
-template <typename RegisterType>
+template <typename register_type>
 void CSTATusSubsystem::GetQUEStionableStatusEvent(
-    RegisterType &value, const ChannelType &channel) const {
+    register_type &value, const ChannelType &channel) const {
   constexpr auto query =
       ScpiMnemonics::Status::Mnemonics::QUEStionable.EVENT.QueryMnemonic;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
 }
 
-template <typename RegisterType>
+template <typename register_type>
 void CSTATusSubsystem::GetQUEStionableStatusEnable(
-    const QUEStionableStatusType &type, RegisterType &value,
+    const QUEStionableStatusType &type, register_type &value,
     const ChannelType &channel) const {
   switch (type) {
     case QUEStionableStatusType::VOLTage: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .VOLTage.ENABle.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::CURRent: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .CURRent.ENABle.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::TIME: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable.TIMe
                                  .ENABle.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::POWer: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .POWer.ENABle.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::TEMPerature: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .TEMPerature.ENABle.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::FREQuency: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .FREQuency.ENABle.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::PHASe: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .PHASe.ENABle.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::MODulation: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .MODulation.ENABle.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::CALibration: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .CALibration.ENABle.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::INTegrity: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .INTegrity.ENABle.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     default:
@@ -158,69 +158,69 @@ void CSTATusSubsystem::GetQUEStionableStatusEnable(
   }
 }
 
-template <typename RegisterType>
+template <typename register_type>
 void CSTATusSubsystem::SetQUEStionableStatusEnable(
-    const QUEStionableStatusType &type, const RegisterType &value,
+    const QUEStionableStatusType &type, const register_type &value,
     const ChannelType &channel) const {
   switch (type) {
     case QUEStionableStatusType::VOLTage: {
       constexpr auto command = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                    .VOLTage.ENABle.CommandMnemonic;
-     m_Scpi.Command(command, channel, value);
+     _scpi.Command(command, channel, value);
       break;
     }
     case QUEStionableStatusType::CURRent: {
       constexpr auto command = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                    .CURRent.ENABle.CommandMnemonic;
-     m_Scpi.Command(command, channel, value);
+     _scpi.Command(command, channel, value);
       break;
     }
     case QUEStionableStatusType::TIME: {
       constexpr auto command = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                    .TIMe.ENABle.CommandMnemonic;
-     m_Scpi.Command(command, channel, value);
+     _scpi.Command(command, channel, value);
       break;
     }
     case QUEStionableStatusType::POWer: {
       constexpr auto command = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                    .POWer.ENABle.CommandMnemonic;
-     m_Scpi.Command(command, channel, value);
+     _scpi.Command(command, channel, value);
       break;
     }
     case QUEStionableStatusType::TEMPerature: {
       constexpr auto command = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                    .TEMPerature.ENABle.CommandMnemonic;
-     m_Scpi.Command(command, channel, value);
+     _scpi.Command(command, channel, value);
       break;
     }
     case QUEStionableStatusType::FREQuency: {
       constexpr auto command = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                    .FREQuency.ENABle.CommandMnemonic;
-     m_Scpi.Command(command, channel, value);
+     _scpi.Command(command, channel, value);
       break;
     }
     case QUEStionableStatusType::PHASe: {
       constexpr auto command = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                    .PHASe.ENABle.CommandMnemonic;
-     m_Scpi.Command(command, channel, value);
+     _scpi.Command(command, channel, value);
       break;
     }
     case QUEStionableStatusType::MODulation: {
       constexpr auto command = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                    .MODulation.ENABle.CommandMnemonic;
-     m_Scpi.Command(command, channel, value);
+     _scpi.Command(command, channel, value);
       break;
     }
     case QUEStionableStatusType::CALibration: {
       constexpr auto command = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                    .CALibration.ENABle.CommandMnemonic;
-     m_Scpi.Command(command, channel, value);
+     _scpi.Command(command, channel, value);
       break;
     }
     case QUEStionableStatusType::INTegrity: {
       constexpr auto command = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                    .INTegrity.ENABle.CommandMnemonic;
-     m_Scpi.Command(command, channel, value);
+     _scpi.Command(command, channel, value);
       break;
     }
     default:
@@ -229,69 +229,69 @@ void CSTATusSubsystem::SetQUEStionableStatusEnable(
   }
 }
 
-template <typename RegisterType>
+template <typename register_type>
 void CSTATusSubsystem::GetQUEStionableStatusRegister(
-    const QUEStionableStatusType &type, RegisterType &value,
+    const QUEStionableStatusType &type, register_type &value,
     const ChannelType &channel) const {
   switch (type) {
     case QUEStionableStatusType::VOLTage: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .VOLTage.CONDition.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::CURRent: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .CURRent.CONDition.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::TIME: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable.TIMe
                                  .CONDition.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::POWer: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .POWer.CONDition.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::TEMPerature: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .TEMPerature.CONDition.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::FREQuency: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .FREQuency.CONDition.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::PHASe: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .PHASe.CONDition.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::MODulation: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .MODulation.CONDition.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::CALibration: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .CALibration.CONDition.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::INTegrity: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .INTegrity.CONDition.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     default:
@@ -300,69 +300,69 @@ void CSTATusSubsystem::GetQUEStionableStatusRegister(
   }
 }
 
-template <typename RegisterType>
+template <typename register_type>
 void CSTATusSubsystem::GetQUEStionableStatusEvent(
-    const QUEStionableStatusType &type, RegisterType &value,
+    const QUEStionableStatusType &type, register_type &value,
     const ChannelType &channel) const {
   switch (type) {
     case QUEStionableStatusType::VOLTage: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .VOLTage.EVENT.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::CURRent: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .CURRent.EVENT.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::TIME: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable.TIMe
                                  .EVENT.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::POWer: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .POWer.EVENT.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::TEMPerature: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .TEMPerature.EVENT.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::FREQuency: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .FREQuency.EVENT.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::PHASe: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .PHASe.EVENT.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::MODulation: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .MODulation.EVENT.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::CALibration: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .CALibration.EVENT.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     case QUEStionableStatusType::INTegrity: {
       constexpr auto query = ScpiMnemonics::Status::Mnemonics::QUEStionable
                                  .INTegrity.EVENT.QueryMnemonic;
-     m_Scpi.Query(query, channel, value);
+     _scpi.Query(query, channel, value);
       break;
     }
     default:

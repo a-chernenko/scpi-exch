@@ -18,7 +18,7 @@
 
 #include "scpi_source_current_subsystem.h"
 
-using namespace Scpi;
+using namespace scpi;
 
-CSOURceCURRentSubsystem::CSOURceCURRentSubsystem(const CScpiBase &scpi)
+CSOURceCURRentSubsystem::CSOURceCURRentSubsystem(const scpi_base &scpi)
     : CCURRentSubsystem{scpi} {}

@@ -22,7 +22,7 @@
 #include "scpi_base.h"
 #include "scpi_units_type.h"
 
-namespace Scpi {
+namespace scpi {
 class SCPI_API CFREQuencySubsystem {
  public:
   void Set(const double, const ChannelType &channel = {}) const;
@@ -44,8 +44,8 @@ class SCPI_API CFREQuencySubsystem {
   CFREQuencySubsystem &operator=(const CFREQuencySubsystem &) = delete;
 
  protected:
-  CFREQuencySubsystem(const CScpiBase &);
-  const CScpiBase &m_Scpi;
+  CFREQuencySubsystem(const scpi_base &);
+  const scpi_base &_scpi;
 };
 }  // namespace Scpi
 

@@ -18,7 +18,7 @@
 
 #include "scpi_power_subsystem.h"
 
-using namespace Scpi;
+using namespace scpi;
 
-CPOWerSubsystem::CPOWerSubsystem(const CScpiBase &scpi)
-    : m_PROTection{scpi}, m_LEVel{scpi}, m_Scpi{scpi} {}
+CPOWerSubsystem::CPOWerSubsystem(const scpi_base &scpi)
+    : PROTection{scpi}, LEVel{scpi}, _scpi{scpi} {}

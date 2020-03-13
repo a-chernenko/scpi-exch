@@ -21,10 +21,10 @@
 
 #include "scpi_power_subsystem.h"
 
-namespace Scpi {
+namespace scpi {
 class SCPI_API CSOURcePOWerSubsystem : public CPOWerSubsystem {
  public:
-  CSOURcePOWerSubsystem(const CScpiBase&);
+  CSOURcePOWerSubsystem(const scpi_base&);
 
   CSOURcePOWerSubsystem() = delete;
   CSOURcePOWerSubsystem(const CSOURcePOWerSubsystem&) = delete;

@@ -19,92 +19,92 @@
 #include "scpi_frequency_subsystem.h"
 #include "scpi_frequency_mnemonics.h"
 
-using namespace Scpi;
+using namespace scpi;
 using namespace ScpiMnemonics::Frequency;
 
-CFREQuencySubsystem::CFREQuencySubsystem(const CScpiBase &scpi)
-    :m_Scpi{scpi} {}
+CFREQuencySubsystem::CFREQuencySubsystem(const scpi_base &scpi)
+    :_scpi{scpi} {}
 
 void CFREQuencySubsystem::Set(const double value,
                               const ChannelType &channel) const {
   constexpr auto command = Mnemonics::FIXed.CommandMnemonic;
- m_Scpi.Command(command, channel, value);
+ _scpi.Command(command, channel, value);
 }
 
 void CFREQuencySubsystem::Set(const double value,
                               const FrequencyUnitsType::Type &units) const {
   constexpr auto command = Mnemonics::FIXed.CommandMnemonic;
- m_Scpi.Command(command, units, value);
+ _scpi.Command(command, units, value);
 }
 
 double CFREQuencySubsystem::Get(const ChannelType &channel) const {
   constexpr auto query = Mnemonics::FIXed.QueryMnemonic;
   double value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }
 
 void CFREQuencySubsystem::SetStart(const double value,
                                    const ChannelType &channel) const {
   constexpr auto command = Mnemonics::STARt.CommandMnemonic;
- m_Scpi.Command(command, channel, value);
+ _scpi.Command(command, channel, value);
 }
 
 double CFREQuencySubsystem::GetStart(const ChannelType &channel) const {
   constexpr auto query = Mnemonics::STARt.QueryMnemonic;
   double value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }
 
 void CFREQuencySubsystem::SetStop(const double value,
                                   const ChannelType &channel) const {
   constexpr auto command = Mnemonics::STOP.CommandMnemonic;
- m_Scpi.Command(command, channel, value);
+ _scpi.Command(command, channel, value);
 }
 
 double CFREQuencySubsystem::GetStop(const ChannelType &channel) const {
   constexpr auto query = Mnemonics::STOP.QueryMnemonic;
   double value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }
 
 void CFREQuencySubsystem::SetCenter(const double value,
                                     const ChannelType &channel) const {
   constexpr auto command = Mnemonics::CENTer.CommandMnemonic;
- m_Scpi.Command(command, channel, value);
+ _scpi.Command(command, channel, value);
 }
 
 double CFREQuencySubsystem::GetCenter(const ChannelType &channel) const {
   constexpr auto query = Mnemonics::CENTer.QueryMnemonic;
   double value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }
 
 void CFREQuencySubsystem::SetSpan(const double value,
                                   const ChannelType &channel) const {
   constexpr auto command = Mnemonics::SPAN.CommandMnemonic;
- m_Scpi.Command(command, channel, value);
+ _scpi.Command(command, channel, value);
 }
 
 double CFREQuencySubsystem::GetSpan(const ChannelType &channel) const {
   constexpr auto query = Mnemonics::SPAN.QueryMnemonic;
   double value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }
 
 void CFREQuencySubsystem::SetOffset(const double value,
                                     const ChannelType &channel) const {
   constexpr auto command = Mnemonics::OFFSet.CommandMnemonic;
- m_Scpi.Command(command, channel, value);
+ _scpi.Command(command, channel, value);
 }
 
 double CFREQuencySubsystem::GetOffset(const ChannelType &channel) const {
   constexpr auto query = Mnemonics::OFFSet.QueryMnemonic;
   double value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }

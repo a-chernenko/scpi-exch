@@ -21,7 +21,7 @@
 
 #include "scpi_base.h"
 
-namespace Scpi {
+namespace scpi {
 class SCPI_API CSWEepSubsystem {
  public:
   void SetPoints(const double, const ChannelType &channel = {}) const;
@@ -33,7 +33,7 @@ class SCPI_API CSWEepSubsystem {
 
   class SCPI_API CTIME {
    public:
-    CTIME(const CScpiBase &scpi);
+    CTIME(const scpi_base &scpi);
     void Set(const double, const ChannelType &channel = {}) const;
     double Get(const ChannelType &channel = {}) const;
     void SetAuto(const bool, const ChannelType &channel = {}) const;
@@ -44,7 +44,7 @@ class SCPI_API CSWEepSubsystem {
     CTIME &operator=(const CTIME &) = delete;
 
    private:
-    const CScpiBase &m_Scpi;
+    const scpi_base &_scpi;
   } m_TIME;
 
   CSWEepSubsystem() = delete;
@@ -52,8 +52,8 @@ class SCPI_API CSWEepSubsystem {
   CSWEepSubsystem &operator=(const CSWEepSubsystem &) = delete;
 
  protected:
-  CSWEepSubsystem(const CScpiBase &);
-  const CScpiBase &m_Scpi;
+  CSWEepSubsystem(const scpi_base &);
+  const scpi_base &_scpi;
 };
 }  // namespace Scpi
 

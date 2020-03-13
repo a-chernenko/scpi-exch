@@ -21,12 +21,12 @@
 
 #include "scpi_base.h"
 
-namespace Scpi {
+namespace scpi {
 template <std::size_t N, const const_string<N> &topsubsystem,
           typename UnitsType>
 class CSOURceLEVelCommands {
  public:
-  CSOURceLEVelCommands(const CScpiBase &);
+  CSOURceLEVelCommands(const scpi_base &);
   void Set(const double, const ChannelType &channel = {}) const;
   void Set(const double, const UnitsType &) const;
   double Get(const ChannelType &channel = {}) const;
@@ -38,7 +38,7 @@ class CSOURceLEVelCommands {
   CSOURceLEVelCommands &operator=(const CSOURceLEVelCommands &) = delete;
 
  private:
-  const CScpiBase &m_Scpi;
+  const scpi_base &_scpi;
 };
 }  // namespace Scpi
 

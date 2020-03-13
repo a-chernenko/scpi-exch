@@ -18,7 +18,7 @@
 
 #include "scpi_voltage_subsystem.h"
 
-using namespace Scpi;
+using namespace scpi;
 
-CVOLTageSubsystem::CVOLTageSubsystem(const CScpiBase &scpi)
-    : m_PROTection{scpi}, m_LEVel{scpi}, m_Scpi{scpi} {}
+CVOLTageSubsystem::CVOLTageSubsystem(const scpi_base &scpi)
+    : PROTection{scpi}, LEVel{scpi}, _scpi{scpi} {}

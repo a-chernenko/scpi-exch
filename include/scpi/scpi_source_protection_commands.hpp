@@ -21,12 +21,12 @@
 
 #include "scpi_source_protection_mnemonics.h"
 
-namespace Scpi {
+namespace scpi {
 template <std::size_t N, const const_string<N> &topsubsystem,
           typename UnitsType>
 CSOURcePROTectionCommands<N, topsubsystem, UnitsType>::
-    CSOURcePROTectionCommands(const CScpiBase &scpi)
-    :m_Scpi{scpi} {}
+    CSOURcePROTectionCommands(const scpi_base &scpi)
+    :_scpi{scpi} {}
 
 template <std::size_t N, const const_string<N> &topsubsystem,
           typename UnitsType>
@@ -35,7 +35,7 @@ void CSOURcePROTectionCommands<N, topsubsystem, UnitsType>::Clear(
   constexpr auto command =
       ScpiMnemonics::Source::Protection::Mnemonics<N, topsubsystem>::CLEar
           .Mnemonic;
- m_Scpi.Command(command, channel);
+ _scpi.Command(command, channel);
 }
 
 template <std::size_t N, const const_string<N> &topsubsystem,
@@ -46,7 +46,7 @@ bool CSOURcePROTectionCommands<N, topsubsystem, UnitsType>::IsTripped(
       ScpiMnemonics::Source::Protection::Mnemonics<N, topsubsystem>::TRIPped
           .QueryMnemonic;
   bool value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }
 
@@ -57,7 +57,7 @@ void CSOURcePROTectionCommands<N, topsubsystem, UnitsType>::SetState(
   constexpr auto command =
       ScpiMnemonics::Source::Protection::Mnemonics<N, topsubsystem>::STATe
           .CommandMnemonic;
- m_Scpi.Command(command, channel, enabled);
+ _scpi.Command(command, channel, enabled);
 }
 
 template <std::size_t N, const const_string<N> &topsubsystem,
@@ -68,7 +68,7 @@ bool CSOURcePROTectionCommands<N, topsubsystem, UnitsType>::GetState(
       ScpiMnemonics::Source::Protection::Mnemonics<N, topsubsystem>::STATe
           .QueryMnemonic;
   bool value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }
 
@@ -79,7 +79,7 @@ void CSOURcePROTectionCommands<N, topsubsystem, UnitsType>::SetLevel(
   constexpr auto command =
       ScpiMnemonics::Source::Protection::Mnemonics<N, topsubsystem>::LEVel
           .CommandMnemonic;
- m_Scpi.Command(command, channel, level);
+ _scpi.Command(command, channel, level);
 }
 
 template <std::size_t N, const const_string<N> &topsubsystem,
@@ -89,7 +89,7 @@ void CSOURcePROTectionCommands<N, topsubsystem, UnitsType>::SetLevel(
   constexpr auto command =
       ScpiMnemonics::Source::Protection::Mnemonics<N, topsubsystem>::LEVel
           .CommandMnemonic;
- m_Scpi.Command(command, units, level);
+ _scpi.Command(command, units, level);
 }
 
 template <std::size_t N, const const_string<N> &topsubsystem,
@@ -100,7 +100,7 @@ double CSOURcePROTectionCommands<N, topsubsystem, UnitsType>::GetLevel(
       ScpiMnemonics::Source::Protection::Mnemonics<N, topsubsystem>::LEVel
           .QueryMnemonic;
   double value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }
 }  // namespace Scpi

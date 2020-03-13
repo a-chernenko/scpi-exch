@@ -24,7 +24,7 @@
 namespace ScpiMnemonics {
 namespace Source {
 namespace Level {
-namespace Detail {
+namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(AMPLitude, CMnemonics::AMPLitude),
     ADD_SUBSYSTEM_COMMAND_MNEMONIC(CMnemonics::AMPLitude),
     ADD_SUBSYSTEM_QUERY_MNEMONIC(CMnemonics::AMPLitude),
@@ -44,10 +44,10 @@ CREATE_SUBSYSTEM_MNEMONIC(LEVel, CMnemonics::LEVel),
     ADD_SUBSYSTEM_QUERY_MINIMUM_MNEMONIC(CMnemonics::LEVel) {
   ADD_TOP_SUBSYSTEM_MNEMONIC(IMMediate, LEVel);
 };
-}  // namespace Detail
+}  // namespace detail
 
 template <std::size_t N, const const_string<N> &topsubsystem>
-using Mnemonics = Detail::SUBSYSTEM_MNEMONIC_TYPE(LEVel)<N, topsubsystem>;
+using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(LEVel)<N, topsubsystem>;
 }  // namespace Level
 }  // namespace Source
 }  // namespace ScpiMnemonics

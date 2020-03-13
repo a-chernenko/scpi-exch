@@ -24,7 +24,7 @@
 #include "scpi_export.h"
 
 
-namespace Scpi {
+namespace scpi {
 struct UnitsTypeBase {
  public:
   explicit UnitsTypeBase(const char value[]) : value(value) {}

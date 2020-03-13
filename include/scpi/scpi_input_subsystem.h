@@ -21,10 +21,10 @@
 
 #include "scpi_base.h"
 
-namespace Scpi {
+namespace scpi {
 class SCPI_API CINPutSubsystem {
  public:
-  CINPutSubsystem(const CScpiBase &);
+  CINPutSubsystem(const scpi_base &);
   void SetImpedance(const double, const ChannelType &channel = {}) const;
   double GetImpedance(const ChannelType &channel = {}) const;
   void SetAttenuation(const double, const ChannelType &channel = {}) const;
@@ -37,7 +37,7 @@ class SCPI_API CINPutSubsystem {
   CINPutSubsystem &operator=(const CINPutSubsystem &) = delete;
 
  private:
-  const CScpiBase &m_Scpi;
+  const scpi_base &_scpi;
 };
 }  // namespace Scpi
 

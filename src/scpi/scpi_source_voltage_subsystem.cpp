@@ -18,7 +18,7 @@
 
 #include "scpi_source_voltage_subsystem.h"
 
-using namespace Scpi;
+using namespace scpi;
 
-CSOURceVOLTageSubsystem::CSOURceVOLTageSubsystem(const CScpiBase &scpi)
+CSOURceVOLTageSubsystem::CSOURceVOLTageSubsystem(const scpi_base &scpi)
     : CVOLTageSubsystem{scpi} {}

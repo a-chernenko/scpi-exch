@@ -22,8 +22,8 @@
 #include "register_type.h"
 
 namespace ScpiRegistersType {
-namespace Detail {
-enum class QUEStionableStatusRegisterBitMask : RegisterType::Register16BitType {
+namespace detail {
+enum class QUEStionableStatusRegisterBitMask : scpi::register_16bit_type {
   VOLTage = (1UL << 0),
   CURRent = (1UL << 1),
   TIME = (1UL << 2),
@@ -35,7 +35,7 @@ enum class QUEStionableStatusRegisterBitMask : RegisterType::Register16BitType {
   CALibration = (1UL << 8),
   INSTrumentSummary = (1UL << 13),
   CommandWarning = (1UL << 14),
-  AllBits =
+  all_bits =
       (VOLTage | CURRent | TIME | POWer | TEMPerature | FREQuency | PHASe |
        MODulation | CALibration | INSTrumentSummary | CommandWarning)
 };
@@ -49,15 +49,15 @@ struct QUEStionableStatusRegisterBitsType {
   bool PHASe : 1;
   bool MODulation : 1;
   bool CALibration : 1;
-  const bool _DeviceSpecific_9 : 1;
-  const bool _DeviceSpecific_10 : 1;
-  const bool _DeviceSpecific_11 : 1;
-  const bool _DeviceSpecific_12 : 1;
+  const bool device_specific_9 : 1;
+  const bool device_specific_10 : 1;
+  const bool device_specific_11 : 1;
+  const bool device_specific_12 : 1;
   bool INSTrumentSummary : 1;
   bool CommandWarning : 1;
   const bool _NOT_USED : 1;
 };
-enum class OPERationStatusRegisterBitMask : RegisterType::Register16BitType {
+enum class OPERationStatusRegisterBitMask : scpi::register_16bit_type {
   CALibrating = (1UL << 0),
   SETTing = (1UL << 1),
   RANGing = (1UL << 2),
@@ -68,7 +68,7 @@ enum class OPERationStatusRegisterBitMask : RegisterType::Register16BitType {
   CORRecting = (1UL << 7),
   INSTrumentSummary = (1UL << 13),
   PROGramRunning = (1UL << 14),
-  AllBits = (CALibrating | SETTing | RANGing | SWEeping | MEASuring |
+  all_bits = (CALibrating | SETTing | RANGing | SWEeping | MEASuring |
              TRIGgerWaitingSummary | ARMWaitingSummary | CORRecting |
              INSTrumentSummary | PROGramRunning)
 };
@@ -81,24 +81,24 @@ struct OPERationStatusRegisterBitsType {
   bool TRIGgerWaitingSummary : 1;
   bool ARMWaitingSummary : 1;
   bool CORRecting : 1;
-  const bool _DeviceSpecific_8 : 1;
-  const bool _DeviceSpecific_9 : 1;
-  const bool _DeviceSpecific_10 : 1;
-  const bool _DeviceSpecific_11 : 1;
-  const bool _DeviceSpecific_12 : 1;
+  const bool device_specific_8 : 1;
+  const bool device_specific_9 : 1;
+  const bool device_specific_10 : 1;
+  const bool device_specific_11 : 1;
+  const bool device_specific_12 : 1;
   bool INSTrumentSummary : 1;
   bool PROGramRunning : 1;
   const bool _NOT_USED : 1;
 };
-}  // namespace Detail
+}  // namespace detail
 
-using QUEStionableStatusRegisterType = RegisterType::Register16BitTypeAbstract<
-    Detail::QUEStionableStatusRegisterBitMask,
-    Detail::QUEStionableStatusRegisterBitsType>;
+using QUEStionableStatusRegisterType = scpi::register_16bit_abstract<
+    detail::QUEStionableStatusRegisterBitMask,
+    detail::QUEStionableStatusRegisterBitsType>;
 
-using OPERationStatusRegisterType = RegisterType::Register16BitTypeAbstract<
-    Detail::OPERationStatusRegisterBitMask,
-    Detail::OPERationStatusRegisterBitsType>;
+using OPERationStatusRegisterType = scpi::register_16bit_abstract<
+    detail::OPERationStatusRegisterBitMask,
+    detail::OPERationStatusRegisterBitsType>;
 }  // namespace ScpiRegistersType
 
 #endif  // SCPI_REGISTERS_TYPE_H

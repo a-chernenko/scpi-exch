@@ -16,13 +16,11 @@
 
 */
 
-#ifndef CONST_STRING_H
-#define CONST_STRING_H
+#pragma once
 
 #include <array>
 #include <iostream>
 #include <string>
-
 
 template <std::size_t N>
 class const_string {
@@ -148,5 +146,3 @@ struct const_string_from_integer {
   }
 
 #include "const_string.hpp"
-
-#endif  // CONST_STRING_H

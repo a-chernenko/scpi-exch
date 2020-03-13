@@ -21,10 +21,10 @@
 
 #include "scpi_base.h"
 
-namespace Scpi {
+namespace scpi {
 class SCPI_API CMEASureSubsystem {
  public:
-  CMEASureSubsystem(const CScpiBase &);
+  CMEASureSubsystem(const scpi_base &);
 
   double Read(const unsigned int, const ChannelType &channel = {}) const;
   double CurrentDC(const ChannelType &channel = {}) const;
@@ -36,7 +36,7 @@ class SCPI_API CMEASureSubsystem {
   CMEASureSubsystem &operator=(const CMEASureSubsystem &) = delete;
 
  private:
-  const CScpiBase &m_Scpi;
+  const scpi_base &_scpi;
 };
 }  // namespace Scpi
 

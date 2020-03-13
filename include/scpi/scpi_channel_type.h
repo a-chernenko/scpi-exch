@@ -21,7 +21,7 @@
 
 #include <string>
 
-namespace Scpi {
+namespace scpi {
 struct ChannelType {
  public:
   explicit ChannelType(unsigned int value) : value{value} {}

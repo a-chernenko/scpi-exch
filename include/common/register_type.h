@@ -16,80 +16,76 @@
 
 */
 
-#ifndef REGISTER_TYPE_H
-#define REGISTER_TYPE_H
+#pragma once
 
 #include <cstdint>
 #include <sstream>
 #include <string>
 #include <type_traits>
 
+namespace scpi {
+using register_32bit_type = uint32_t;
+using register_16bit_type = uint16_t;
+using register_8bit_type = uint8_t;
 
-namespace RegisterType {
-using Register32BitType = uint32_t;
-using Register16BitType = uint16_t;
-using Register8BitType = uint8_t;
-
-namespace Detail {
-template <typename RegisterType, typename BitMask, typename BitsType>
-class RegisterTypeAbstract {
-  union DataType;
+namespace detail {
+template <typename register_type, typename bit_mask, typename bits_type>
+class register_abstract {
+  union data_type;
 
  public:
-  DataType Data;
-  RegisterTypeAbstract() = default;
-  explicit RegisterTypeAbstract(const RegisterType&);
-  explicit RegisterTypeAbstract(const std::string&);
-  inline void SetRegister(const RegisterType&);
-  inline RegisterType GetRegister() const;
+  data_type data;
+  register_abstract() = default;
+  explicit register_abstract(const register_type&);
+  explicit register_abstract(const std::string&);
+  inline void set_register(const register_type&);
+  inline register_type get_register() const;
   inline std::string to_string() const;
 
  private:
-  union DataType {
+  union data_type {
    public:
-    friend RegisterTypeAbstract;
-    BitsType Bits;
-    DataType();
-    explicit DataType(const RegisterType&);
-    DataType& operator=(const DataType& val) {
+    friend register_abstract;
+    bits_type bits;
+    data_type();
+    explicit data_type(const register_type&);
+    data_type& operator=(const data_type& val) {
       if (this == &val) return *this;
-      Register = val.Register;
+      _register = val._register;
       return *this;
     }
-    inline void SetAllBits();
-    inline void ClearAllBits();
-    static_assert(std::is_same<RegisterType, Register8BitType>::value ||
-                      std::is_same<RegisterType, Register16BitType>::value ||
-                      std::is_same<RegisterType, Register32BitType>::value,
-                  "RegisterType is not equal Register8BitType, "
-                  "Register16BitType or Register32BitType!");
-    static_assert(std::is_class<BitsType>::value, "Wrong type of BitsType!");
-    static_assert(std::is_enum<BitMask>::value, "Wrong type of BitMask!");
-    static_assert(sizeof(BitsType) == sizeof(RegisterType),
-                  "BitsType is not equal RegisterType!");
-    static_assert(std::is_same<typename std::underlying_type<BitMask>::type,
-                               RegisterType>::value,
-                  "BitMask is not underlying type of RegisterType!");
+    inline void set_all_bits();
+    inline void clear_all_bits();
+    static_assert(std::is_same<register_type, register_8bit_type>::value ||
+                      std::is_same<register_type, register_16bit_type>::value ||
+                      std::is_same<register_type, register_32bit_type>::value,
+                  "register_type is not equal register_8bit_type, "
+                  "register_16bit_type or register_32bit_type!");
+    static_assert(std::is_class<bits_type>::value, "wrong type of bits_type!");
+    static_assert(std::is_enum<bit_mask>::value, "wrong type of bit_mask!");
+    static_assert(sizeof(bits_type) == sizeof(register_type),
+                  "bits_type is not equal register_type!");
+    static_assert(std::is_same<typename std::underlying_type<bit_mask>::type,
+                               register_type>::value,
+                  "bit_mask is not underlying type of register_type!");
 
    private:
-    RegisterType Register;
+    register_type _register;
   };
 };
-}  // namespace Detail
+}  // namespace detail
 
-template <typename BitMask, typename BitsType>
-using Register8BitTypeAbstract =
-    Detail::RegisterTypeAbstract<Register8BitType, BitMask, BitsType>;
+template <typename bit_mask, typename bits_type>
+using register_8bit_abstract =
+    detail::register_abstract<register_8bit_type, bit_mask, bits_type>;
 
-template <typename BitMask, typename BitsType>
-using Register16BitTypeAbstract =
-    Detail::RegisterTypeAbstract<Register16BitType, BitMask, BitsType>;
+template <typename bit_mask, typename bits_type>
+using register_16bit_abstract =
+    detail::register_abstract<register_16bit_type, bit_mask, bits_type>;
 
-template <typename BitMask, typename BitsType>
-using Register32BitTypeAbstract =
-    Detail::RegisterTypeAbstract<Register32BitType, BitMask, BitsType>;
-}  // namespace RegisterType
+template <typename bit_mask, typename bits_type>
+using register_32bit_abstract =
+    detail::register_abstract<register_32bit_type, bit_mask, bits_type>;
+}  // namespace scpi
 
 #include "register_type.hpp"
-
-#endif  // REGISTER_TYPE_H

@@ -23,7 +23,7 @@
 
 namespace ScpiMnemonics {
 namespace Measure {
-namespace Detail {
+namespace detail {
 // 3.8 Measurement Function Layer
 // 3.8.1 Simple Measurements
 // 3.8.1.2 (SCPI-1999.0)
@@ -84,9 +84,9 @@ struct CMeasurementInstructionsMnemonics {
   static SUBSYSTEM_MNEMONIC_TYPE(READ) READ;
   static SUBSYSTEM_MNEMONIC_TYPE(MEASure) MEASure;
 };
-}  // namespace Detail
+}  // namespace detail
 
-using Mnemonics = Detail::CMeasurementInstructionsMnemonics;
+using Mnemonics = detail::CMeasurementInstructionsMnemonics;
 }  // namespace Measure
 }  // namespace ScpiMnemonics
 

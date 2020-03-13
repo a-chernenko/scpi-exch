@@ -23,7 +23,7 @@
 
 namespace ScpiMnemonics {
 namespace Status {
-namespace Detail {
+namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(ENABle, CMnemonics::ENABle),
     ADD_SUBSYSTEM_COMMAND_MNEMONIC(CMnemonics::ENABle),
     ADD_SUBSYSTEM_QUERY_MNEMONIC(CMnemonics::ENABle){};
@@ -120,9 +120,9 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(STATus, CMnemonics::STATus) {
   ADD_TOP_SUBSYSTEM_MNEMONIC(OPERation, STATus);
   ADD_TOP_SUBSYSTEM_MNEMONIC(QUEStionable, STATus);
 };
-}  // namespace Detail
+}  // namespace detail
 
-using Mnemonics = Detail::SUBSYSTEM_MNEMONIC_TYPE(STATus);
+using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(STATus);
 }  // namespace Status
 }  // namespace ScpiMnemonics
 

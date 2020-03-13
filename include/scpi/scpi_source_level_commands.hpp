@@ -21,12 +21,12 @@
 
 #include "scpi_source_level_mnemonics.h"
 
-namespace Scpi {
+namespace scpi {
 template <std::size_t N, const const_string<N> &topsubsystem,
           typename UnitsType>
 CSOURceLEVelCommands<N, topsubsystem, UnitsType>::CSOURceLEVelCommands(
-    const CScpiBase &scpi)
-    :m_Scpi{scpi} {}
+    const scpi_base &scpi)
+    :_scpi{scpi} {}
 
 template <std::size_t N, const const_string<N> &topsubsystem,
           typename UnitsType>
@@ -35,7 +35,7 @@ void CSOURceLEVelCommands<N, topsubsystem, UnitsType>::Set(
   constexpr auto command =
       ScpiMnemonics::Source::Level::Mnemonics<N, topsubsystem>::IMMediate
           .AMPLitude.CommandMnemonic;
- m_Scpi.Command(command, channel, level);
+ _scpi.Command(command, channel, level);
 }
 
 template <std::size_t N, const const_string<N> &topsubsystem,
@@ -45,7 +45,7 @@ void CSOURceLEVelCommands<N, topsubsystem, UnitsType>::Set(
   constexpr auto command =
       ScpiMnemonics::Source::Level::Mnemonics<N, topsubsystem>::IMMediate
           .AMPLitude.CommandMnemonic;
- m_Scpi.Command(command, units, level);
+ _scpi.Command(command, units, level);
 }
 
 template <std::size_t N, const const_string<N> &topsubsystem,
@@ -56,7 +56,7 @@ double CSOURceLEVelCommands<N, topsubsystem, UnitsType>::Get(
       ScpiMnemonics::Source::Level::Mnemonics<N, topsubsystem>::IMMediate
           .AMPLitude.QueryMnemonic;
   double value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }
 
@@ -68,7 +68,7 @@ double CSOURceLEVelCommands<N, topsubsystem, UnitsType>::GetMaximum(
       ScpiMnemonics::Source::Level::Mnemonics<N, topsubsystem>::IMMediate
           .AMPLitude.QueryMaximumMnemonic;
   double value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }
 
@@ -80,7 +80,7 @@ double CSOURceLEVelCommands<N, topsubsystem, UnitsType>::GetMinimum(
       ScpiMnemonics::Source::Level::Mnemonics<N, topsubsystem>::IMMediate
           .AMPLitude.QueryMinimumMnemonic;
   double value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }
 }  // namespace Scpi

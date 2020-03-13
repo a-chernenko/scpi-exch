@@ -19,62 +19,62 @@
 #include "scpi_sense_bandwidth_subsystem.h"
 #include "scpi_sense_bandwidth_mnemonics.h"
 
-using namespace Scpi;
+using namespace scpi;
 using namespace ScpiMnemonics::Sense::Bandwidth;
 
-CSENSeBANDwidthSubsystem::CSENSeBANDwidthSubsystem(const CScpiBase &scpi)
-    :m_Scpi{scpi} {}
+CSENSeBANDwidthSubsystem::CSENSeBANDwidthSubsystem(const scpi_base &scpi)
+    :_scpi{scpi} {}
 
 void CSENSeBANDwidthSubsystem::SetResolution(const double value,
                                              const ChannelType &channel) const {
   constexpr auto command = Mnemonics::RESolution.CommandMnemonic;
- m_Scpi.Command(command, channel, value);
+ _scpi.Command(command, channel, value);
 }
 
 double CSENSeBANDwidthSubsystem::GetResolution(
     const ChannelType &channel) const {
   constexpr auto query = Mnemonics::RESolution.QueryMnemonic;
   double value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }
 
 void CSENSeBANDwidthSubsystem::SetResolutionAuto(
     const bool value, const ChannelType &channel) const {
   constexpr auto command = Mnemonics::RESolution.AUTO.CommandMnemonic;
- m_Scpi.Command(command, channel, value);
+ _scpi.Command(command, channel, value);
 }
 
 bool CSENSeBANDwidthSubsystem::GetResolutionAuto(
     const ChannelType &channel) const {
   constexpr auto query = Mnemonics::RESolution.AUTO.QueryMnemonic;
   bool value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }
 
 void CSENSeBANDwidthSubsystem::SetVideo(const double value,
                                         const ChannelType &channel) const {
   constexpr auto command = Mnemonics::VIDeo.CommandMnemonic;
- m_Scpi.Command(command, channel, value);
+ _scpi.Command(command, channel, value);
 }
 
 double CSENSeBANDwidthSubsystem::GetVideo(const ChannelType &channel) const {
   constexpr auto query = Mnemonics::VIDeo.QueryMnemonic;
   double value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }
 
 void CSENSeBANDwidthSubsystem::SetVideoAuto(const bool value,
                                             const ChannelType &channel) const {
   constexpr auto command = Mnemonics::VIDeo.AUTO.CommandMnemonic;
- m_Scpi.Command(command, channel, value);
+ _scpi.Command(command, channel, value);
 }
 
 bool CSENSeBANDwidthSubsystem::GetVideoAuto(const ChannelType &channel) const {
   constexpr auto query = Mnemonics::VIDeo.AUTO.QueryMnemonic;
   bool value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }

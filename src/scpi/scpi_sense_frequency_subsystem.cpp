@@ -18,7 +18,7 @@
 
 #include "scpi_sense_frequency_subsystem.h"
 
-using namespace Scpi;
+using namespace scpi;
 
-CSENSeFREQuencySubsystem::CSENSeFREQuencySubsystem(const CScpiBase &scpi)
+CSENSeFREQuencySubsystem::CSENSeFREQuencySubsystem(const scpi_base &scpi)
     : CFREQuencySubsystem{scpi} {}

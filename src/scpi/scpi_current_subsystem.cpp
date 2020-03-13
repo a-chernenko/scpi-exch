@@ -18,7 +18,7 @@
 
 #include "scpi_current_subsystem.h"
 
-using namespace Scpi;
+using namespace scpi;
 
-CCURRentSubsystem::CCURRentSubsystem(const CScpiBase &scpi)
-    : m_PROTection{scpi}, m_LEVel{scpi}, m_Scpi{scpi} {}
+CCURRentSubsystem::CCURRentSubsystem(const scpi_base &scpi)
+    : PROTection{scpi}, LEVel{scpi}, _scpi{scpi} {}

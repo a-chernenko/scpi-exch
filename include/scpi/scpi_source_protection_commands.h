@@ -21,12 +21,12 @@
 
 #include "scpi_base.h"
 
-namespace Scpi {
+namespace scpi {
 template <std::size_t N, const const_string<N> &topsubsystem,
           typename UnitsType>
 class CSOURcePROTectionCommands {
  public:
-  CSOURcePROTectionCommands(const CScpiBase &);
+  CSOURcePROTectionCommands(const scpi_base &);
   void Clear(const ChannelType &channel = {}) const;
   bool IsTripped(const ChannelType &channel = {}) const;
   void SetState(const bool, const ChannelType &channel = {}) const;
@@ -41,7 +41,7 @@ class CSOURcePROTectionCommands {
       delete;
 
  private:
-  const CScpiBase &m_Scpi;
+  const scpi_base &_scpi;
 };
 }  // namespace Scpi
 

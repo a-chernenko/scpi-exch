@@ -23,10 +23,10 @@
 #include "scpi_power_subsystem.h"
 #include "scpi_voltage_subsystem.h"
 
-namespace Scpi {
+namespace scpi {
 class SCPI_API CUNITSubsystem {
  public:
-  CUNITSubsystem(const CScpiBase&);
+  CUNITSubsystem(const scpi_base&);
   void SetCurrent(const CurrentUnitsType::Type&) const;
   void SetPower(const PowerUnitsType::Type&) const;
   void SetVoltage(const VoltageUnitsType::Type&) const;
@@ -40,7 +40,7 @@ class SCPI_API CUNITSubsystem {
 
  private:
   void ToUpperCase(std::string&) const;
-  const CScpiBase &m_Scpi;
+  const scpi_base &_scpi;
 };
 }  // namespace Scpi
 

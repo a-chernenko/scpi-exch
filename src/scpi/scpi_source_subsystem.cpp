@@ -18,12 +18,12 @@
 
 #include "scpi_source_subsystem.h"
 
-using namespace Scpi;
+using namespace scpi;
 
-CSOURceSubsystem::CSOURceSubsystem(const CScpiBase &scpi)
+CSOURceSubsystem::CSOURceSubsystem(const scpi_base &scpi)
     : m_CURRent{scpi},
       m_VOLTage{scpi},
       m_FREQuency{scpi},
       m_POWer{scpi},
       m_MARKer{scpi},
-      m_Scpi{scpi} {}
+      _scpi{scpi} {}

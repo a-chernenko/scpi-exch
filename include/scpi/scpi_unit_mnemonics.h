@@ -23,7 +23,7 @@
 
 namespace ScpiMnemonics {
 namespace Unit {
-namespace Detail {
+namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(VOLTage, CMnemonics::VOLTage),
     ADD_SUBSYSTEM_COMMAND_MNEMONIC(CMnemonics::VOLTage),
     ADD_SUBSYSTEM_QUERY_MNEMONIC(CMnemonics::VOLTage){};
@@ -41,9 +41,9 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(UNIT, CMnemonics::UNIT) {
   ADD_TOP_SUBSYSTEM_MNEMONIC(CURRent, UNIT);
   ADD_TOP_SUBSYSTEM_MNEMONIC(POWer, UNIT);
 };
-}  // namespace Detail
+}  // namespace detail
 
-using Mnemonics = Detail::SUBSYSTEM_MNEMONIC_TYPE(UNIT);
+using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(UNIT);
 }  // namespace Unit
 }  // namespace ScpiMnemonics
 

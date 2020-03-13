@@ -18,4 +18,4 @@
 
 #include "scpi.h"
 
-using namespace Scpi;
+using namespace scpi;

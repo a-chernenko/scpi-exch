@@ -25,25 +25,25 @@
 #include "scpi_units_type.h"
 
 
-namespace Scpi {
+namespace scpi {
 class SCPI_API CVOLTageSubsystem {
  public:
   CSOURcePROTectionCommands<sizeof(ScpiMnemonics::CMnemonics::VOLTage),
                             ScpiMnemonics::CMnemonics::VOLTage,
                             VoltageUnitsType::Type>
-      m_PROTection;
+      PROTection;
   CSOURceLEVelCommands<sizeof(ScpiMnemonics::CMnemonics::VOLTage),
                        ScpiMnemonics::CMnemonics::VOLTage,
                        VoltageUnitsType::Type>
-      m_LEVel;
+      LEVel;
 
   CVOLTageSubsystem() = delete;
   CVOLTageSubsystem(const CVOLTageSubsystem&) = delete;
   CVOLTageSubsystem& operator=(const CVOLTageSubsystem&) = delete;
 
  protected:
-  CVOLTageSubsystem(const CScpiBase&);
-  const CScpiBase &m_Scpi;
+  CVOLTageSubsystem(const scpi_base&);
+  const scpi_base &_scpi;
 };
 }  // namespace Scpi
 

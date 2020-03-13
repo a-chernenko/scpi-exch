@@ -18,7 +18,7 @@
 
 #include "scpi_source_power_subsystem.h"
 
-using namespace Scpi;
+using namespace scpi;
 
-CSOURcePOWerSubsystem::CSOURcePOWerSubsystem(const CScpiBase &scpi)
+CSOURcePOWerSubsystem::CSOURcePOWerSubsystem(const scpi_base &scpi)
     : CPOWerSubsystem{scpi} {}

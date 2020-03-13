@@ -24,7 +24,7 @@
 namespace ScpiMnemonics {
 namespace Source {
 namespace Protection {
-namespace Detail {
+namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(LEVel, CMnemonics::LEVel),
     ADD_SUBSYSTEM_COMMAND_MNEMONIC(CMnemonics::LEVel),
     ADD_SUBSYSTEM_QUERY_MNEMONIC(CMnemonics::LEVel),
@@ -46,10 +46,10 @@ CREATE_SUBSYSTEM_MNEMONIC(PROTection, CMnemonics::PROTection) {
   ADD_TOP_SUBSYSTEM_MNEMONIC(STATe, PROTection);
   ADD_TOP_SUBSYSTEM_MNEMONIC(LEVel, PROTection);
 };
-}  // namespace Detail
+}  // namespace detail
 
 template <std::size_t N, const const_string<N> &topsubsystem>
-using Mnemonics = Detail::SUBSYSTEM_MNEMONIC_TYPE(PROTection)<N, topsubsystem>;
+using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(PROTection)<N, topsubsystem>;
 }  // namespace Protection
 }  // namespace Source
 }  // namespace ScpiMnemonics

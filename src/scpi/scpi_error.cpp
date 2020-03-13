@@ -16,19 +16,19 @@
 
 */
 
-#include "scpi_exception.h"
+#include "scpi_error.h"
 
-using namespace ScpiException;
+using namespace scpi;
 
-CScpiException::CScpiException(const char message[]) : message{message} {}
+scpi_error::scpi_error(const char _message[]) : _message{_message} {}
 
-const char *CScpiException::what() const noexcept { return message; }
+const char *scpi_error::what() const noexcept { return _message; }
 
-CommandError::CommandError() : CScpiException{"Command Error"} {}
+command_error::command_error() : scpi_error{"command error"} {}
 
-QueryError::QueryError() : CScpiException{"Query Error"} {}
+query_error::query_error() : scpi_error{"query error"} {}
 
-ExecutionError::ExecutionError() : CScpiException{"Execution Error"} {}
+execution_error::execution_error() : scpi_error{"execution error"} {}
 
-DeviceDependentError::DeviceDependentError()
-    : CScpiException{"Device Dependent Error"} {}
+device_dependent_error::device_dependent_error()
+    : scpi_error{"device dependent error"} {}

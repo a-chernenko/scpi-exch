@@ -26,10 +26,10 @@
 #include "scpi_source_voltage_subsystem.h"
 
 
-namespace Scpi {
+namespace scpi {
 class SCPI_API CSOURceSubsystem {
  public:
-  CSOURceSubsystem(const CScpiBase&);
+  CSOURceSubsystem(const scpi_base&);
   CSOURceCURRentSubsystem m_CURRent;
   CSOURceVOLTageSubsystem m_VOLTage;
   CSOURceFREQuencySubsystem m_FREQuency;
@@ -41,7 +41,7 @@ class SCPI_API CSOURceSubsystem {
   CSOURceSubsystem& operator=(const CSOURceSubsystem&) = delete;
 
  private:
-  const CScpiBase &m_Scpi;
+  const scpi_base &_scpi;
 };
 }  // namespace Scpi
 

@@ -18,7 +18,7 @@
 
 #include "scpi_source_marker_subsystem.h"
 
-using namespace Scpi;
+using namespace scpi;
 
-CSOURceMARKerSubsystem::CSOURceMARKerSubsystem(const CScpiBase &scpi)
-    :m_Scpi{scpi} {}
+CSOURceMARKerSubsystem::CSOURceMARKerSubsystem(const scpi_base &scpi)
+    :_scpi{scpi} {}

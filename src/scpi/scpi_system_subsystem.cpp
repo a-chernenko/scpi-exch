@@ -20,40 +20,40 @@
 #include "scpi_system_mnemonics.h"
 
 using std::string;
-using namespace Scpi;
+using namespace scpi;
 using namespace ScpiMnemonics::System;
 
-CSYSTemSubsystem::CSYSTemSubsystem(const CScpiBase &scpi)
-    : m_ERRor{scpi}, m_LOCK{scpi}, m_Scpi{scpi} {}
+CSYSTemSubsystem::CSYSTemSubsystem(const scpi_base &scpi)
+    : m_ERRor{scpi}, m_LOCK{scpi}, _scpi{scpi} {}
 
-CSYSTemSubsystem::CERRor::CERRor(const CScpiBase &scpi) :m_Scpi{scpi} {}
+CSYSTemSubsystem::CERRor::CERRor(const scpi_base &scpi) :_scpi{scpi} {}
 
-CSYSTemSubsystem::LOCK::LOCK(const CScpiBase &scpi) :m_Scpi{scpi} {}
+CSYSTemSubsystem::LOCK::LOCK(const scpi_base &scpi) :_scpi{scpi} {}
 
 void CSYSTemSubsystem::CERRor::GetNext(int &errorCode,
                                        string &errorMessage) const {
   constexpr auto query = Mnemonics::ERRor.QueryMnemonic;
-  string message;
- m_Scpi.Query(query, message);
+  string _message;
+ _scpi.Query(query, _message);
   string::size_type index{};
-  errorCode = std::stoi(message, &index);
-  errorMessage = message.substr(++index);
-  CScpiBase::RemoveQuotesInString(errorMessage);
+  errorCode = std::stoi(_message, &index);
+  errorMessage = _message.substr(++index);
+  scpi_base::RemoveQuotesInString(errorMessage);
 }
 
 int CSYSTemSubsystem::CERRor::GetCount() const {
   constexpr auto query = Mnemonics::ERRor.COUNt.QueryMnemonic;
   int value;
- m_Scpi.Query(query, value);
+ _scpi.Query(query, value);
   return value;
 }
 
 void CSYSTemSubsystem::LOCK::Lock() const {
   constexpr auto command = Mnemonics::LOCK.Mnemonic;
- m_Scpi.Command(command);
+ _scpi.Command(command);
 }
 
 void CSYSTemSubsystem::LOCK::Release() const {
   constexpr auto command = Mnemonics::LOCK.RELease.Mnemonic;
- m_Scpi.Command(command);
+ _scpi.Command(command);
 }

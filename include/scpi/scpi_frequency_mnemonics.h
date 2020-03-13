@@ -23,7 +23,7 @@
 
 namespace ScpiMnemonics {
 namespace Frequency {
-namespace Detail {
+namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(STARt, CMnemonics::STARt),
     ADD_SUBSYSTEM_COMMAND_MNEMONIC(CMnemonics::STARt),
     ADD_SUBSYSTEM_QUERY_MNEMONIC(CMnemonics::STARt),
@@ -68,9 +68,9 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(FREQuency, CMnemonics::FREQuency) {
   ADD_TOP_SUBSYSTEM_MNEMONIC(OFFSet, FREQuency);
   ADD_TOP_SUBSYSTEM_MNEMONIC(FIXed, FREQuency);
 };
-}  // namespace Detail
+}  // namespace detail
 
-using Mnemonics = Detail::SUBSYSTEM_MNEMONIC_TYPE(FREQuency);
+using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(FREQuency);
 }  // namespace Frequency
 }  // namespace ScpiMnemonics
 

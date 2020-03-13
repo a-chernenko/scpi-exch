@@ -18,6 +18,6 @@
 
 #include "scpi_status_subsystem.h"
 
-using namespace Scpi;
+using namespace scpi;
 
-CSTATusSubsystem::CSTATusSubsystem(const CScpiBase &scpi) :m_Scpi{scpi} {}
+CSTATusSubsystem::CSTATusSubsystem(const scpi_base &scpi) :_scpi{scpi} {}

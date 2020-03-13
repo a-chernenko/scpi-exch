@@ -21,10 +21,10 @@
 
 #include "scpi_frequency_subsystem.h"
 
-namespace Scpi {
+namespace scpi {
 class SCPI_API CSOURceFREQuencySubsystem : public CFREQuencySubsystem {
  public:
-  CSOURceFREQuencySubsystem(const CScpiBase&);
+  CSOURceFREQuencySubsystem(const scpi_base&);
 
   CSOURceFREQuencySubsystem() = delete;
   CSOURceFREQuencySubsystem(const CSOURceFREQuencySubsystem&) = delete;

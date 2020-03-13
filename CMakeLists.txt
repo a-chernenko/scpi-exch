@@ -18,20 +18,20 @@ include_directories(
     "include/"
 	"include/common/"
 	"include/scpi/"
-	"include/hardware/"
-	"include/ieee4882/"
+	"include/io/"
+	"include/ieee488/"
 )
 
 set(SOURCES
-	src/hardware/hardware.cpp
-	src/hardware/hardware_exception.cpp
-	src/ieee4882/ieee4882.cpp
-	src/ieee4882/ieee4882_mnemonics.cpp
+	src/io/io.cpp
+	src/io/io_error.cpp
+	src/ieee488/ieee488_io.cpp
+	src/ieee488/ieee488_mnemonics.cpp
 	src/scpi/scpi_mnemonics.cpp
 	src/scpi/scpi.cpp
 	src/scpi/scpi_base.cpp
 	src/scpi/scpi_current_subsystem.cpp
-	src/scpi/scpi_exception.cpp
+	src/scpi/scpi_error.cpp
 	src/scpi/scpi_frequency_subsystem.cpp
 	src/scpi/scpi_input_subsystem.cpp
 	src/scpi/scpi_measure_subsystem.cpp
@@ -59,12 +59,12 @@ set(SOURCES
 set(HEADERS
 	include/common/const_string.h
 	include/common/const_string.hpp
-	include/hardware/hardware.h
-	include/hardware/hardware_exception.h
-	include/ieee4882/ieee4882.h
-	include/ieee4882/ieee4882_constants.h
-	include/ieee4882/ieee4882_mnemonics.h
-	include/ieee4882/ieee4882_registers_type.h
+	include/io/io.h
+	include/io/io_error.h
+	include/ieee488/ieee488_io.h
+	include/ieee488/ieee488_constants.h
+	include/ieee488/ieee488_mnemonics.h
+	include/ieee488/ieee488_registers_type.h
 	include/scpi/scpi.h
 	include/scpi/scpi_base.h
 	include/scpi/scpi_base.hpp
@@ -72,7 +72,7 @@ set(HEADERS
 	include/scpi/scpi_constants.h
 	include/scpi/scpi_current_subsystem.h
 	include/scpi/scpi_display_subsystem.h
-	include/scpi/scpi_exception.h
+	include/scpi/scpi_error.h
 	include/scpi/scpi_frequency_subsystem.h
 	include/scpi/scpi_input_subsystem.h
 	include/scpi/scpi_source_level_commands.h
@@ -124,3 +124,7 @@ set(HEADERS
 add_subdirectory(socket_api)
 
 add_library(${PROJECT_NAME} ${SOURCES} ${HEADERS})
+
+target_link_libraries(${PROJECT_NAME} socketapi)
+
+add_subdirectory(example)

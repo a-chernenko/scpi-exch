@@ -19,19 +19,19 @@
 #include "scpi_display_subsystem.h"
 #include "scpi_display_mnemonics.h"
 
-using namespace Scpi;
+using namespace scpi;
 using namespace ScpiMnemonics::Display;
 
-CDISPlaySubsystem::CDISPlaySubsystem(const CScpiBase &scpi) :m_Scpi{scpi} {}
+CDISPlaySubsystem::CDISPlaySubsystem(const scpi_base &scpi) :_scpi{scpi} {}
 
 void CDISPlaySubsystem::SetEnabled(const bool value) const {
   constexpr auto command = Mnemonics::ENABle.CommandMnemonic;
- m_Scpi.Command(command, value);
+ _scpi.Command(command, value);
 }
 
 bool CDISPlaySubsystem::GetEnabled() const {
   constexpr auto query = Mnemonics::ENABle.QueryMnemonic;
   bool value;
- m_Scpi.Query(query, value);
+ _scpi.Query(query, value);
   return value;
 }

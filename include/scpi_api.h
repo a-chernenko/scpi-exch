@@ -16,11 +16,8 @@
 
 */
 
-#ifndef SCPI_API_H
-#define SCPI_API_H
+#pragma once
 
 #include "scpi.h"
 #include "scpi_status_mnemonics.h"
 #include "scpi_system_mnemonics.h"
-
-#endif  // SCPI_API_H

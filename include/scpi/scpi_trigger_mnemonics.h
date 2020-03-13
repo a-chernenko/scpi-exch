@@ -23,7 +23,7 @@
 
 namespace ScpiMnemonics {
 namespace Trigger {
-namespace Detail {
+namespace detail {
 CREATE_TOP_SUBSYSTEM_MNEMONIC(ABORt, CMnemonics::ABORt){};
 
 CREATE_TOP_SUBSYSTEM_MNEMONIC(INITiate, CMnemonics::INITiate){};
@@ -43,9 +43,9 @@ struct CTriggeringCommandsMnemonics {
   static SUBSYSTEM_MNEMONIC_TYPE(INITiate) INITiate;
   static SUBSYSTEM_MNEMONIC_TYPE(TRIGger) TRIGger;
 };
-}  // namespace Detail
+}  // namespace detail
 
-using Mnemonics = Detail::CTriggeringCommandsMnemonics;
+using Mnemonics = detail::CTriggeringCommandsMnemonics;
 }  // namespace Trigger
 }  // namespace ScpiMnemonics
 

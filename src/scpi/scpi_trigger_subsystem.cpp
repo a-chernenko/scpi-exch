@@ -20,17 +20,17 @@
 #include "scpi_trigger_mnemonics.h"
 
 using std::string;
-using namespace Scpi;
+using namespace scpi;
 using namespace ScpiMnemonics::Trigger;
 
-CTRIGgerSubsystem::CTRIGgerSubsystem(const CScpiBase &scpi) :m_Scpi{scpi} {}
+CTRIGgerSubsystem::CTRIGgerSubsystem(const scpi_base &scpi) :_scpi{scpi} {}
 
 void CTRIGgerSubsystem::Initiate() const {
   constexpr auto command = Mnemonics::INITiate.Mnemonic;
- m_Scpi.Command(command);
+ _scpi.Command(command);
 }
 
 void CTRIGgerSubsystem::Abort() const {
   constexpr auto command = Mnemonics::ABORt.Mnemonic;
- m_Scpi.Command(command);
+ _scpi.Command(command);
 }

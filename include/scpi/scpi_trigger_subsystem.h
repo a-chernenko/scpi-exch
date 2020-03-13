@@ -21,10 +21,10 @@
 
 #include "scpi_base.h"
 
-namespace Scpi {
+namespace scpi {
 class SCPI_API CTRIGgerSubsystem {
  public:
-  CTRIGgerSubsystem(const CScpiBase&);
+  CTRIGgerSubsystem(const scpi_base&);
   void Initiate() const;
   void Abort() const;
 
@@ -33,7 +33,7 @@ class SCPI_API CTRIGgerSubsystem {
   CTRIGgerSubsystem& operator=(const CTRIGgerSubsystem&) = delete;
 
  private:
-  const CScpiBase &m_Scpi;
+  const scpi_base &_scpi;
 };
 }  // namespace Scpi
 

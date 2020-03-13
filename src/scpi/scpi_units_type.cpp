@@ -18,7 +18,7 @@
 
 #include "scpi_units_type.h"
 
-using namespace Scpi;
+using namespace scpi;
 
 const FrequencyUnitsType::Type FrequencyUnitsType::Hz{"HZ"};
 const FrequencyUnitsType::Type FrequencyUnitsType::kHz{"KHZ"};

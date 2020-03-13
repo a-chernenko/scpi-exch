@@ -21,30 +21,30 @@
 
 using std::string;
 using std::vector;
-using namespace Scpi;
-using namespace Hardware;
-using namespace Ieee4882;
+using namespace scpi;
 
-CScpiBase::~CScpiBase() noexcept {
-  if (IsOpened()) try {
-      Close();
+std::mutex scpi_base::_mutex;
+
+scpi_base::~scpi_base() noexcept {
+  if (is_opened()) try {
+      close();
     } catch (...) {
     }
 }
 
-void CScpiBase::SetQueryTimeout() noexcept {
-  m_QueryTimeout_ms = QueryTimeoutDefault_ms;
+void scpi_base::SetQueryTimeout() noexcept {
+  m_QueryTimeout_ms = query_timeout_ms;
 }
 
-void CScpiBase::SetQueryTimeout(const unsigned int timeout_ms) noexcept {
+void scpi_base::SetQueryTimeout(const unsigned int timeout_ms) noexcept {
   m_QueryTimeout_ms = timeout_ms;
 }
 
-unsigned int CScpiBase::GetQueryTimeout() const noexcept {
+unsigned int scpi_base::GetQueryTimeout() const noexcept {
   return m_QueryTimeout_ms;
 }
 
-void CScpiBase::SplitSeparatedString(const string &unsplitted,
+void scpi_base::SplitSeparatedString(const string &unsplitted,
                                      const string &separator,
                                      vector<string> &splitted) {
   string::size_type start{};
@@ -58,7 +58,7 @@ void CScpiBase::SplitSeparatedString(const string &unsplitted,
   splitted.push_back(unsplitted.substr(start));
 }
 
-void CScpiBase::RemoveCharInString(std::string &str,
+void scpi_base::RemoveCharInString(std::string &str,
                                    const char char_to_remove) {
   auto begin = str.begin();
   auto end = str.end();
@@ -67,42 +67,42 @@ void CScpiBase::RemoveCharInString(std::string &str,
   str.resize(res - begin);
 }
 
-void CScpiBase::RemoveQuotesInString(string &str) {
+void scpi_base::RemoveQuotesInString(string &str) {
   const char double_quote_char{'\"'};
   RemoveCharInString(str, double_quote_char);
 }
 
-void CScpiBase::RemoveSpaceInString(string &str) {
+void scpi_base::RemoveSpaceInString(string &str) {
   const char space_char{' '};
   RemoveCharInString(str, space_char);
 }
 
-void CScpiBase::AddChannelToString(string &str, const ChannelType &channel) {
+void scpi_base::AddChannelToString(string &str, const ChannelType &channel) {
   str += " (@";
   str += channel.to_string();
   str += ")";
 }
 
-void CScpiBase::Command(const std::string &command) const {
-  std::lock_guard<std::mutex> lock(m_Mutex);
-  m_Hardware.WriteLine(command);
-  m_Ieee4882.ErrorHandler();
+void scpi_base::Command(const std::string &command) const {
+  std::lock_guard<std::mutex> lock(_mutex);
+  io.write(command);
+  ieee488_io.error_handler();
 }
 
-void CScpiBase::Command(const std::string &command,
+void scpi_base::Command(const std::string &command,
                         const UnitsTypeBase &unit) const {
   CommandBase(command, unit.to_string());
 }
 
-void CScpiBase::Query(const std::string &query, std::string &value) const {
-  std::lock_guard<std::mutex> lock(m_Mutex);
-  m_Hardware.WriteLine(query);
-  bool readTimeout{};
+void scpi_base::Query(const std::string &query, std::string &value) const {
+  std::lock_guard<std::mutex> lock(_mutex);
+  io.write(query);
+  bool read_timeout{};
   try {
-    m_Hardware.ReadLine(value, QueryTimeoutDefault_ms);
-  } catch (HardwareException::ReadTimeout &) {
-    readTimeout = true;
+    io.read(value, query_timeout_ms);
+  } catch (scpi::read_timeout &) {
+    read_timeout = true;
   }
-  m_Ieee4882.ErrorHandler();
-  if (readTimeout) throw HardwareException::ReadTimeout();
+  ieee488_io.error_handler();
+  if (read_timeout) throw scpi::read_timeout();
 }

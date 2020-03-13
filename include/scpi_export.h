@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_EXPORT_H
-#define SCPI_EXPORT_H
+#pragma once
 
 #if defined(_WIN32) || defined(_WIN64)
 #define SCPI_API __declspec(dllexport)
@@ -27,5 +26,3 @@
 #ifndef SCPI_API
 #define SCPI_API
 #endif
-
-#endif  // SCPI_EXPORT_H

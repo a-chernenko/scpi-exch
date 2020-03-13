@@ -19,46 +19,46 @@
 #include "scpi_input_subsystem.h"
 #include "scpi_input_mnemonics.h"
 
-using namespace Scpi;
+using namespace scpi;
 using namespace ScpiMnemonics::Input;
 
-CINPutSubsystem::CINPutSubsystem(const CScpiBase &scpi) :m_Scpi{scpi} {}
+CINPutSubsystem::CINPutSubsystem(const scpi_base &scpi) :_scpi{scpi} {}
 
 void CINPutSubsystem::SetImpedance(const double value,
                                    const ChannelType &channel) const {
   constexpr auto command = Mnemonics::IMPedance.CommandMnemonic;
- m_Scpi.Command(command, channel, value);
+ _scpi.Command(command, channel, value);
 }
 
 double CINPutSubsystem::GetImpedance(const ChannelType &channel) const {
   constexpr auto query = Mnemonics::IMPedance.QueryMnemonic;
   double value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }
 
 void CINPutSubsystem::SetAttenuation(const double value,
                                      const ChannelType &channel) const {
   constexpr auto command = Mnemonics::ATTenuation.CommandMnemonic;
- m_Scpi.Command(command, channel, value);
+ _scpi.Command(command, channel, value);
 }
 
 double CINPutSubsystem::GetAttenuation(const ChannelType &channel) const {
   constexpr auto query = Mnemonics::ATTenuation.QueryMnemonic;
   double value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }
 
 void CINPutSubsystem::SetAttenuationAuto(const bool enabled,
                                          const ChannelType &channel) const {
   constexpr auto command = Mnemonics::ATTenuation.AUTO.CommandMnemonic;
- m_Scpi.Command(command, channel, enabled);
+ _scpi.Command(command, channel, enabled);
 }
 
 bool CINPutSubsystem::GetAttenuationAuto(const ChannelType &channel) const {
   constexpr auto query = Mnemonics::ATTenuation.AUTO.QueryMnemonic;
   bool value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }

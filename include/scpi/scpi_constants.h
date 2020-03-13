@@ -19,13 +19,13 @@
 #ifndef SCPI_CONSTANTS_H
 #define SCPI_CONSTANTS_H
 
-namespace Scpi {
+namespace scpi {
 struct CScpiConstants {
  public:
   static const unsigned short PortDefault{5025};
 
  protected:
-  static const unsigned int QueryTimeoutDefault_ms{10 * 1000};
+  static const unsigned int query_timeout_ms{10 * 1000};
   CScpiConstants() = default;
 };
 }  // namespace Scpi

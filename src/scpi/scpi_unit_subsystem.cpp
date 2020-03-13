@@ -22,10 +22,10 @@
 #include "scpi_unit_mnemonics.h"
 
 
-using namespace Scpi;
+using namespace scpi;
 using namespace ScpiMnemonics::Unit;
 
-CUNITSubsystem::CUNITSubsystem(const CScpiBase &scpi) :m_Scpi{scpi} {}
+CUNITSubsystem::CUNITSubsystem(const scpi_base &scpi) :_scpi{scpi} {}
 
 void CUNITSubsystem::ToUpperCase(std::string &data) const {
   std::locale loc;
@@ -34,23 +34,23 @@ void CUNITSubsystem::ToUpperCase(std::string &data) const {
 
 void CUNITSubsystem::SetCurrent(const CurrentUnitsType::Type &type) const {
   constexpr auto command = Mnemonics::CURRent.CommandMnemonic;
- m_Scpi.Command(command, type);
+ _scpi.Command(command, type);
 }
 
 void CUNITSubsystem::SetPower(const PowerUnitsType::Type &type) const {
   constexpr auto command = Mnemonics::POWer.CommandMnemonic;
- m_Scpi.Command(command, type);
+ _scpi.Command(command, type);
 }
 
 void CUNITSubsystem::SetVoltage(const VoltageUnitsType::Type &type) const {
   constexpr auto command = Mnemonics::VOLTage.CommandMnemonic;
- m_Scpi.Command(command, type);
+ _scpi.Command(command, type);
 }
 
 CurrentUnitsType::Type CUNITSubsystem::GetCurrent() const {
   constexpr auto query = Mnemonics::CURRent.QueryMnemonic;
   std::string type;
- m_Scpi.Query(query, type);
+ _scpi.Query(query, type);
   ToUpperCase(type);
   if (type == CurrentUnitsType::uA.c_str())
     return CurrentUnitsType::uA;
@@ -64,7 +64,7 @@ CurrentUnitsType::Type CUNITSubsystem::GetCurrent() const {
 PowerUnitsType::Type CUNITSubsystem::GetPower() const {
   constexpr auto query = Mnemonics::POWer.QueryMnemonic;
   std::string type;
- m_Scpi.Query(query, type);
+ _scpi.Query(query, type);
   ToUpperCase(type);
   if (type == PowerUnitsType::dB.c_str())
     return PowerUnitsType::dB;
@@ -86,7 +86,7 @@ PowerUnitsType::Type CUNITSubsystem::GetPower() const {
 VoltageUnitsType::Type CUNITSubsystem::GetVoltage() const {
   constexpr auto query = Mnemonics::VOLTage.QueryMnemonic;
   std::string type;
- m_Scpi.Query(query, type);
+ _scpi.Query(query, type);
   ToUpperCase(type);
   if (type == VoltageUnitsType::uV.c_str())
     return VoltageUnitsType::uV;

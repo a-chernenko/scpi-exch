@@ -19,10 +19,10 @@
 #include "scpi_measure_subsystem.h"
 #include "scpi_measure_mnemonics.h"
 
-using namespace Scpi;
+using namespace scpi;
 using namespace ScpiMnemonics::Measure;
 
-CMEASureSubsystem::CMEASureSubsystem(const CScpiBase &scpi) :m_Scpi{scpi} {}
+CMEASureSubsystem::CMEASureSubsystem(const scpi_base &scpi) :_scpi{scpi} {}
 
 double CMEASureSubsystem::Read(const unsigned int timeout_ms,
                                const ChannelType &channel) const {
@@ -33,20 +33,20 @@ double CMEASureSubsystem::Read(const unsigned int timeout_ms,
 double CMEASureSubsystem::CurrentDC(const ChannelType &channel) const {
   constexpr auto query = Mnemonics::MEASure.SCALar.CURRent.DC.QueryMnemonic;
   double value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }
 
 double CMEASureSubsystem::VoltageDC(const ChannelType &channel) const {
   constexpr auto query = Mnemonics::MEASure.SCALar.VOLTage.DC.QueryMnemonic;
   double value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }
 
 double CMEASureSubsystem::PowerDC(const ChannelType &channel) const {
   constexpr auto query = Mnemonics::MEASure.SCALar.POWer.DC.QueryMnemonic;
   double value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }

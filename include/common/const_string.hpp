@@ -16,8 +16,7 @@
 
 */
 
-#ifndef CONST_STRING_HPP
-#define CONST_STRING_HPP
+#pragma once
 
 namespace detail {
 namespace {
@@ -44,9 +43,7 @@ constexpr const_string<N + M - 1> concat_char_arrays_impl(
 template <std::size_t N, std::size_t M>
 constexpr const_string<N + M - 1> operator+(const const_string<N>& lhs,
                                             const const_string<M>& rhs) {
-  using LIndices = typename ::detail::gen_index_seq<N - 1>::type;
-  using RIndices = typename ::detail::gen_index_seq<M - 1>::type;
-  return concat_char_arrays_impl(lhs.data, LIndices(), rhs.data, RIndices());
+  using lind = typename ::detail::gen_index_seq<N - 1>::type;
+  using rind = typename ::detail::gen_index_seq<M - 1>::type;
+  return concat_char_arrays_impl(lhs.data, lind(), rhs.data, rind());
 };
-
-#endif  // CONST_STRING_HPP

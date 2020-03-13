@@ -23,7 +23,7 @@
 
 namespace ScpiMnemonics {
 namespace Input {
-namespace Detail {
+namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(AUTO, CMnemonics::AUTO),
     ADD_SUBSYSTEM_COMMAND_MNEMONIC(CMnemonics::AUTO),
     ADD_SUBSYSTEM_QUERY_MNEMONIC(CMnemonics::AUTO){};
@@ -42,9 +42,9 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(INPut, CMnemonics::INPut) {
   ADD_TOP_SUBSYSTEM_MNEMONIC(ATTenuation, INPut);
   ADD_TOP_SUBSYSTEM_MNEMONIC(IMPedance, INPut);
 };
-}  // namespace Detail
+}  // namespace detail
 
-using Mnemonics = Detail::SUBSYSTEM_MNEMONIC_TYPE(INPut);
+using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(INPut);
 }  // namespace Input
 }  // namespace ScpiMnemonics
 

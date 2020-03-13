@@ -21,10 +21,10 @@
 
 #include "scpi_sweep_subsystem.h"
 
-namespace Scpi {
+namespace scpi {
 class SCPI_API CSENSeSWEepSubsystem : public CSWEepSubsystem {
  public:
-  CSENSeSWEepSubsystem(const CScpiBase&);
+  CSENSeSWEepSubsystem(const scpi_base&);
 
   CSENSeSWEepSubsystem() = delete;
   CSENSeSWEepSubsystem(const CSENSeSWEepSubsystem&) = delete;

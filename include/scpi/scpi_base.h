@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_BASE_H
-#define SCPI_BASE_H
+#pragma once
 
 #if __cplusplus < 201703L
 #error \
@@ -30,16 +29,12 @@
 #include <type_traits>
 #include <vector>
 #include "const_string.h"
-#include "ieee4882.h"
+#include "ieee488_io.h"
 #include "scpi_channel_type.h"
 #include "scpi_constants.h"
 #include "scpi_units_type.h"
 
-/**
-@namespace Scpi
-@brief Протокол SCPI.
-*/
-namespace Scpi {
+namespace scpi {
 template <typename Base, typename... Args>
 struct any_base_of;
 
@@ -68,13 +63,13 @@ struct all_base_of<Base, Derived> {
   static constexpr bool value = std::is_base_of<Base, Derived>::value;
 };
 
-class SCPI_API CScpiBase : public CScpiConstants {
+class SCPI_API scpi_base : public CScpiConstants {
  public:
-  CScpiBase() = default;
-  ~CScpiBase() noexcept;
-  inline void Open(const std::string &, const unsigned short);
-  inline bool IsOpened() const noexcept;
-  inline void Close();
+  scpi_base() = default;
+  ~scpi_base() noexcept;
+  inline void open(const std::string &, const unsigned short);
+  inline bool is_opened() const noexcept;
+  inline void close();
   template <size_t N, typename... ValueTypes>
   typename std::enable_if<!any_base_of<UnitsTypeBase, ValueTypes...>::value &&
                           !any_base_of<ChannelType, ValueTypes...>::value>::type
@@ -124,17 +119,17 @@ class SCPI_API CScpiBase : public CScpiConstants {
   unsigned int GetQueryTimeout() const noexcept;
 
  protected:
-  Hardware::CHardware m_Hardware;
+  scpi::io io;
 
  public:
-  Ieee4882::CIeee4882 m_Ieee4882{m_Hardware};
+  scpi::ieee488_io ieee488_io{io};
 
-  CScpiBase(const CScpiBase &) = delete;
-  CScpiBase &operator=(const CScpiBase &) = delete;
+  scpi_base(const scpi_base &) = delete;
+  scpi_base &operator=(const scpi_base &) = delete;
 
  private:
-  mutable std::mutex m_Mutex;
-  unsigned int m_QueryTimeout_ms{QueryTimeoutDefault_ms};
+  static std::mutex _mutex;
+  unsigned int m_QueryTimeout_ms{query_timeout_ms};
   static void RemoveCharInString(std::string &, const char);
   static void AddChannelToString(std::string &, const ChannelType &);
   void MakeSeparatedString(std::stringstream &, const char) const {};
@@ -153,8 +148,6 @@ class SCPI_API CScpiBase : public CScpiConstants {
   template <typename... ValueTypes>
   void QueryBase(const std::string &, ValueTypes &...) const;
 };
-}  // namespace Scpi
+}  // namespace scpi
 
 #include "scpi_base.hpp"
-
-#endif  // SCPI_BASE_H

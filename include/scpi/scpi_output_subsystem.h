@@ -22,22 +22,22 @@
 #include "scpi_mnemonics.h"
 #include "scpi_source_protection_commands.h"
 
-namespace Scpi {
+namespace scpi {
 class SCPI_API COUTPutSubsystem {
  public:
-  COUTPutSubsystem(const CScpiBase &);
+  COUTPutSubsystem(const scpi_base &);
   bool IsEnabled(const ChannelType &channel = {}) const;
   void SetEnabled(const bool, const ChannelType &channel = {}) const;
   CSOURcePROTectionCommands<sizeof(ScpiMnemonics::CMnemonics::OUTPut),
                             ScpiMnemonics::CMnemonics::OUTPut, UnitsTypeBase>
-      m_PROTection;
+      PROTection;
 
   COUTPutSubsystem() = delete;
   COUTPutSubsystem(const COUTPutSubsystem &) = delete;
   COUTPutSubsystem &operator=(const COUTPutSubsystem &) = delete;
 
  private:
-  const CScpiBase &m_Scpi;
+  const scpi_base &_scpi;
 };
 }  // namespace Scpi
 

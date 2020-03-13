@@ -16,80 +16,77 @@
 
 */
 
-#ifndef REGISTER_TYPE_HPP
-#define REGISTER_TYPE_HPP
+#pragma once
 
-namespace RegisterType {
-namespace Detail {
-template <typename RegisterType, typename BitMask, typename BitsType>
+namespace scpi {
+namespace detail {
+template <typename register_type, typename bit_mask, typename bits_type>
 std::istream &operator>>(
     std::istream &lhs,
-    RegisterTypeAbstract<RegisterType, BitMask, BitsType> &rhs) {
-  RegisterType reg;
+    register_abstract<register_type, bit_mask, bits_type> &rhs) {
+  register_type reg;
   lhs >> reg;
-  rhs.SetRegister(reg);
+  rhs.set_register(reg);
   return lhs;
 }
 
-template <typename RegisterType, typename BitMask, typename BitsType>
+template <typename register_type, typename bit_mask, typename bits_type>
 std::ostream &operator<<(
     std::ostream &lhs,
-    RegisterTypeAbstract<RegisterType, BitMask, BitsType> rhs) {
-  RegisterType reg = rhs.GetRegister();
+    register_abstract<register_type, bit_mask, bits_type> rhs) {
+  register_type reg = rhs.get_register();
   lhs << reg;
   return lhs;
 }
 
-template <typename RegisterType, typename BitMask, typename BitsType>
-RegisterTypeAbstract<RegisterType, BitMask, BitsType>::RegisterTypeAbstract(
-    const RegisterType &val)
-    : Data{val} {}
+template <typename register_type, typename bit_mask, typename bits_type>
+register_abstract<register_type, bit_mask, bits_type>::register_abstract(
+    const register_type &val)
+    : data{val} {}
 
-template <typename RegisterType, typename BitMask, typename BitsType>
-RegisterTypeAbstract<RegisterType, BitMask, BitsType>::RegisterTypeAbstract(
+template <typename register_type, typename bit_mask, typename bits_type>
+register_abstract<register_type, bit_mask, bits_type>::register_abstract(
     const std::string &val)
-    : Data{static_cast<RegisterType>(std::stoi(val))} {}
+    : data{static_cast<register_type>(std::stoi(val))} {}
 
-template <typename RegisterType, typename BitMask, typename BitsType>
-void RegisterTypeAbstract<RegisterType, BitMask, BitsType>::SetRegister(
-    const RegisterType &val) {
-  Data.Register = (val & static_cast<RegisterType>(BitMask::AllBits));
+template <typename register_type, typename bit_mask, typename bits_type>
+void register_abstract<register_type, bit_mask, bits_type>::set_register(
+    const register_type &val) {
+  data._register = (val & static_cast<register_type>(bit_mask::all_bits));
 }
 
-template <typename RegisterType, typename BitMask, typename BitsType>
-RegisterType
-RegisterTypeAbstract<RegisterType, BitMask, BitsType>::GetRegister() const {
-  return Data.Register;
+template <typename register_type, typename bit_mask, typename bits_type>
+register_type
+register_abstract<register_type, bit_mask, bits_type>::get_register() const {
+  return data._register;
 }
 
-template <typename RegisterType, typename BitMask, typename BitsType>
-std::string RegisterTypeAbstract<RegisterType, BitMask, BitsType>::to_string()
+template <typename register_type, typename bit_mask, typename bits_type>
+std::string register_abstract<register_type, bit_mask, bits_type>::to_string()
     const {
-  return std::to_string(Data.Register);
+  return std::to_string(data._register);
 }
 
-template <typename RegisterType, typename BitMask, typename BitsType>
-RegisterTypeAbstract<RegisterType, BitMask, BitsType>::DataType::DataType()
-    : Register{} {}
+template <typename register_type, typename bit_mask, typename bits_type>
+register_abstract<register_type, bit_mask, bits_type>::data_type::data_type()
+    : _register{} {}
 
-template <typename RegisterType, typename BitMask, typename BitsType>
-RegisterTypeAbstract<RegisterType, BitMask, BitsType>::DataType::DataType(
-    const RegisterType &val)
-    : Register{static_cast<RegisterType>(
-          val & static_cast<RegisterType>(BitMask::AllBits))} {}
+template <typename register_type, typename bit_mask, typename bits_type>
+register_abstract<register_type, bit_mask, bits_type>::data_type::data_type(
+    const register_type &val)
+    : _register{static_cast<register_type>(
+          val & static_cast<register_type>(bit_mask::all_bits))} {}
 
-template <typename RegisterType, typename BitMask, typename BitsType>
-void RegisterTypeAbstract<RegisterType, BitMask,
-                          BitsType>::DataType::SetAllBits() {
-  Register = static_cast<RegisterType>(BitMask::AllBits);
+template <typename register_type, typename bit_mask, typename bits_type>
+void register_abstract<register_type, bit_mask,
+                       bits_type>::data_type::set_all_bits() {
+  _register = static_cast<register_type>(bit_mask::all_bits);
 }
 
-template <typename RegisterType, typename BitMask, typename BitsType>
-void RegisterTypeAbstract<RegisterType, BitMask,
-                          BitsType>::DataType::ClearAllBits() {
-  Register = 0;
+template <typename register_type, typename bit_mask, typename bits_type>
+void register_abstract<register_type, bit_mask,
+                       bits_type>::data_type::clear_all_bits() {
+  _register = 0;
 }
-}  // namespace Detail
-}  // namespace RegisterType
-
-#endif  // REGISTER_TYPE_HPP
+}  // namespace detail
+}  // namespace scpi

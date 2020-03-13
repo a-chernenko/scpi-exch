@@ -19,75 +19,75 @@
 #include "scpi_sweep_subsystem.h"
 #include "scpi_sweep_mnemonics.h"
 
-using namespace Scpi;
+using namespace scpi;
 using namespace ScpiMnemonics::Sweep;
 
-CSWEepSubsystem::CSWEepSubsystem(const CScpiBase &scpi)
-    : m_TIME{scpi}, m_Scpi{scpi} {}
+CSWEepSubsystem::CSWEepSubsystem(const scpi_base &scpi)
+    : m_TIME{scpi}, _scpi{scpi} {}
 
 void CSWEepSubsystem::SetPoints(const double value,
                                 const ChannelType &channel) const {
   constexpr auto command = Mnemonics::POINts.CommandMnemonic;
- m_Scpi.Command(command, channel, value);
+ _scpi.Command(command, channel, value);
 }
 
 double CSWEepSubsystem::GetPoints(const ChannelType &channel) const {
   constexpr auto query = Mnemonics::POINts.QueryMnemonic;
   double value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }
 
 void CSWEepSubsystem::SetStep(const double value,
                               const ChannelType &channel) const {
   constexpr auto command = Mnemonics::STEP.CommandMnemonic;
- m_Scpi.Command(command, channel, value);
+ _scpi.Command(command, channel, value);
 }
 
 double CSWEepSubsystem::GetStep(const ChannelType &channel) const {
   constexpr auto query = Mnemonics::STEP.QueryMnemonic;
   double value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }
 
 void CSWEepSubsystem::SetCount(const double value,
                                const ChannelType &channel) const {
   constexpr auto command = Mnemonics::COUNt.CommandMnemonic;
- m_Scpi.Command(command, channel, value);
+ _scpi.Command(command, channel, value);
 }
 
 double CSWEepSubsystem::GetGount(const ChannelType &channel) const {
   constexpr auto query = Mnemonics::COUNt.QueryMnemonic;
   double value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }
 
-CSWEepSubsystem::CTIME::CTIME(const CScpiBase &scpi) :m_Scpi{scpi} {}
+CSWEepSubsystem::CTIME::CTIME(const scpi_base &scpi) :_scpi{scpi} {}
 
 void CSWEepSubsystem::CTIME::Set(const double value,
                                  const ChannelType &channel) const {
   constexpr auto command = Mnemonics::TIME.CommandMnemonic;
- m_Scpi.Command(command, channel, value);
+ _scpi.Command(command, channel, value);
 }
 
 double CSWEepSubsystem::CTIME::Get(const ChannelType &channel) const {
   constexpr auto query = Mnemonics::TIME.QueryMnemonic;
   double value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }
 
 void CSWEepSubsystem::CTIME::SetAuto(const bool value,
                                      const ChannelType &channel) const {
   constexpr auto command = Mnemonics::TIME.AUTO.CommandMnemonic;
- m_Scpi.Command(command, channel, value);
+ _scpi.Command(command, channel, value);
 }
 
 bool CSWEepSubsystem::CTIME::GetAuto(const ChannelType &channel) const {
   constexpr auto query = Mnemonics::TIME.AUTO.QueryMnemonic;
   bool value;
- m_Scpi.Query(query, channel, value);
+ _scpi.Query(query, channel, value);
   return value;
 }

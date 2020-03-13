@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_H
-#define SCPI_H
+#pragma once
 
 #include "scpi_display_subsystem.h"
 #include "scpi_input_subsystem.h"
@@ -30,30 +29,23 @@
 #include "scpi_trigger_subsystem.h"
 #include "scpi_unit_subsystem.h"
 
-
-namespace Scpi {
-/**
-@class CScpi
-@brief Реализация протокола SCPI.
-*/
-class SCPI_API CScpi final : public CScpiBase {
+namespace scpi {
+class SCPI_API scpi_io final : public scpi_base {
  public:
-  using SharedPtr = std::shared_ptr<CScpi>;
-  CScpi() = default;
-  CSTATusSubsystem m_STATus{*this};
-  COUTPutSubsystem m_OUTPut{*this};
-  CMEASureSubsystem m_MEASure{*this};
-  CSOURceSubsystem m_SOURce{*this};
-  CSENSeSubsystem m_SENSe{*this};
-  CINPutSubsystem m_INPut{*this};
-  CUNITSubsystem m_UNIT{*this};
-  CDISPlaySubsystem m_DISPlay{*this};
-  CSYSTemSubsystem m_SYSTem{*this};
-  CTRIGgerSubsystem m_TRIGger{*this};
+  using SharedPtr = std::shared_ptr<scpi_io>;
+  scpi_io() = default;
+  CSTATusSubsystem STATus{*this};
+  COUTPutSubsystem OUTPut{*this};
+  CMEASureSubsystem MEASure{*this};
+  CSOURceSubsystem SOURce{*this};
+  CSENSeSubsystem SENSe{*this};
+  CINPutSubsystem INPut{*this};
+  CUNITSubsystem UNIT{*this};
+  CDISPlaySubsystem DISPlay{*this};
+  CSYSTemSubsystem SYSTem{*this};
+  CTRIGgerSubsystem TRIGger{*this};
 
-  CScpi(const CScpi&) = delete;
-  CScpi& operator=(const CScpi&) = delete;
+  scpi_io(const scpi_io&) = delete;
+  scpi_io& operator=(const scpi_io&) = delete;
 };
-}  // namespace Scpi
-
-#endif  // SCPI_H
+}  // namespace scpi
