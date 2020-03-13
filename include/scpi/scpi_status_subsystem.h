@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_STATUS_SUBSYSTEM_H
-#define SCPI_STATUS_SUBSYSTEM_H
+#pragma once
 
 #include "scpi_base.h"
 
@@ -93,8 +92,6 @@ class CSTATusSubsystem {
  private:
   const scpi_base &_scpi;
 };
-}  // namespace Scpi
+}  // namespace scpi
 
 #include "scpi_status_subsystem.hpp"
-
-#endif  // SCPI_STATUS_SUBSYSTEM_H

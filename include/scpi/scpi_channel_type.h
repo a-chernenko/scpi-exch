@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_CHANNEL_TYPE_H
-#define SCPI_CHANNEL_TYPE_H
+#pragma once
 
 #include <string>
 
@@ -67,6 +66,4 @@ struct ChannelType {
  private:
   unsigned int value{};
 };
-}  // namespace Scpi
-
-#endif  // SCPI_CHANNEL_TYPE_H
+}  // namespace scpi

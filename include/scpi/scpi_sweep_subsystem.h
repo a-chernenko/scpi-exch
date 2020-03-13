@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_SWEEP_SUBSYSTEM_H
-#define SCPI_SWEEP_SUBSYSTEM_H
+#pragma once
 
 #include "scpi_base.h"
 
@@ -45,7 +44,7 @@ class SCPI_API CSWEepSubsystem {
 
    private:
     const scpi_base &_scpi;
-  } m_TIME;
+  } TIME;
 
   CSWEepSubsystem() = delete;
   CSWEepSubsystem(const CSWEepSubsystem &) = delete;
@@ -55,6 +54,4 @@ class SCPI_API CSWEepSubsystem {
   CSWEepSubsystem(const scpi_base &);
   const scpi_base &_scpi;
 };
-}  // namespace Scpi
-
-#endif  // SCPI_SWEEP_SUBSYSTEM_H
+}  // namespace scpi

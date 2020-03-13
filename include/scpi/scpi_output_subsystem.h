@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_OUTPUT_SUBSYSTEM_H
-#define SCPI_OUTPUT_SUBSYSTEM_H
+#pragma once
 
 #include "scpi_mnemonics.h"
 #include "scpi_source_protection_commands.h"
@@ -28,8 +27,8 @@ class SCPI_API COUTPutSubsystem {
   COUTPutSubsystem(const scpi_base &);
   bool IsEnabled(const ChannelType &channel = {}) const;
   void SetEnabled(const bool, const ChannelType &channel = {}) const;
-  CSOURcePROTectionCommands<sizeof(ScpiMnemonics::CMnemonics::OUTPut),
-                            ScpiMnemonics::CMnemonics::OUTPut, UnitsTypeBase>
+  CSOURcePROTectionCommands<sizeof(mnemonics::CMnemonics::OUTPut),
+                            mnemonics::CMnemonics::OUTPut, UnitsTypeBase>
       PROTection;
 
   COUTPutSubsystem() = delete;
@@ -39,6 +38,4 @@ class SCPI_API COUTPutSubsystem {
  private:
   const scpi_base &_scpi;
 };
-}  // namespace Scpi
-
-#endif  // SCPI_OUTPUT_SUBSYSTEM_H
+}  // namespace scpi

@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_UNIT_SUBSYSTEM_H
-#define SCPI_UNIT_SUBSYSTEM_H
+#pragma once
 
 #include "scpi_current_subsystem.h"
 #include "scpi_power_subsystem.h"
@@ -40,8 +39,6 @@ class SCPI_API CUNITSubsystem {
 
  private:
   void ToUpperCase(std::string&) const;
-  const scpi_base &_scpi;
+  const scpi_base& _scpi;
 };
-}  // namespace Scpi
-
-#endif  // SCPI_UNIT_SUBSYSTEM_H
+}  // namespace scpi

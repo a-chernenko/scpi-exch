@@ -32,7 +32,7 @@
 namespace scpi {
 class SCPI_API scpi_io final : public scpi_base {
  public:
-  using SharedPtr = std::shared_ptr<scpi_io>;
+  using shared_ptr = std::shared_ptr<scpi_io>;
   scpi_io() = default;
   CSTATusSubsystem STATus{*this};
   COUTPutSubsystem OUTPut{*this};

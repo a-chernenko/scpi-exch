@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_CURRENT_SUBSYSTEM_H
-#define SCPI_CURRENT_SUBSYSTEM_H
+#pragma once
 
 #include "scpi_mnemonics.h"
 #include "scpi_source_level_commands.h"
@@ -27,13 +26,12 @@
 namespace scpi {
 class SCPI_API CCURRentSubsystem {
  public:
-  CSOURcePROTectionCommands<sizeof(ScpiMnemonics::CMnemonics::CURRent),
-                            ScpiMnemonics::CMnemonics::CURRent,
+  CSOURcePROTectionCommands<sizeof(mnemonics::CMnemonics::CURRent),
+                            mnemonics::CMnemonics::CURRent,
                             CurrentUnitsType::Type>
       PROTection;
-  CSOURceLEVelCommands<sizeof(ScpiMnemonics::CMnemonics::CURRent),
-                       ScpiMnemonics::CMnemonics::CURRent,
-                       CurrentUnitsType::Type>
+  CSOURceLEVelCommands<sizeof(mnemonics::CMnemonics::CURRent),
+                       mnemonics::CMnemonics::CURRent, CurrentUnitsType::Type>
       LEVel;
 
   CCURRentSubsystem() = delete;
@@ -42,8 +40,6 @@ class SCPI_API CCURRentSubsystem {
 
  protected:
   CCURRentSubsystem(const scpi_base&);
-  const scpi_base &_scpi;
+  const scpi_base& _scpi;
 };
-}  // namespace Scpi
-
-#endif  // SCPI_CURRENT_SUBSYSTEM_H
+}  // namespace scpi

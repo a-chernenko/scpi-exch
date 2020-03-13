@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_SENSE_FREQUENCY_SUBSYSTEM_H
-#define SCPI_SENSE_FREQUENCY_SUBSYSTEM_H
+#pragma once
 
 #include "scpi_frequency_subsystem.h"
 
@@ -30,6 +29,4 @@ class SCPI_API CSENSeFREQuencySubsystem : public CFREQuencySubsystem {
   CSENSeFREQuencySubsystem(const CSENSeFREQuencySubsystem&) = delete;
   CSENSeFREQuencySubsystem& operator=(const CSENSeFREQuencySubsystem&) = delete;
 };
-}  // namespace Scpi
-
-#endif  // SCPI_SENSE_FREQUENCY_SUBSYSTEM_H
+}  // namespace scpi

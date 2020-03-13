@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_SOURCE_SUBSYSTEM_H
-#define SCPI_SOURCE_SUBSYSTEM_H
+#pragma once
 
 #include "scpi_source_current_subsystem.h"
 #include "scpi_source_frequency_subsystem.h"
@@ -25,24 +24,21 @@
 #include "scpi_source_power_subsystem.h"
 #include "scpi_source_voltage_subsystem.h"
 
-
 namespace scpi {
 class SCPI_API CSOURceSubsystem {
  public:
   CSOURceSubsystem(const scpi_base&);
-  CSOURceCURRentSubsystem m_CURRent;
-  CSOURceVOLTageSubsystem m_VOLTage;
-  CSOURceFREQuencySubsystem m_FREQuency;
-  CSOURcePOWerSubsystem m_POWer;
-  CSOURceMARKerSubsystem m_MARKer;
+  CSOURceCURRentSubsystem CURRent;
+  CSOURceVOLTageSubsystem VOLTage;
+  CSOURceFREQuencySubsystem FREQuency;
+  CSOURcePOWerSubsystem POWer;
+  CSOURceMARKerSubsystem MARKer;
 
   CSOURceSubsystem() = delete;
   CSOURceSubsystem(const CSOURceSubsystem&) = delete;
   CSOURceSubsystem& operator=(const CSOURceSubsystem&) = delete;
 
  private:
-  const scpi_base &_scpi;
+  const scpi_base& _scpi;
 };
-}  // namespace Scpi
-
-#endif  // SCPI_SOURCE_SUBSYSTEM_H
+}  // namespace scpi

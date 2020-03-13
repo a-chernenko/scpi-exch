@@ -16,29 +16,25 @@
 
 */
 
-#ifndef SCPI_SENSE_SUBSYSTEM_H
-#define SCPI_SENSE_SUBSYSTEM_H
+#pragma once
 
 #include "scpi_sense_bandwidth_subsystem.h"
 #include "scpi_sense_frequency_subsystem.h"
 #include "scpi_sense_sweep_subsystem.h"
 
-
 namespace scpi {
 class SCPI_API CSENSeSubsystem {
  public:
   CSENSeSubsystem(const scpi_base&);
-  CSENSeFREQuencySubsystem m_FREQuency;
-  CSENSeSWEepSubsystem m_SWEep;
-  CSENSeBANDwidthSubsystem m_BANDwidth;
+  CSENSeFREQuencySubsystem FREQuency;
+  CSENSeSWEepSubsystem SWEep;
+  CSENSeBANDwidthSubsystem BANDwidth;
 
   CSENSeSubsystem() = delete;
   CSENSeSubsystem(const CSENSeSubsystem&) = delete;
   CSENSeSubsystem& operator=(const CSENSeSubsystem&) = delete;
 
  private:
-  const scpi_base &_scpi;
+  const scpi_base& _scpi;
 };
-}  // namespace Scpi
-
-#endif  // SCPI_SENSE_SUBSYSTEM_H
+}  // namespace scpi

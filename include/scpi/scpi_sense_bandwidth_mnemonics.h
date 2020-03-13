@@ -16,12 +16,11 @@
 
 */
 
-#ifndef SCPI_SENSE_BANDWIDTH_MNEMONICS_H
-#define SCPI_SENSE_BANDWIDTH_MNEMONICS_H
+#pragma once
 
 #include "scpi_mnemonics.h"
 
-namespace ScpiMnemonics {
+namespace scpi::mnemonics {
 namespace Sense {
 namespace Bandwidth {
 namespace detail {
@@ -50,6 +49,4 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(BANDwidth, CMnemonics::BANDwidth) {
 using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(BANDwidth);
 }  // namespace Bandwidth
 }  // namespace Sense
-}  // namespace ScpiMnemonics
-
-#endif  // SCPI_SENSE_BANDWIDTH_MNEMONICS_H
+}  // namespace scpi::mnemonics

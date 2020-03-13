@@ -21,16 +21,16 @@
 
 using std::string;
 using namespace scpi;
-using namespace ScpiMnemonics::Trigger;
+using namespace mnemonics::Trigger;
 
 CTRIGgerSubsystem::CTRIGgerSubsystem(const scpi_base &scpi) :_scpi{scpi} {}
 
 void CTRIGgerSubsystem::Initiate() const {
-  constexpr auto command = Mnemonics::INITiate.Mnemonic;
- _scpi.Command(command);
+  constexpr auto mnemonic = Mnemonics::INITiate.Mnemonic;
+ _scpi.command(mnemonic);
 }
 
 void CTRIGgerSubsystem::Abort() const {
-  constexpr auto command = Mnemonics::ABORt.Mnemonic;
- _scpi.Command(command);
+  constexpr auto mnemonic = Mnemonics::ABORt.Mnemonic;
+ _scpi.command(mnemonic);
 }

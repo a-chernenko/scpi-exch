@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_DISPLAY_SUBSYSTEM_H
-#define SCPI_DISPLAY_SUBSYSTEM_H
+#pragma once
 
 #include "scpi_base.h"
 
@@ -33,8 +32,6 @@ class SCPI_API CDISPlaySubsystem {
   CDISPlaySubsystem& operator=(const CDISPlaySubsystem&) = delete;
 
  private:
-  const scpi_base &_scpi;
+  const scpi_base& _scpi;
 };
-}  // namespace Scpi
-
-#endif  // SCPI_DISPLAY_SUBSYSTEM_H
+}  // namespace scpi

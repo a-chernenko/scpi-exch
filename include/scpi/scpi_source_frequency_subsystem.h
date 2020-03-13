@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_SOURCE_FREQUENCY_SUBSYSTEM_H
-#define SCPI_SOURCE_FREQUENCY_SUBSYSTEM_H
+#pragma once
 
 #include "scpi_frequency_subsystem.h"
 
@@ -32,5 +31,3 @@ class SCPI_API CSOURceFREQuencySubsystem : public CFREQuencySubsystem {
       delete;
 };
 }  // namespace Scpi
-
-#endif  // SCPI_SOURCE_FREQUENCY_SUBSYSTEM_H

@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_FREQUENCY_SUBSYSTEM_H
-#define SCPI_FREQUENCY_SUBSYSTEM_H
+#pragma once
 
 #include "scpi_base.h"
 #include "scpi_units_type.h"
@@ -47,6 +46,4 @@ class SCPI_API CFREQuencySubsystem {
   CFREQuencySubsystem(const scpi_base &);
   const scpi_base &_scpi;
 };
-}  // namespace Scpi
-
-#endif  // SCPI_FREQUENCY_SUBSYSTEM_H
+}  // namespace scpi

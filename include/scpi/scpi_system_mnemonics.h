@@ -16,12 +16,11 @@
 
 */
 
-#ifndef SCPI_SYSTEM_MNEMONICS_H
-#define SCPI_SYSTEM_MNEMONICS_H
+#pragma once
 
 #include "scpi_mnemonics.h"
 
-namespace ScpiMnemonics {
+namespace scpi::mnemonics {
 namespace System {
 namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(NEXT, CMnemonics::NEXT),
@@ -50,6 +49,4 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(SYSTem, CMnemonics::SYSTem) {
 
 using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(SYSTem);
 }  // namespace System
-}  // namespace ScpiMnemonics
-
-#endif  // SCPI_SYSTEM_MNEMONICS_H
+}  // namespace scpi::mnemonics

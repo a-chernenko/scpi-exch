@@ -21,9 +21,9 @@
 using namespace scpi;
 
 CSOURceSubsystem::CSOURceSubsystem(const scpi_base &scpi)
-    : m_CURRent{scpi},
-      m_VOLTage{scpi},
-      m_FREQuency{scpi},
-      m_POWer{scpi},
-      m_MARKer{scpi},
+    : CURRent{scpi},
+      VOLTage{scpi},
+      FREQuency{scpi},
+      POWer{scpi},
+      MARKer{scpi},
       _scpi{scpi} {}

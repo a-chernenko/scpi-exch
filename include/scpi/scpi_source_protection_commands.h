@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_SOURCE_PROTECTION_COMMANDS_H
-#define SCPI_SOURCE_PROTECTION_COMMANDS_H
+#pragma once
 
 #include "scpi_base.h"
 
@@ -43,8 +42,6 @@ class CSOURcePROTectionCommands {
  private:
   const scpi_base &_scpi;
 };
-}  // namespace Scpi
+}  // namespace scpi
 
 #include "scpi_source_protection_commands.hpp"
-
-#endif  // SCPI_SOURCE_PROTECTION_COMMANDS_H

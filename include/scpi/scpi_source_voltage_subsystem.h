@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_SOURCE_VOLTAGE_SUBSYSTEM_H
-#define SCPI_SOURCE_VOLTAGE_SUBSYSTEM_H
+#pragma once
 
 #include "scpi_voltage_subsystem.h"
 
@@ -30,6 +29,4 @@ class SCPI_API CSOURceVOLTageSubsystem : public CVOLTageSubsystem {
   CSOURceVOLTageSubsystem(const CSOURceVOLTageSubsystem&) = delete;
   CSOURceVOLTageSubsystem& operator=(const CSOURceVOLTageSubsystem&) = delete;
 };
-}  // namespace Scpi
-
-#endif  // SCPI_SOURCE_VOLTAGE_SUBSYSTEM_H
+}  // namespace scpi

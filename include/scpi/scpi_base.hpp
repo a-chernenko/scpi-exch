@@ -16,14 +16,13 @@
 
 */
 
-#ifndef SCPI_BASE_HPP
-#define SCPI_BASE_HPP
+#pragma once
 
 #include "io_error.h"
 
 namespace scpi {
 void scpi_base::open(const std::string &ip,
-                     const unsigned short port = PortDefault) {
+                     const unsigned short port = port_default) {
   io.open(ip, port);
 }
 
@@ -32,163 +31,164 @@ bool scpi_base::is_opened() const noexcept { return io.is_opened(); }
 void scpi_base::close() { io.close(); }
 
 template <size_t N, typename... ValueTypes>
-void scpi_base::CommandBase(const const_string<N> &command,
-                            const ValueTypes &... values) const {
-  CommandBase(command.to_string(), values...);
+void scpi_base::command_base(const const_string<N> &mnemonic,
+                             const ValueTypes &... values) const {
+  command_base(mnemonic.to_string(), values...);
 }
 
 template <typename... ValueTypes>
-void scpi_base::CommandBase(const std::string &command,
-                            const ValueTypes &... values) const {
+void scpi_base::command_base(const std::string &mnemonic,
+                             const ValueTypes &... values) const {
   std::lock_guard<std::mutex> lock{_mutex};
   const char separator{','};
   std::stringstream request;
-  request << command;
-  MakeSeparatedString(request, separator, values...);
+  request << mnemonic;
+  make_separated_string(request, separator, values...);
   io.write(request.str());
   ieee488_io.error_handler();
 }
 
 template <size_t N, typename... ValueTypes>
-void scpi_base::QueryBase(const const_string<N> &query,
-                          ValueTypes &... values) const {
-  QueryBase(query.to_string(), values...);
+void scpi_base::query_base(const const_string<N> &query,
+                           ValueTypes &... values) const {
+  query_base(query.to_string(), values...);
 }
 
 template <typename... ValueTypes>
-void scpi_base::QueryBase(const std::string &query,
-                          ValueTypes &... values) const {
+void scpi_base::query_base(const std::string &query,
+                           ValueTypes &... values) const {
   std::lock_guard<std::mutex> lock{_mutex};
   io.write(query);
   bool read_timeout{};
   std::string response;
   try {
-    auto timeout_ms = GetQueryTimeout();
+    auto timeout_ms = get_query_timeout();
     io.read(response, timeout_ms);
   } catch (scpi::read_timeout) {
     read_timeout = true;
   }
   ieee488_io.error_handler();
   if (read_timeout) throw scpi::read_timeout();
-  RemoveQuotesInString(response);
+  remove_quotes(response);
   std::stringstream ss;
   ss << response;
-  ParseSeparatedString(ss, values...);
+  parse_separated_string(ss, values...);
 }
 
 template <size_t N, typename... ValueTypes>
 typename std::enable_if<!any_base_of<UnitsTypeBase, ValueTypes...>::value &&
                         !any_base_of<ChannelType, ValueTypes...>::value>::type
-scpi_base::Command(const const_string<N> &command,
+scpi_base::command(const const_string<N> &mnemonic,
                    const ValueTypes &... values) const {
-  CommandBase(command.to_string(), values...);
+  command_base(mnemonic.to_string(), values...);
 }
 
 template <typename... ValueTypes>
 typename std::enable_if<!any_base_of<UnitsTypeBase, ValueTypes...>::value &&
                         !any_base_of<ChannelType, ValueTypes...>::value>::type
-scpi_base::Command(const std::string &command,
+scpi_base::command(const std::string &mnemonic,
                    const ValueTypes &... values) const {
-  CommandBase(command, values...);
+  command_base(mnemonic, values...);
 }
 
 template <size_t N, typename... ValueTypes>
-void scpi_base::Command(const const_string<N> &command,
+void scpi_base::command(const const_string<N> &mnemonic,
                         const ChannelType &channel,
                         const ValueTypes &... values) const {
-  Command(command.to_string(), channel, values...);
+  command(mnemonic.to_string(), channel, values...);
 }
 
 template <typename... ValueTypes>
-void scpi_base::Command(const std::string &command, const ChannelType &channel,
+void scpi_base::command(const std::string &mnemonic, const ChannelType &channel,
                         const ValueTypes &... values) const {
   if (channel > 0) {
     std::string channel_string;
-    AddChannelToString(channel_string, channel);
-    CommandBase(command, values..., channel_string);
+    add_channel(channel_string, channel);
+    command_base(mnemonic, values..., channel_string);
   } else
-    CommandBase(command, values...);
+    command_base(mnemonic, values...);
 }
 
 template <size_t N, typename ValueType>
-void scpi_base::Command(const const_string<N> &command,
+void scpi_base::command(const const_string<N> &mnemonic,
                         const UnitsTypeBase &unit,
                         const ValueType &value) const {
-  Command(command.to_string(), unit, value);
+  command(mnemonic.to_string(), unit, value);
 }
 
 template <typename ValueType>
-void scpi_base::Command(const std::string &command, const UnitsTypeBase &unit,
+void scpi_base::command(const std::string &mnemonic, const UnitsTypeBase &unit,
                         const ValueType &value) const {
-  std::string command_string{command};
-  command_string += std::to_string(value);
-  command_string += unit.to_string();
-  CommandBase(command_string);
+  std::string mnemonic_string{mnemonic};
+  mnemonic_string += std::to_string(value);
+  mnemonic_string += unit.to_string();
+  command_base(mnemonic_string);
 }
 
 template <size_t N>
-void scpi_base::Command(const const_string<N> &command,
+void scpi_base::command(const const_string<N> &mnemonic,
                         const UnitsTypeBase &unit) const {
-  Command(command.to_string(), unit);
+  command(mnemonic.to_string(), unit);
 }
 
 template <size_t N>
-void scpi_base::Command(const const_string<N> &command) const {
-  Command(command.to_string());
+void scpi_base::command(const const_string<N> &mnemonic) const {
+  command(mnemonic.to_string());
 }
 
 template <size_t N, typename... ValueTypes>
 typename std::enable_if<!any_base_of<ChannelType, ValueTypes...>::value>::type
-scpi_base::Query(const const_string<N> &query, ValueTypes &... values) const {
-  QueryBase(query.to_string(), values...);
+scpi_base::query(const const_string<N> &mnemonic,
+                 ValueTypes &... values) const {
+  query_base(mnemonic.to_string(), values...);
 }
 
 template <typename... ValueTypes>
 typename std::enable_if<!any_base_of<ChannelType, ValueTypes...>::value>::type
-scpi_base::Query(const std::string &query, ValueTypes &... values) const {
-  QueryBase(query, values...);
+scpi_base::query(const std::string &mnemonic, ValueTypes &... values) const {
+  query_base(mnemonic, values...);
 }
 
 template <size_t N, typename... ValueTypes>
-void scpi_base::Query(const const_string<N> &query, const ChannelType &channel,
+void scpi_base::query(const const_string<N> &mnemonic,
+                      const ChannelType &channel,
                       ValueTypes &... values) const {
-  Query(query.to_string(), channel, values...);
+  query(mnemonic.to_string(), channel, values...);
 }
 
 template <typename... ValueTypes>
-void scpi_base::Query(const std::string &query, const ChannelType &channel,
+void scpi_base::query(const std::string &mnemonic, const ChannelType &channel,
                       ValueTypes &... values) const {
   if (channel > 0) {
-    std::string query_string{query};
-    AddChannelToString(query_string, channel);
-    QueryBase(query_string, values...);
+    std::string mnemonic_string{mnemonic};
+    add_channel(mnemonic_string, channel);
+    query_base(mnemonic_string, values...);
   } else
-    QueryBase(query, values...);
+    query_base(mnemonic, values...);
 }
 
 template <size_t N>
-void scpi_base::Query(const const_string<N> &query, std::string &value) const {
-  Query(query.to_string(), value);
+void scpi_base::query(const const_string<N> &mnemonic,
+                      std::string &value) const {
+  query(mnemonic.to_string(), value);
 }
 
 template <typename Arg, typename... Args>
-void scpi_base::MakeSeparatedString(std::stringstream &ss, const char separator,
-                                    const Arg &arg,
-                                    const Args &... args) const {
+void scpi_base::make_separated_string(std::stringstream &ss,
+                                      const char separator, const Arg &arg,
+                                      const Args &... args) const {
   ss << arg;
   auto args_num = sizeof...(args);
   if (args_num > 0) ss << separator;
-  MakeSeparatedString(ss, separator, args...);
+  make_separated_string(ss, separator, args...);
 }
 
 template <typename Arg, typename... Args>
-void scpi_base::ParseSeparatedString(std::stringstream &ss, Arg &arg,
-                                     Args &... args) const {
+void scpi_base::parse_separated_string(std::stringstream &ss, Arg &arg,
+                                       Args &... args) const {
   ss >> arg;
   auto args_num = sizeof...(args);
   if (args_num > 0) ss.ignore();  // skip separator
-  ParseSeparatedString(ss, args...);
+  parse_separated_string(ss, args...);
 }
-}  // namespace Scpi
-
-#endif  // SCPI_BASE_HPP
+}  // namespace scpi

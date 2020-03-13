@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_POWER_SUBSYSTEM_H
-#define SCPI_POWER_SUBSYSTEM_H
+#pragma once
 
 #include "scpi_mnemonics.h"
 #include "scpi_source_level_commands.h"
@@ -27,12 +26,11 @@
 namespace scpi {
 class SCPI_API CPOWerSubsystem {
  public:
-  CSOURcePROTectionCommands<sizeof(ScpiMnemonics::CMnemonics::POWer),
-                            ScpiMnemonics::CMnemonics::POWer,
-                            PowerUnitsType::Type>
+  CSOURcePROTectionCommands<sizeof(mnemonics::CMnemonics::POWer),
+                            mnemonics::CMnemonics::POWer, PowerUnitsType::Type>
       PROTection;
-  CSOURceLEVelCommands<sizeof(ScpiMnemonics::CMnemonics::POWer),
-                       ScpiMnemonics::CMnemonics::POWer, PowerUnitsType::Type>
+  CSOURceLEVelCommands<sizeof(mnemonics::CMnemonics::POWer),
+                       mnemonics::CMnemonics::POWer, PowerUnitsType::Type>
       LEVel;
 
   CPOWerSubsystem() = delete;
@@ -44,5 +42,3 @@ class SCPI_API CPOWerSubsystem {
   const scpi_base& _scpi;
 };
 }  // namespace scpi
-
-#endif  // SCPI_POWER_SUBSYSTEM_H

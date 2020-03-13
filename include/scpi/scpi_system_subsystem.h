@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_SYSTEM_SUBSYSTEM_H
-#define SCPI_SYSTEM_SUBSYSTEM_H
+#pragma once
 
 #include "scpi_base.h"
 
@@ -37,20 +36,20 @@ class SCPI_API CSYSTemSubsystem {
 
    private:
     const scpi_base &_scpi;
-  } m_ERRor;
-  class SCPI_API LOCK {
+  } ERRor;
+  class SCPI_API CLOCK {
    public:
-    LOCK(const scpi_base &scpi);
+    CLOCK(const scpi_base &scpi);
     void Lock() const;
     void Release() const;
 
-    LOCK() = delete;
-    LOCK(const LOCK &) = delete;
-    LOCK &operator=(const LOCK &) = delete;
+    CLOCK() = delete;
+    CLOCK(const CLOCK &) = delete;
+    CLOCK &operator=(const CLOCK &) = delete;
 
    private:
     const scpi_base &_scpi;
-  } m_LOCK;
+  } LOCK;
 
   CSYSTemSubsystem() = delete;
   CSYSTemSubsystem(const CSYSTemSubsystem &) = delete;
@@ -60,5 +59,3 @@ class SCPI_API CSYSTemSubsystem {
   const scpi_base &_scpi;
 };
 }  // namespace Scpi
-
-#endif  // SCPI_SYSTEM_SUBSYSTEM_H

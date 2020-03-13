@@ -16,12 +16,11 @@
 
 */
 
-#ifndef SCPI_TRIGGER_MNEMONICS_H
-#define SCPI_TRIGGER_MNEMONICS_H
+#pragma once
 
 #include "scpi_mnemonics.h"
 
-namespace ScpiMnemonics {
+namespace scpi::mnemonics {
 namespace Trigger {
 namespace detail {
 CREATE_TOP_SUBSYSTEM_MNEMONIC(ABORt, CMnemonics::ABORt){};
@@ -47,6 +46,4 @@ struct CTriggeringCommandsMnemonics {
 
 using Mnemonics = detail::CTriggeringCommandsMnemonics;
 }  // namespace Trigger
-}  // namespace ScpiMnemonics
-
-#endif  // SCPI_TRIGGER_MNEMONICS_H
+}  // namespace scpi::mnemonics

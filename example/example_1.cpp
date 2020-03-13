@@ -20,7 +20,6 @@
 #include "scpi_api.h"
 
 using namespace scpi;
-using namespace scpi;
 
 int main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) try {
   scpi_io scpi;
@@ -31,6 +30,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) try {
     std::cerr << "\ncan't open instrument\n";
   }
   if (scpi.is_opened()) {
+    scpi.SYSTem.LOCK.Lock();
     std::string idn{};
     scpi.ieee488_io.get_identification(idn);
     std::cout << idn << '\n';
@@ -41,6 +41,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) try {
       std::cout << ", " << test_info << '\n';
     }
     std::cout << '\n';
+    scpi.SYSTem.LOCK.Release();
     scpi.close();
   }
   return 0;

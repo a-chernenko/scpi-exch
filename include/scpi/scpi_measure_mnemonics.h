@@ -16,12 +16,11 @@
 
 */
 
-#ifndef SCPI_MEASURE_MNEMONICS_H
-#define SCPI_MEASURE_MNEMONICS_H
+#pragma once
 
 #include "scpi_mnemonics.h"
 
-namespace ScpiMnemonics {
+namespace scpi::mnemonics {
 namespace Measure {
 namespace detail {
 // 3.8 Measurement Function Layer
@@ -88,6 +87,4 @@ struct CMeasurementInstructionsMnemonics {
 
 using Mnemonics = detail::CMeasurementInstructionsMnemonics;
 }  // namespace Measure
-}  // namespace ScpiMnemonics
-
-#endif  // SCPI_MEASURE_MNEMONICS_H
+}  // namespace scpi::mnemonics

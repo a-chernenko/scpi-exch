@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_INPUT_SUBSYSTEM_H
-#define SCPI_INPUT_SUBSYSTEM_H
+#pragma once
 
 #include "scpi_base.h"
 
@@ -39,6 +38,4 @@ class SCPI_API CINPutSubsystem {
  private:
   const scpi_base &_scpi;
 };
-}  // namespace Scpi
-
-#endif  // SCPI_INPUT_SUBSYSTEM_H
+}  // namespace scpi

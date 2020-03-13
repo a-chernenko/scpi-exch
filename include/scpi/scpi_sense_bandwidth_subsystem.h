@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_SENSE_BANDWIDTH_SUBSYSTEM_H
-#define SCPI_SENSE_BANDWIDTH_SUBSYSTEM_H
+#pragma once
 
 #include "scpi_base.h"
 
@@ -42,6 +41,4 @@ class SCPI_API CSENSeBANDwidthSubsystem {
  private:
   const scpi_base &_scpi;
 };
-}  // namespace Scpi
-
-#endif  // SCPI_SENSE_BANDWIDTH_SUBSYSTEM_H
+}  // namespace scpi

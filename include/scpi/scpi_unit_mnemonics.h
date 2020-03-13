@@ -16,12 +16,11 @@
 
 */
 
-#ifndef SCPI_UNIT_MNEMONICS_H
-#define SCPI_UNIT_MNEMONICS_H
+#pragma once
 
 #include "scpi_mnemonics.h"
 
-namespace ScpiMnemonics {
+namespace scpi::mnemonics {
 namespace Unit {
 namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(VOLTage, CMnemonics::VOLTage),
@@ -45,6 +44,4 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(UNIT, CMnemonics::UNIT) {
 
 using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(UNIT);
 }  // namespace Unit
-}  // namespace ScpiMnemonics
-
-#endif  // SCPI_UNIT_MNEMONICS_H
+}  // namespace scpi::mnemonics

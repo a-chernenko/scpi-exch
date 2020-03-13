@@ -16,12 +16,11 @@
 
 */
 
-#ifndef SCPI_SWEEP_MNEMONICS_H
-#define SCPI_SWEEP_MNEMONICS_H
+#pragma once
 
 #include "scpi_mnemonics.h"
 
-namespace ScpiMnemonics {
+namespace scpi::mnemonics {
 namespace Sweep {
 namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(COUNt, CMnemonics::COUNt),
@@ -56,6 +55,4 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(SWEep, CMnemonics::SWEep) {
 
 using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(SWEep);
 }  // namespace Sweep
-}  // namespace ScpiMnemonics
-
-#endif  // SCPI_SWEEP_MNEMONICS_H
+}  // namespace scpi::mnemonics

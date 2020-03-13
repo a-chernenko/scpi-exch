@@ -16,12 +16,11 @@
 
 */
 
-#ifndef SCPI_STATUS_MNEMONICS_H
-#define SCPI_STATUS_MNEMONICS_H
+#pragma once
 
 #include "scpi_mnemonics.h"
 
-namespace ScpiMnemonics {
+namespace scpi::mnemonics {
 namespace Status {
 namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(ENABle, CMnemonics::ENABle),
@@ -124,6 +123,4 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(STATus, CMnemonics::STATus) {
 
 using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(STATus);
 }  // namespace Status
-}  // namespace ScpiMnemonics
-
-#endif  // SCPI_STATUS_MNEMONICS_H
+}  // namespace scpi::mnemonics

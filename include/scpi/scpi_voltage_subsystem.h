@@ -16,25 +16,22 @@
 
 */
 
-#ifndef SCPI_VOLTAGE_SUBSYSTEM_H
-#define SCPI_VOLTAGE_SUBSYSTEM_H
+#pragma once
 
 #include "scpi_mnemonics.h"
 #include "scpi_source_level_commands.h"
 #include "scpi_source_protection_commands.h"
 #include "scpi_units_type.h"
 
-
 namespace scpi {
 class SCPI_API CVOLTageSubsystem {
  public:
-  CSOURcePROTectionCommands<sizeof(ScpiMnemonics::CMnemonics::VOLTage),
-                            ScpiMnemonics::CMnemonics::VOLTage,
+  CSOURcePROTectionCommands<sizeof(mnemonics::CMnemonics::VOLTage),
+                            mnemonics::CMnemonics::VOLTage,
                             VoltageUnitsType::Type>
       PROTection;
-  CSOURceLEVelCommands<sizeof(ScpiMnemonics::CMnemonics::VOLTage),
-                       ScpiMnemonics::CMnemonics::VOLTage,
-                       VoltageUnitsType::Type>
+  CSOURceLEVelCommands<sizeof(mnemonics::CMnemonics::VOLTage),
+                       mnemonics::CMnemonics::VOLTage, VoltageUnitsType::Type>
       LEVel;
 
   CVOLTageSubsystem() = delete;
@@ -43,8 +40,6 @@ class SCPI_API CVOLTageSubsystem {
 
  protected:
   CVOLTageSubsystem(const scpi_base&);
-  const scpi_base &_scpi;
+  const scpi_base& _scpi;
 };
-}  // namespace Scpi
-
-#endif  // SCPI_VOLTAGE_SUBSYSTEM_H
+}  // namespace scpi

@@ -15,9 +15,7 @@
    limitations under the License.
 
 */
-
-#ifndef SCPI_SOURCE_CURRENT_SUBSYSTEM_H
-#define SCPI_SOURCE_CURRENT_SUBSYSTEM_H
+#pragma once
 
 #include "scpi_current_subsystem.h"
 
@@ -30,6 +28,4 @@ class SCPI_API CSOURceCURRentSubsystem : public CCURRentSubsystem {
   CSOURceCURRentSubsystem(const CSOURceCURRentSubsystem&) = delete;
   CSOURceCURRentSubsystem& operator=(const CSOURceCURRentSubsystem&) = delete;
 };
-}  // namespace Scpi
-
-#endif  // SCPI_SOURCE_CURRENT_SUBSYSTEM_H
+}  // namespace scpi

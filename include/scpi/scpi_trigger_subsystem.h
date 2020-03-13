@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_TRIGGER_SUBSYSTEM_H
-#define SCPI_TRIGGER_SUBSYSTEM_H
+#pragma once
 
 #include "scpi_base.h"
 
@@ -33,8 +32,6 @@ class SCPI_API CTRIGgerSubsystem {
   CTRIGgerSubsystem& operator=(const CTRIGgerSubsystem&) = delete;
 
  private:
-  const scpi_base &_scpi;
+  const scpi_base& _scpi;
 };
-}  // namespace Scpi
-
-#endif  // SCPI_TRIGGER_SUBSYSTEM_H
+}  // namespace scpi

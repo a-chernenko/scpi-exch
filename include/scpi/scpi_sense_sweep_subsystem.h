@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_SENSE_SWEEP_SUBSYSTEM_H
-#define SCPI_SENSE_SWEEP_SUBSYSTEM_H
+#pragma once
 
 #include "scpi_sweep_subsystem.h"
 
@@ -30,6 +29,4 @@ class SCPI_API CSENSeSWEepSubsystem : public CSWEepSubsystem {
   CSENSeSWEepSubsystem(const CSENSeSWEepSubsystem&) = delete;
   CSENSeSWEepSubsystem& operator=(const CSENSeSWEepSubsystem&) = delete;
 };
-}  // namespace Scpi
-
-#endif  // SCPI_SENSE_SWEEP_SUBSYSTEM_H
+}  // namespace scpi

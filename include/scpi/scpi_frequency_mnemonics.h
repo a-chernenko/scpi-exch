@@ -16,12 +16,11 @@
 
 */
 
-#ifndef SCPI_FREQUENCY_MNEMONICS_H
-#define SCPI_FREQUENCY_MNEMONICS_H
+#pragma once
 
 #include "scpi_mnemonics.h"
 
-namespace ScpiMnemonics {
+namespace scpi::mnemonics {
 namespace Frequency {
 namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(STARt, CMnemonics::STARt),
@@ -72,6 +71,4 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(FREQuency, CMnemonics::FREQuency) {
 
 using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(FREQuency);
 }  // namespace Frequency
-}  // namespace ScpiMnemonics
-
-#endif  // SCPI_FREQUENCY_MNEMONICS_H
+}  // namespace scpi::mnemonics

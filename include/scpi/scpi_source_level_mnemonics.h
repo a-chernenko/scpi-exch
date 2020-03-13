@@ -16,12 +16,11 @@
 
 */
 
-#ifndef SCPI_SOURCE_LEVEL_MNEMONICS_H
-#define SCPI_SOURCE_LEVEL_MNEMONICS_H
+#pragma once
 
 #include "scpi_mnemonics.h"
 
-namespace ScpiMnemonics {
+namespace scpi::mnemonics {
 namespace Source {
 namespace Level {
 namespace detail {
@@ -50,6 +49,4 @@ template <std::size_t N, const const_string<N> &topsubsystem>
 using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(LEVel)<N, topsubsystem>;
 }  // namespace Level
 }  // namespace Source
-}  // namespace ScpiMnemonics
-
-#endif  // SCPI_SOURCE_LEVEL_MNEMONICS_H
+}  // namespace scpi::mnemonics

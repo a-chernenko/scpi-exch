@@ -16,12 +16,11 @@
 
 */
 
-#ifndef SCPI_DISPLAY_MNEMONICS_H
-#define SCPI_DISPLAY_MNEMONICS_H
+#pragma once
 
 #include "scpi_mnemonics.h"
 
-namespace ScpiMnemonics {
+namespace scpi::mnemonics {
 namespace Display {
 namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(ENABle, CMnemonics::ENABle),
@@ -37,6 +36,4 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(DISPlay, CMnemonics::DISPlay),
 
 using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(DISPlay);
 }  // namespace Display
-}  // namespace ScpiMnemonics
-
-#endif  // SCPI_DISPLAY_MNEMONICS_H
+}  // namespace scpi::mnemonics

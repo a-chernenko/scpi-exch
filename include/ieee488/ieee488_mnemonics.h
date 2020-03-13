@@ -22,7 +22,7 @@
 
 namespace scpi {
 namespace ieee488 {
-/* IEEE 488.2 Common Command Groups */
+/* IEEE 488.2 Common command Groups */
 enum class common_query : unsigned int {
   /* System data */
   IDN_identification,                 // Clause 10.14 (IEEE Std 488.2-1992)
@@ -52,7 +52,7 @@ enum class common_query : unsigned int {
   DDTQ_define_device_trigger
 };
 
-/* IEEE 488.2 Common Command Groups */
+/* IEEE 488.2 Common command Groups */
 enum class common_command : unsigned int {
   /* Auto Configure */
   AAD_accept_address,

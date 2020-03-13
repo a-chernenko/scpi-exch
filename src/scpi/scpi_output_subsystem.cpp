@@ -20,20 +20,20 @@
 #include "scpi_output_mnemonics.h"
 
 using namespace scpi;
-using namespace ScpiMnemonics::Output;
+using namespace mnemonics::Output;
 
 COUTPutSubsystem::COUTPutSubsystem(const scpi_base &scpi)
     : PROTection{scpi}, _scpi{scpi} {}
 
 bool COUTPutSubsystem::IsEnabled(const ChannelType &channel) const {
-  constexpr auto query = Mnemonics::STATe.QueryMnemonic;
+  constexpr auto mnemonic = Mnemonics::STATe.QueryMnemonic;
   bool enabled;
- _scpi.Query(query, channel, enabled);
+ _scpi.query(mnemonic, channel, enabled);
   return enabled;
 }
 
 void COUTPutSubsystem::SetEnabled(const bool enabled,
                                   const ChannelType &channel) const {
-  constexpr auto command = Mnemonics::STATe.CommandMnemonic;
- _scpi.Command(command, channel, enabled);
+  constexpr auto mnemonic = Mnemonics::STATe.CommandMnemonic;
+ _scpi.command(mnemonic, channel, enabled);
 }

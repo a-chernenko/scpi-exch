@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_REGISTERS_TYPE_H
-#define SCPI_REGISTERS_TYPE_H
+#pragma once
 
 #include "register_type.h"
 
@@ -69,8 +68,8 @@ enum class OPERationStatusRegisterBitMask : scpi::register_16bit_type {
   INSTrumentSummary = (1UL << 13),
   PROGramRunning = (1UL << 14),
   all_bits = (CALibrating | SETTing | RANGing | SWEeping | MEASuring |
-             TRIGgerWaitingSummary | ARMWaitingSummary | CORRecting |
-             INSTrumentSummary | PROGramRunning)
+              TRIGgerWaitingSummary | ARMWaitingSummary | CORRecting |
+              INSTrumentSummary | PROGramRunning)
 };
 struct OPERationStatusRegisterBitsType {
   bool CALibrating : 1;
@@ -92,13 +91,11 @@ struct OPERationStatusRegisterBitsType {
 };
 }  // namespace detail
 
-using QUEStionableStatusRegisterType = scpi::register_16bit_abstract<
-    detail::QUEStionableStatusRegisterBitMask,
-    detail::QUEStionableStatusRegisterBitsType>;
+using QUEStionable_status_register =
+    scpi::register_16bit_abstract<detail::QUEStionableStatusRegisterBitMask,
+                                  detail::QUEStionableStatusRegisterBitsType>;
 
-using OPERationStatusRegisterType = scpi::register_16bit_abstract<
-    detail::OPERationStatusRegisterBitMask,
-    detail::OPERationStatusRegisterBitsType>;
+using OPERation_status_register =
+    scpi::register_16bit_abstract<detail::OPERationStatusRegisterBitMask,
+                                  detail::OPERationStatusRegisterBitsType>;
 }  // namespace ScpiRegistersType
-
-#endif  // SCPI_REGISTERS_TYPE_H

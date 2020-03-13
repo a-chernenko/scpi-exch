@@ -20,45 +20,45 @@
 #include "scpi_input_mnemonics.h"
 
 using namespace scpi;
-using namespace ScpiMnemonics::Input;
+using namespace mnemonics::Input;
 
 CINPutSubsystem::CINPutSubsystem(const scpi_base &scpi) :_scpi{scpi} {}
 
 void CINPutSubsystem::SetImpedance(const double value,
                                    const ChannelType &channel) const {
-  constexpr auto command = Mnemonics::IMPedance.CommandMnemonic;
- _scpi.Command(command, channel, value);
+  constexpr auto mnemonic = Mnemonics::IMPedance.CommandMnemonic;
+ _scpi.command(mnemonic, channel, value);
 }
 
 double CINPutSubsystem::GetImpedance(const ChannelType &channel) const {
-  constexpr auto query = Mnemonics::IMPedance.QueryMnemonic;
+  constexpr auto mnemonic = Mnemonics::IMPedance.QueryMnemonic;
   double value;
- _scpi.Query(query, channel, value);
+ _scpi.query(mnemonic, channel, value);
   return value;
 }
 
 void CINPutSubsystem::SetAttenuation(const double value,
                                      const ChannelType &channel) const {
-  constexpr auto command = Mnemonics::ATTenuation.CommandMnemonic;
- _scpi.Command(command, channel, value);
+  constexpr auto mnemonic = Mnemonics::ATTenuation.CommandMnemonic;
+ _scpi.command(mnemonic, channel, value);
 }
 
 double CINPutSubsystem::GetAttenuation(const ChannelType &channel) const {
-  constexpr auto query = Mnemonics::ATTenuation.QueryMnemonic;
+  constexpr auto mnemonic = Mnemonics::ATTenuation.QueryMnemonic;
   double value;
- _scpi.Query(query, channel, value);
+ _scpi.query(mnemonic, channel, value);
   return value;
 }
 
 void CINPutSubsystem::SetAttenuationAuto(const bool enabled,
                                          const ChannelType &channel) const {
-  constexpr auto command = Mnemonics::ATTenuation.AUTO.CommandMnemonic;
- _scpi.Command(command, channel, enabled);
+  constexpr auto mnemonic = Mnemonics::ATTenuation.AUTO.CommandMnemonic;
+ _scpi.command(mnemonic, channel, enabled);
 }
 
 bool CINPutSubsystem::GetAttenuationAuto(const ChannelType &channel) const {
-  constexpr auto query = Mnemonics::ATTenuation.AUTO.QueryMnemonic;
+  constexpr auto mnemonic = Mnemonics::ATTenuation.AUTO.QueryMnemonic;
   bool value;
- _scpi.Query(query, channel, value);
+ _scpi.query(mnemonic, channel, value);
   return value;
 }

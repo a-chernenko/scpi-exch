@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_SOURCE_MARKER_SUBSYSTEM_H
-#define SCPI_SOURCE_MARKER_SUBSYSTEM_H
+#pragma once
 
 #include "scpi_base.h"
 
@@ -31,8 +30,6 @@ class SCPI_API CSOURceMARKerSubsystem {
   CSOURceMARKerSubsystem& operator=(const CSOURceMARKerSubsystem&) = delete;
 
  private:
-  const scpi_base &_scpi;
+  const scpi_base& _scpi;
 };
-}  // namespace Scpi
-
-#endif  // SCPI_SOURCE_MARKER_SUBSYSTEM_H
+}  // namespace scpi

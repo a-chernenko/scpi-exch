@@ -16,10 +16,10 @@
 
 */
 
-#ifndef SCPI_MNEMONICS_H
-#define SCPI_MNEMONICS_H
+#pragma once
 
 #include <type_traits>
+
 #include "const_string.h"
 #include "scpi_export.h"
 
@@ -30,7 +30,7 @@
     MAKE_CONST_STRING_FROM_LITERAL_STRING(MNEMONIC)          \
   }
 
-namespace ScpiMnemonics {
+namespace scpi::mnemonics {
 struct SCPI_API CMnemonics final {
   ADD_MNEMONIC_DEFINITION(ABORt, "ABOR");
   ADD_MNEMONIC_DEFINITION(ALL, "ALL");
@@ -341,8 +341,8 @@ struct CTopSubsystemMnemonicString {
   CTopSubsystemMnemonicString(std::string &topsubsystem)
       : topsubsystem{topsubsystem} {}
   std::string Mnemonic() { return topsubsystem; }
-  std::string Command() { return topsubsystem + CMnemonics::COLON.to_string(); }
-  std::string Query() { return topsubsystem + CMnemonics::QUERY.to_string(); }
+  std::string command() { return topsubsystem + CMnemonics::COLON.to_string(); }
+  std::string query() { return topsubsystem + CMnemonics::QUERY.to_string(); }
   T operator[](int idx) { return T{topsubsystem + std::to_string(idx)}; }
 
  private:
@@ -354,10 +354,10 @@ struct CSubsystemMnemonicString {
   CSubsystemMnemonicString(std::string &topsubsystem, std::string &subsystem)
       : topsubsystem{topsubsystem}, subsystem{subsystem} {}
   std::string Mnemonic() { return topsubsystem + subsystem; }
-  std::string Command() {
+  std::string command() {
     return topsubsystem + subsystem + CMnemonics::COLON.to_string();
   }
-  std::string Query() {
+  std::string query() {
     return topsubsystem + subsystem + CMnemonics::QUERY.to_string();
   }
   T operator[](int idx) {
@@ -369,7 +369,7 @@ struct CSubsystemMnemonicString {
   std::string subsystem;
 };
 /////////////<<<<<<<<<<<<<<<<<<<
-}  // namespace ScpiMnemonics
+}  // namespace scpi::mnemonics
 
 #define CREATE_SUBSYSTEM_MNEMONIC(NAME, MNEMONIC)               \
   template <std::size_t N, const const_string<N> &topsubsystem> \
@@ -433,5 +433,3 @@ struct CSubsystemMnemonicString {
       NAME
 
 #define SUBSYSTEM_MNEMONIC_TYPE(NAME) C##NAME##SubsystemMnemonics
-
-#endif  // SCPI_MNEMONICS_H

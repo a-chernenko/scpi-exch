@@ -16,12 +16,11 @@
 
 */
 
-#ifndef SCPI_OUTPUT_MNEMONICS_H
-#define SCPI_OUTPUT_MNEMONICS_H
+#pragma once
 
 #include "scpi_mnemonics.h"
 
-namespace ScpiMnemonics {
+namespace scpi::mnemonics {
 namespace Output {
 namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(STATe, CMnemonics::STATe),
@@ -35,6 +34,4 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(OUTPut, CMnemonics::OUTPut) {
 
 using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(OUTPut);
 }  // namespace Output
-}  // namespace ScpiMnemonics
-
-#endif  // SCPI_OUTPUT_MNEMONICS_H
+}  // namespace scpi::mnemonics

@@ -23,7 +23,7 @@
 
 
 using namespace scpi;
-using namespace ScpiMnemonics::Unit;
+using namespace mnemonics::Unit;
 
 CUNITSubsystem::CUNITSubsystem(const scpi_base &scpi) :_scpi{scpi} {}
 
@@ -33,24 +33,24 @@ void CUNITSubsystem::ToUpperCase(std::string &data) const {
 }
 
 void CUNITSubsystem::SetCurrent(const CurrentUnitsType::Type &type) const {
-  constexpr auto command = Mnemonics::CURRent.CommandMnemonic;
- _scpi.Command(command, type);
+  constexpr auto mnemonic = Mnemonics::CURRent.CommandMnemonic;
+ _scpi.command(mnemonic, type);
 }
 
 void CUNITSubsystem::SetPower(const PowerUnitsType::Type &type) const {
-  constexpr auto command = Mnemonics::POWer.CommandMnemonic;
- _scpi.Command(command, type);
+  constexpr auto mnemonic = Mnemonics::POWer.CommandMnemonic;
+ _scpi.command(mnemonic, type);
 }
 
 void CUNITSubsystem::SetVoltage(const VoltageUnitsType::Type &type) const {
-  constexpr auto command = Mnemonics::VOLTage.CommandMnemonic;
- _scpi.Command(command, type);
+  constexpr auto mnemonic = Mnemonics::VOLTage.CommandMnemonic;
+ _scpi.command(mnemonic, type);
 }
 
 CurrentUnitsType::Type CUNITSubsystem::GetCurrent() const {
-  constexpr auto query = Mnemonics::CURRent.QueryMnemonic;
+  constexpr auto mnemonic = Mnemonics::CURRent.QueryMnemonic;
   std::string type;
- _scpi.Query(query, type);
+ _scpi.query(mnemonic, type);
   ToUpperCase(type);
   if (type == CurrentUnitsType::uA.c_str())
     return CurrentUnitsType::uA;
@@ -62,9 +62,9 @@ CurrentUnitsType::Type CUNITSubsystem::GetCurrent() const {
 }
 
 PowerUnitsType::Type CUNITSubsystem::GetPower() const {
-  constexpr auto query = Mnemonics::POWer.QueryMnemonic;
+  constexpr auto mnemonic = Mnemonics::POWer.QueryMnemonic;
   std::string type;
- _scpi.Query(query, type);
+ _scpi.query(mnemonic, type);
   ToUpperCase(type);
   if (type == PowerUnitsType::dB.c_str())
     return PowerUnitsType::dB;
@@ -84,9 +84,9 @@ PowerUnitsType::Type CUNITSubsystem::GetPower() const {
 }
 
 VoltageUnitsType::Type CUNITSubsystem::GetVoltage() const {
-  constexpr auto query = Mnemonics::VOLTage.QueryMnemonic;
+  constexpr auto mnemonic = Mnemonics::VOLTage.QueryMnemonic;
   std::string type;
- _scpi.Query(query, type);
+ _scpi.query(mnemonic, type);
   ToUpperCase(type);
   if (type == VoltageUnitsType::uV.c_str())
     return VoltageUnitsType::uV;

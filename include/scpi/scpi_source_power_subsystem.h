@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_SOURCE_POWER_SUBSYSTEM_H
-#define SCPI_SOURCE_POWER_SUBSYSTEM_H
+#pragma once
 
 #include "scpi_power_subsystem.h"
 
@@ -30,6 +29,4 @@ class SCPI_API CSOURcePOWerSubsystem : public CPOWerSubsystem {
   CSOURcePOWerSubsystem(const CSOURcePOWerSubsystem&) = delete;
   CSOURcePOWerSubsystem& operator=(const CSOURcePOWerSubsystem&) = delete;
 };
-}  // namespace Scpi
-
-#endif  // SCPI_SOURCE_POWER_SUBSYSTEM_H
+}  // namespace scpi

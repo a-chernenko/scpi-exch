@@ -16,13 +16,11 @@
 
 */
 
-#ifndef SCPI_UNITS_TYPE_H
-#define SCPI_UNITS_TYPE_H
+#pragma once
 
 #include <ostream>
 #include <string>
 #include "scpi_export.h"
-
 
 namespace scpi {
 struct UnitsTypeBase {
@@ -105,6 +103,4 @@ struct SCPI_API AngleUnitsType : public UnitsTypeBase {
   static const Type Rad;
   AngleUnitsType() = delete;
 };
-}  // namespace Scpi
-
-#endif  // SCPI_UNITS_TYPE_H
+}  // namespace scpi

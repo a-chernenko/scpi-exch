@@ -16,8 +16,7 @@
 
 */
 
-#ifndef SCPI_SOURCE_LEVEL_COMMANDS_H
-#define SCPI_SOURCE_LEVEL_COMMANDS_H
+#pragma once
 
 #include "scpi_base.h"
 
@@ -40,8 +39,6 @@ class CSOURceLEVelCommands {
  private:
   const scpi_base &_scpi;
 };
-}  // namespace Scpi
+}  // namespace scpi
 
 #include "scpi_source_level_commands.hpp"
-
-#endif  // SCPI_SOURCE_LEVEL_COMMANDS_H

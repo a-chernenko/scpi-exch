@@ -15,13 +15,11 @@
    limitations under the License.
 
 */
-
-#ifndef SCPI_INPUT_MNEMONICS_H
-#define SCPI_INPUT_MNEMONICS_H
+#pragma once
 
 #include "scpi_mnemonics.h"
 
-namespace ScpiMnemonics {
+namespace scpi::mnemonics {
 namespace Input {
 namespace detail {
 CREATE_SUBSYSTEM_MNEMONIC(AUTO, CMnemonics::AUTO),
@@ -46,6 +44,4 @@ CREATE_TOP_SUBSYSTEM_MNEMONIC(INPut, CMnemonics::INPut) {
 
 using Mnemonics = detail::SUBSYSTEM_MNEMONIC_TYPE(INPut);
 }  // namespace Input
-}  // namespace ScpiMnemonics
-
-#endif  // SCPI_INPUT_MNEMONICS_H
+}  // namespace scpi::mnemonics
