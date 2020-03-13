@@ -13,9 +13,10 @@ endif()
 
 project(${PROJECT_NAME} ${PROJECT_LANGUAGES})
 
-include_directories( 
+include_directories(
 	"socket_api/include/"
     "include/"
+	"include/common/"
 	"include/scpi/"
 	"include/hardware/"
 	"include/ieee4882/"
@@ -56,8 +57,8 @@ set(SOURCES
 	src/scpi/scpi_display_subsystem.cpp
 )
 set(HEADERS
-	include/const_string.h
-	include/const_string.hpp
+	include/common/const_string.h
+	include/common/const_string.hpp
 	include/hardware/hardware.h
 	include/hardware/hardware_exception.h
 	include/ieee4882/ieee4882.h
@@ -116,8 +117,8 @@ set(HEADERS
 	include/scpi/scpi_sense_bandwidth_mnemonics.h
 	include/scpi_api.h
 	include/scpi_export.h
-    include/register_type.h
-    include/register_type.hpp
+    include/common/register_type.h
+    include/common/register_type.hpp
 )
 
 add_subdirectory(socket_api)

@@ -36,3 +36,4 @@
 **/Release
 **/packages
 *.*user
+*.build
