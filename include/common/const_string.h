@@ -41,7 +41,7 @@ class const_string {
   const_string() = delete;
 };
 
-namespace detail {
+namespace const_string_detail {
 template <uint8_t... digits>
 struct positive_to_chars {
   using type = std::array<char, sizeof...(digits) + 1>;
@@ -103,7 +103,7 @@ constexpr uintmax_t cabs(const T num) {
 
 template <typename Integer, Integer num>
 struct const_string_from
-    : integer_expands<is_negative(num), detail::cabs(num)> {};
+    : integer_expands<is_negative(num), const_string_detail::cabs(num)> {};
 
 template <intmax_t val, std::size_t digits = 0>
 struct number_of_digits_impl {
@@ -115,18 +115,22 @@ template <std::size_t digits>
 struct number_of_digits_impl<0, digits> {
   static constexpr std::size_t value{digits};
 };
-}  // namespace detail
+}  // namespace const_string_detail
 
 template <intmax_t val>
-struct number_of_digits : detail::number_of_digits_impl<val> {};
+struct number_of_digits : const_string_detail::number_of_digits_impl<val> {};
 
 template <typename Integer, Integer num>
 struct const_string_from_integer {
   using type = const_string<sizeof(
-      typename detail::const_string_from<Integer, num>::type)>;
+      typename const_string_detail::const_string_from<Integer, num>::type)>;
   static constexpr type value{const_string<sizeof(type)>{
-      detail::const_string_from<Integer, num>::value}};
+      const_string_detail::const_string_from<Integer, num>::value}};
 };
+
+constexpr auto make_const_string(const char ch) {
+  return const_string<2>{std::array<char, 2>{ch}};
+}
 
 #define MAKE_CONST_STRING_FROM_LITERAL_STRING(LITERAL_STRING)   \
   const_string<sizeof(LITERAL_STRING)> {                        \
@@ -138,11 +142,11 @@ struct const_string_from_integer {
     std::array<char, sizeof(#PARAMETER_NAME)> { #PARAMETER_NAME } \
   }
 
-#define MAKE_CONST_STRING_FROM_INTEGER(INTEGER_TYPE, INTEGER_VALUE) \
-  const_string<sizeof(                                              \
-      const_string<sizeof(typename detail::const_string_from<       \
-                          INTEGER_TYPE, INTEGER_VALUE>::type)>)> {  \
-    detail::const_string_from<INTEGER_TYPE, INTEGER_VALUE>::value   \
+#define MAKE_CONST_STRING_FROM_INTEGER(INTEGER_TYPE, INTEGER_VALUE)            \
+  const_string<sizeof(                                                         \
+      const_string<sizeof(typename const_string_detail::const_string_from<     \
+                          INTEGER_TYPE, INTEGER_VALUE>::type)>)> {             \
+    const_string_detail::const_string_from<INTEGER_TYPE, INTEGER_VALUE>::value \
   }
 
 #include "const_string.hpp"
